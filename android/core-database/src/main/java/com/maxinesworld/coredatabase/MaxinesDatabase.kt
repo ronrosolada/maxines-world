@@ -30,7 +30,7 @@ import androidx.room.RoomDatabase
         ContentSyncRunEntity::class,
         VideoWatchLedgerEntity::class
     ],
-    version = 12,
+    version = 13,
     exportSchema = true
 )
 abstract class MaxinesDatabase : RoomDatabase() {

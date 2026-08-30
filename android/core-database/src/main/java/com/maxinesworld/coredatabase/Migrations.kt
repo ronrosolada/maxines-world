@@ -117,6 +117,14 @@ object MaxinesMigrations {
         }
     }
 
+    val MIGRATION_12_13 = object : Migration(12, 13) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("CREATE INDEX IF NOT EXISTS `index_progress_events_childId_timestamp` ON `progress_events` (`childId`, `timestamp`)")
+            db.execSQL("CREATE INDEX IF NOT EXISTS `index_progress_events_childId_skillId_timestamp` ON `progress_events` (`childId`, `skillId`, `timestamp`)")
+            db.execSQL("CREATE INDEX IF NOT EXISTS `index_progress_events_syncStatus` ON `progress_events` (`syncStatus`)")
+        }
+    }
+
     val ALL_MIGRATIONS = arrayOf(
         MIGRATION_1_2,
         MIGRATION_2_3,
@@ -128,6 +136,7 @@ object MaxinesMigrations {
         MIGRATION_9_10,
         MIGRATION_10_11,
         MIGRATION_11_12,
+        MIGRATION_12_13,
     )
 
     private fun fixCollectedBadgesIndices(db: SupportSQLiteDatabase) {

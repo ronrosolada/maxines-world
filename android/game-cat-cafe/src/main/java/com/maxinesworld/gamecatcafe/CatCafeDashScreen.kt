@@ -35,6 +35,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.maxinesworld.engineminigame.MiniGameResult
 import com.maxinesworld.engineminigame.RewardBreakClock
 import kotlinx.coroutines.delay
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 private val Teal = Color(0xFF087F83)
 private val Coral = Color(0xFFF47C6B)
@@ -52,7 +53,7 @@ fun CatCafeDashScreen(
         factory = CatCafeViewModelFactory(childId, rewardBreakId, durationMillis)
     )
 ) {
-    val ui by viewModel.state.collectAsState()
+    val ui by viewModel.state.collectAsStateWithLifecycle()
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     var showExit by remember { mutableStateOf(false) }
     val context = LocalContext.current

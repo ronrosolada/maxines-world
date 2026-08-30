@@ -1,6 +1,7 @@
 package com.maxinesworld.featurelessonplayer
 
 import android.net.Uri
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -12,6 +13,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -31,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.font.FontWeight
@@ -45,6 +48,8 @@ import androidx.media3.ui.PlayerView
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
 import com.maxinesworld.coredesignsystem.theme.*
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -69,6 +74,19 @@ fun QuickBitsScreen(
     }
 
     var showDownloadDialog by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val player = remember(context) {
+        ExoPlayer.Builder(context).build().apply {
+            setAudioAttributes(mediaAudioAttributes(), true)
+            repeatMode = Player.REPEAT_MODE_ONE
+        }
+    }
+    DisposableEffect(player) {
+        onDispose {
+            player.stop()
+            player.release()
+        }
+    }
 
     Box(
         modifier = modifier
@@ -123,6 +141,7 @@ fun QuickBitsScreen(
                 QuickBitTikTokPage(
                     itemUi = itemUi,
                     isPageActive = isPageActive,
+                    player = player,
                     onDownloadClick = { onDownloadSingle(itemUi) },
                     modifier = Modifier.fillMaxSize()
                 )
@@ -419,63 +438,34 @@ fun QuickBitsScreen(
 private fun QuickBitTikTokPage(
     itemUi: QuickBitItemUi,
     isPageActive: Boolean,
+    player: ExoPlayer,
     onDownloadClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val context = LocalContext.current
-    var isPlaying by androidx.compose.runtime.saveable.rememberSaveable { mutableStateOf(false) }
+    var isPlaying by remember { mutableStateOf(false) }
     var isMuted by androidx.compose.runtime.saveable.rememberSaveable { mutableStateOf(false) }
-    var savedPosition by androidx.compose.runtime.saveable.rememberSaveable(itemUi.item.id) { androidx.compose.runtime.mutableLongStateOf(0L) }
-
-    // ExoPlayer dedicated to this page
-    val player = remember {
-        ExoPlayer.Builder(context).build().apply {
-            setAudioAttributes(mediaAudioAttributes(), true)
-            repeatMode = Player.REPEAT_MODE_ONE
-            playWhenReady = true
-        }
-    }
 
     // Set Media URI: Local offline file takes priority over LAN streaming URL
-    LaunchedEffect(itemUi.isDownloaded, itemUi.localFile) {
+    LaunchedEffect(isPageActive, itemUi.item.id, itemUi.isDownloaded, itemUi.localFile) {
+        if (!isPageActive) return@LaunchedEffect
         val uri = if (itemUi.isDownloaded && itemUi.localFile != null && itemUi.localFile.exists()) {
             Uri.fromFile(itemUi.localFile)
         } else {
             Uri.parse(itemUi.item.videoUrl)
         }
         player.setMediaItem(MediaItem.fromUri(uri))
-        if (savedPosition > 0L) {
-            player.seekTo(savedPosition)
-        }
         player.prepare()
+        player.playWhenReady = true
+        isPlaying = true
     }
 
-    // Control Playback on scroll/page activation
-    LaunchedEffect(isPageActive) {
-        if (isPageActive) {
-            player.playWhenReady = true
-            player.play()
-            isPlaying = true
-        } else {
-            player.pause()
-            player.seekTo(0)
-            isPlaying = false
-        }
-    }
-
-    DisposableEffect(player) {
-        onDispose {
-            savedPosition = player.currentPosition
-            player.stop()
-            player.release()
-        }
-    }
+    if (!isPageActive) isPlaying = false
 
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(Color.Black)
-            .clickable {
+            .clickable(enabled = isPageActive) {
                 if (player.isPlaying) {
                     player.pause()
                     isPlaying = false
@@ -485,19 +475,43 @@ private fun QuickBitTikTokPage(
                 }
             }
     ) {
-        // Fullscreen ExoPlayer View
-        AndroidView(
-            factory = { ctx ->
-                (LayoutInflater.from(ctx)
-                    .inflate(R.layout.view_offline_video_player, null, false) as PlayerView).apply {
-                    this.player = player
-                    useController = false
-                    contentDescription = itemUi.item.title
+        if (isPageActive) {
+            // Only the active page owns the shared decoder surface.
+            AndroidView(
+                factory = { ctx ->
+                    (LayoutInflater.from(ctx)
+                        .inflate(R.layout.view_offline_video_player, null, false) as PlayerView).apply {
+                        this.player = player
+                        useController = false
+                        contentDescription = itemUi.item.title
+                    }
+                },
+                update = { it.player = player },
+                onRelease = { it.player = null },
+                modifier = Modifier.fillMaxSize()
+            )
+        } else {
+            // Pager neighbours remain lightweight and never allocate a decoder.
+            var thumbnail by remember(itemUi.item.thumbnailUrl) { mutableStateOf<android.graphics.Bitmap?>(null) }
+            LaunchedEffect(itemUi.item.thumbnailUrl) {
+                thumbnail = withContext(Dispatchers.IO) {
+                    itemUi.item.thumbnailUrl?.let { url ->
+                        runCatching { java.net.URL(url).openStream().use(BitmapFactory::decodeStream) }.getOrNull()
+                    }
                 }
-            },
-            update = { it.player = player },
-            modifier = Modifier.fillMaxSize()
-        )
+            }
+            Box(Modifier.fillMaxSize().background(DeepNight), contentAlignment = Alignment.Center) {
+                thumbnail?.let { bitmap ->
+                    Image(
+                        bitmap = bitmap.asImageBitmap(),
+                        contentDescription = itemUi.item.title,
+                        contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                }
+                Icon(Icons.Default.PlayCircle, contentDescription = null, tint = White.copy(alpha = 0.65f), modifier = Modifier.size(72.dp))
+            }
+        }
 
         // Pause indicator overlay
         if (!isPlaying && isPageActive) {

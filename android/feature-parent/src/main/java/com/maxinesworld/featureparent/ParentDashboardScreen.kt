@@ -40,6 +40,7 @@ import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 /** LAN / guest-VLAN endpoints serving self-hosted update APKs, tried in order. */
 private val APP_UPDATE_ENDPOINTS = listOf(
@@ -446,9 +447,9 @@ class ParentDashboardViewModel @Inject constructor(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: ParentDashboardViewModel = androidx.hilt.navigation.compose.hiltViewModel()) {
-    val state by viewModel.state.collectAsState()
-    val availableBadges by viewModel.availableBadges.collectAsState()
-    val earnedBadgeIds by viewModel.earnedBadgeIds.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    val availableBadges by viewModel.availableBadges.collectAsStateWithLifecycle()
+    val earnedBadgeIds by viewModel.earnedBadgeIds.collectAsStateWithLifecycle()
     val context = LocalContext.current
     var showAwardStickerDialog by remember { mutableStateOf(false) }
 

@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import javax.inject.Inject
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 data class ParentGateState(
     val pinInput: String = "",
@@ -231,7 +232,7 @@ fun ParentGateScreen(
     onBack: () -> Unit,
     viewModel: ParentGateViewModel = androidx.hilt.navigation.compose.hiltViewModel()
 ) {
-    val state by viewModel.state.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
     val locked = state.lockRemainingSeconds > 0
     var showResetDialog by remember { mutableStateOf(false) }
 

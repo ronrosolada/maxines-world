@@ -30,10 +30,11 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.maxinesworld.engineminigame.RewardBreakClock
 import kotlinx.coroutines.delay
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 private val Teal=Color(0xFF087F83);private val Coral=Color(0xFFF47C6B);private val Gold=Color(0xFFF5B82E);private val Cream=Color(0xFFFFF7E8);private val Ink=Color(0xFF183B4A)
 @Composable fun PawprintParkourScreen(childId:String,rewardBreakId:String,modifier:Modifier=Modifier,durationMillis:Long=RewardBreakClock.DEFAULT_DURATION_MILLIS,onExit:(ParkourResult)->Unit,viewModel:ParkourViewModel=viewModel(factory=ParkourViewModelFactory(childId,rewardBreakId,durationMillis))){
- val ui by viewModel.state.collectAsState(); val lifecycle=LocalLifecycleOwner.current.lifecycle; var exit by remember{mutableStateOf(false)};val ctx=LocalContext.current;val sounds=remember{ParkourSoundPlayer(ctx.applicationContext)};DisposableEffect(sounds){onDispose{sounds.close()}}
+ val ui by viewModel.state.collectAsStateWithLifecycle(); val lifecycle=LocalLifecycleOwner.current.lifecycle; var exit by remember{mutableStateOf(false)};val ctx=LocalContext.current;val sounds=remember{ParkourSoundPlayer(ctx.applicationContext)};DisposableEffect(sounds){onDispose{sounds.close()}}
  DisposableEffect(lifecycle){val o=LifecycleEventObserver{_,e->when(e){Lifecycle.Event.ON_RESUME->viewModel.resume();Lifecycle.Event.ON_PAUSE->viewModel.pause();else->Unit}};lifecycle.addObserver(o);onDispose{lifecycle.removeObserver(o)}};BackHandler{exit=true}
  var lastTokens by remember{mutableIntStateOf(0)};var lastBumps by remember{mutableIntStateOf(0)};var lastPhase by remember{mutableStateOf(ui.game.phase)}
  LaunchedEffect(ui.game.tokens,ui.game.bumps,ui.game.phase){if(ui.soundEnabled){if(ui.game.tokens>lastTokens)sounds.token();if(ui.game.bumps>lastBumps)sounds.bump();if(lastPhase!=ParkourPhase.ROUND_COMPLETE&&ui.game.phase==ParkourPhase.ROUND_COMPLETE)sounds.finish()};lastTokens=ui.game.tokens;lastBumps=ui.game.bumps;lastPhase=ui.game.phase}

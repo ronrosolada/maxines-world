@@ -245,6 +245,34 @@ class MigrationTest {
         dbV3.close()
     }
 
+    @Test
+    @Throws(IOException::class)
+    fun migrate12to13_preservesProgress_andAddsQueryIndices() = runTest {
+        helper.createDatabase(TEST_DB, 12).apply {
+            execSQL("INSERT INTO progress_events (id, childId, skillId, lessonId, activityId, eventType, accuracy, attempts, hintsUsed, responseTimeMs, timestamp, syncStatus) VALUES ('progress_13', 'child_13', 'skill_13', 'lesson_13', 'activity_13', 'COMPLETED', 1.0, 1, 0, 1000, 1700000000000, 'PENDING')")
+            close()
+        }
+
+        val migrated = helper.runMigrationsAndValidate(
+            TEST_DB,
+            13,
+            true,
+            MaxinesMigrations.MIGRATION_12_13,
+        )
+        migrated.query("SELECT COUNT(*) FROM progress_events WHERE id = 'progress_13'").use {
+            assertTrue(it.moveToFirst())
+            assertEquals(1, it.getInt(0))
+        }
+        migrated.query("PRAGMA index_list(`progress_events`)").use { cursor ->
+            val names = mutableSetOf<String>()
+            while (cursor.moveToNext()) names += cursor.getString(cursor.getColumnIndexOrThrow("name"))
+            assertTrue("child/timestamp index exists", "index_progress_events_childId_timestamp" in names)
+            assertTrue("child/skill/timestamp index exists", "index_progress_events_childId_skillId_timestamp" in names)
+            assertTrue("sync-status index exists", "index_progress_events_syncStatus" in names)
+        }
+        migrated.close()
+    }
+
     // ─────────────────────────────────────────────
     // v3 → v7: the main release path (v0.17/v0.18 devices)
     // ─────────────────────────────────────────────

@@ -1,6 +1,7 @@
 package com.maxinesworld.featureprogress
 
 import android.content.Context
+import androidx.work.BackoffPolicy
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -9,6 +10,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
+import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 class ProgressSyncWorker(
@@ -30,10 +32,9 @@ class ProgressSyncWorker(
                 Result.success(output)
             }
             is SyncResult.Error -> {
-                if (runAttemptCount < 3) {
-                    Result.retry()
-                } else {
-                    Result.failure()
+                when (result.cause) {
+                    is IOException -> Result.retry()
+                    else -> Result.failure(workDataOf("error" to result.message))
                 }
             }
         }
@@ -52,10 +53,11 @@ class ProgressSyncWorker(
             val syncRequest = PeriodicWorkRequestBuilder<ProgressSyncWorker>(15, TimeUnit.MINUTES)
                 .setConstraints(constraints)
                 .setInputData(workDataOf(KEY_CHILD_ID to childId))
+                .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30, TimeUnit.SECONDS)
                 .build()
 
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
-                WORK_NAME_PERIODIC,
+                "$WORK_NAME_PERIODIC:$childId",
                 ExistingPeriodicWorkPolicy.KEEP,
                 syncRequest
             )

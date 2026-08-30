@@ -56,6 +56,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 private val TreatShopCream = Color(0xFFFFF7E8)
 private val TreatShopInk = Color(0xFF183B4A)
@@ -104,7 +105,7 @@ fun TreatShopScreen(
     onBack: () -> Unit,
     viewModel: TreatShopViewModel = hiltViewModel(),
 ) {
-    val state by viewModel.state.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
     LaunchedEffect(childId) { viewModel.load(childId) }
     TreatShopContent(
         state = state,

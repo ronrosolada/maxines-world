@@ -51,23 +51,8 @@ object DatabaseModule {
     fun provideDatabase(@ApplicationContext context: Context): MaxinesDatabase {
         quarantineCorruptDatabaseIfNeeded(context)
         return Room.databaseBuilder(context, MaxinesDatabase::class.java, DB_NAME)
-            .addMigrations(
-                MaxinesMigrations.MIGRATION_1_2,
-                MaxinesMigrations.MIGRATION_2_3,
-                MaxinesMigrations.MIGRATION_3_7,
-                MaxinesMigrations.MIGRATION_4_7,
-                MaxinesMigrations.MIGRATION_6_7,
-                MaxinesMigrations.MIGRATION_7_8,
-                MaxinesMigrations.MIGRATION_8_9,
-                MaxinesMigrations.MIGRATION_9_10,
-                MaxinesMigrations.MIGRATION_10_11,
-                MaxinesMigrations.MIGRATION_11_12,
-            )
-            // Last-resort crash prevention: if an unknown schema version ever
-            // appears (e.g. a build that shipped and was later rolled back),
-            // reset the database rather than permanently bricking the app.
-            // Progress loss is preferable to a child being unable to open it.
-            .fallbackToDestructiveMigration(dropAllTables = false)
+            // Fail closed: child progress must never be silently discarded.
+            .addMigrations(*MaxinesMigrations.ALL_MIGRATIONS)
             .build()
     }
 

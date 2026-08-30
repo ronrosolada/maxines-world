@@ -25,7 +25,14 @@ data class ChildProfileEntity(
     val createdAt: Long = System.currentTimeMillis()
 )
 
-@Entity(tableName = "progress_events")
+@Entity(
+    tableName = "progress_events",
+    indices = [
+        Index(value = ["childId", "timestamp"]),
+        Index(value = ["childId", "skillId", "timestamp"]),
+        Index(value = ["syncStatus"]),
+    ]
+)
 data class ProgressEventEntity(
     @PrimaryKey val id: String,
     val childId: String,
