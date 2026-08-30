@@ -22,7 +22,7 @@ class MediaCatalogParser(
             throw IllegalArgumentException("Invalid media catalog JSON: ${error.message}", error)
         }
 
-        require(catalog.catalogVersion >= 1) {
+        require(catalog.catalogVersion in SUPPORTED_CATALOG_VERSIONS) {
             "Unsupported media catalog version: ${catalog.catalogVersion}"
         }
 
