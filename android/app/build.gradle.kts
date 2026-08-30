@@ -106,6 +106,7 @@ dependencies {
     implementation(project(":game-cat-cafe"))
     implementation(project(":game-pawprint-parkour"))
     implementation(project(":game-kitten-match"))
+    implementation(project(":game-tarsier-canopy"))
 
     // Material Components (for XML theme)
     implementation("com.google.android.material:material:1.12.0")

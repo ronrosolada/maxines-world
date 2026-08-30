@@ -22,7 +22,7 @@ class LivingSanctuaryViewModel @Inject constructor(
     private val rewardDao: RewardDao,
     private val badgeDao: CollectedBadgeDao,
 ) : ViewModel() {
-    private val childId: String = checkNotNull(savedStateHandle["childId"])
+    val childId: String = checkNotNull(savedStateHandle["childId"])
     private val _scene = MutableStateFlow(SanctuaryScene(emptyList()))
     val scene: StateFlow<SanctuaryScene> = _scene.asStateFlow()
 
