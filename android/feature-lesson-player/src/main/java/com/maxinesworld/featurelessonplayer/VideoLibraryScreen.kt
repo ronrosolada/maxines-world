@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -26,6 +28,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -56,12 +59,13 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.maxinesworld.coredesignsystem.components.MaxinesPrimaryButton
+import com.maxinesworld.coredesignsystem.theme.Cream
 import com.maxinesworld.coredesignsystem.theme.Ink
+import com.maxinesworld.coredesignsystem.theme.SuccessGreen
 import com.maxinesworld.coredesignsystem.theme.KindnessTealText
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
 import java.io.File
 
-private val ScreenCream = Color(0xFFFFFDF4)
 
 @Composable
 fun VideoLibraryScreen(
@@ -106,7 +110,7 @@ private fun VideoLibraryContent(
     onBack: () -> Unit,
 ) {
     Scaffold(
-        containerColor = ScreenCream,
+        containerColor = Cream,
         topBar = {
             val titleText = when (state.filterSubjectId?.lowercase()) {
                 "mathematics", "math" -> "Mathematics · Number Fun"
@@ -124,7 +128,7 @@ private fun VideoLibraryContent(
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = Ink)
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = ScreenCream),
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Cream),
             )
         },
     ) { innerPadding ->
@@ -132,7 +136,10 @@ private fun VideoLibraryContent(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = 24.dp)
+                .fillMaxWidth()
+                .wrapContentWidth(Alignment.CenterHorizontally)
+                .widthIn(max = 920.dp),
         ) {
             when {
                 state.isLoading && state.allItems.isEmpty() -> {
@@ -259,7 +266,7 @@ private fun VideoLibraryContent(
                             item(key = "player-${playing.asset.mediaId}") {
                                 Card(
                                     colors = CardDefaults.cardColors(containerColor = Color.White),
-                                    shape = RoundedCornerShape(18.dp),
+                                    shape = RoundedCornerShape(16.dp),
                                 ) {
                                     Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                                         Row(
@@ -372,7 +379,7 @@ private fun MediaAssessmentQuizCard(
     modifier: Modifier = Modifier,
 ) {
     Card(
-        shape = RoundedCornerShape(18.dp),
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         modifier = modifier,
     ) {
@@ -399,7 +406,7 @@ private fun MediaAssessmentQuizCard(
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Text(
-                        if (passed) "🎉 Great Job, Maxine!" else "Nice try! Let's watch again.",
+                        if (passed) "Great job, Maxine!" else "Nice try! Let's watch again.",
                         fontWeight = FontWeight.Black,
                         fontSize = 18.sp,
                         color = Ink,
@@ -412,14 +419,14 @@ private fun MediaAssessmentQuizCard(
                     if (passed) {
                         if (quiz.isReplay) {
                             Text(
-                                "Practice complete! Great memory review! ✨",
+                                "Practice complete! Great memory review!",
                                 fontWeight = FontWeight.Bold,
                                 color = VillageTeal,
                                 fontSize = 14.sp,
                             )
                         } else {
                             Text(
-                                "+5 ⭐ Stars Earned! Lesson Completed!",
+                                "5 stars earned. Lesson completed!",
                                 fontWeight = FontWeight.ExtraBold,
                                 color = VillageTeal,
                                 fontSize = 15.sp,
@@ -522,7 +529,7 @@ private fun MediaAssessmentQuizCard(
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
-                                if (isCorrect) "✨ Correct! Awesome job!" else "💡 Learning Clue: ${currentItem.explanation}",
+                                if (isCorrect) "Correct! Awesome job!" else "Learning clue: ${currentItem.explanation}",
                                 modifier = Modifier.padding(10.dp),
                                 fontSize = 13.sp,
                                 fontWeight = FontWeight.Bold,
@@ -571,7 +578,7 @@ private fun VideoLibraryItemCard(
         colors = CardDefaults.cardColors(
             containerColor = if (item.isPassed) Color.White.copy(alpha = 0.85f) else Color.White
         ),
-        shape = RoundedCornerShape(18.dp),
+        shape = RoundedCornerShape(16.dp),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(Modifier.padding(14.dp)) {
@@ -584,7 +591,7 @@ private fun VideoLibraryItemCard(
                     Icon(
                         Icons.Filled.CheckCircle,
                         contentDescription = "Completed lesson",
-                        tint = VillageTeal,
+                        tint = SuccessGreen,
                         modifier = Modifier.size(36.dp),
                     )
                 } else {
@@ -620,13 +627,13 @@ private fun VideoLibraryItemCard(
                         if (item.isPassed) {
                             Surface(
                                 shape = RoundedCornerShape(6.dp),
-                                color = VillageTeal.copy(alpha = 0.15f),
+                                color = SuccessGreen.copy(alpha = 0.15f),
                             ) {
                                 Text(
-                                    "✓ Completed",
+                                    "Completed",
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 11.sp,
-                                    color = VillageTeal,
+                                    color = SuccessGreen,
                                     modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
                                 )
                             }
@@ -643,7 +650,7 @@ private fun VideoLibraryItemCard(
                     item.isLocked -> {
                         // Sequence guard rail: locked until the previous lesson passes.
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🔒", style = MaterialTheme.typography.bodyLarge)
+                            Icon(Icons.Default.Lock, contentDescription = "Locked lesson", tint = Ink.copy(alpha = 0.55f), modifier = Modifier.size(20.dp))
                             Spacer(Modifier.width(6.dp))
                             Text(
                                 "Complete the previous lesson first",

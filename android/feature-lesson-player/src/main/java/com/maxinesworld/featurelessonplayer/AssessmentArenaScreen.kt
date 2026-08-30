@@ -4,6 +4,8 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.animation.*
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
@@ -27,6 +29,11 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Lightbulb
+import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.School
+import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -118,14 +125,27 @@ fun AssessmentArenaScreen(
             )
         }
 
-        // Milo Reward Celebration Modal Dialog
-        if (state.showCelebrationDialog && state.activeQuiz?.isPassed == true) {
-            MiloCelebrationDialog(
-                stars = state.activeQuiz.earnedStars,
-                tokens = state.activeQuiz.earnedTokens,
-                score = state.activeQuiz.correctCount,
-                onDismiss = onDismissCelebration,
-            )
+        val animationsDisabled = LocalAnimationsDisabled.current
+        AnimatedVisibility(
+            visible = state.showCelebrationDialog && state.activeQuiz?.isPassed == true,
+            enter = if (animationsDisabled) {
+                fadeIn(animationSpec = tween(120))
+            } else {
+                fadeIn(animationSpec = tween(360)) + slideInVertically(
+                    animationSpec = tween(360),
+                    initialOffsetY = { it / 8 },
+                )
+            },
+            exit = fadeOut(animationSpec = if (animationsDisabled) tween(120) else tween(180)),
+        ) {
+            state.activeQuiz?.let { quiz ->
+                MiloCelebrationDialog(
+                    stars = quiz.earnedStars,
+                    tokens = quiz.earnedTokens,
+                    score = quiz.correctCount,
+                    onDismiss = onDismissCelebration,
+                )
+            }
         }
     }
 }
@@ -165,7 +185,7 @@ private fun ArenaHubView(
                         Spacer(Modifier.width(4.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                "Assessment Arena 🏆",
+                                "Assessment Arena",
                                 fontWeight = FontWeight.Black,
                                 fontSize = 18.sp,
                                 color = DeepNight,
@@ -185,7 +205,7 @@ private fun ArenaHubView(
                                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Text("⭐", fontSize = 12.sp)
+                                Icon(Icons.Default.Star, contentDescription = "Stars", tint = OnGold, modifier = Modifier.size(16.dp))
                                 Spacer(Modifier.width(4.dp))
                                 Text(
                                     "+10 (≥80%)",
@@ -210,7 +230,7 @@ private fun ArenaHubView(
                         Spacer(Modifier.width(8.dp))
                         Column {
                             Text(
-                                "Assessment Arena 🏆",
+                                "Assessment Arena",
                                 fontWeight = FontWeight.Black,
                                 fontSize = 24.sp,
                                 color = DeepNight,
@@ -233,7 +253,7 @@ private fun ArenaHubView(
                             modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp),
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
-                            Text("⭐", fontSize = 16.sp)
+                            Icon(Icons.Default.Star, contentDescription = "Stars", tint = OnGold, modifier = Modifier.size(18.dp))
                             Spacer(Modifier.width(6.dp))
                             Text(
                                 "+10 Stars on Pass (≥80%)",
@@ -250,12 +270,12 @@ private fun ArenaHubView(
 
             // 6 Subject Selector Tabs
             val subjects = listOf(
-                "mathematics" to ("Mathematics 🔢" to "Number Fun"),
-                "science" to ("Science 🔬" to "Discovery"),
-                "english" to ("English 📖" to "Story Time"),
-                "gmrc" to ("GMRC 💖" to "Kindness"),
-                "filipino" to ("Filipino 🇵🇭" to "Kwentuhan"),
-                "makabansa" to ("Makabansa 🗺️" to "Bayan at Kultura"),
+                "mathematics" to ("Mathematics" to "Number Fun"),
+                "science" to ("Science" to "Discovery"),
+                "english" to ("English" to "Story Time"),
+                "gmrc" to ("GMRC" to "Kindness"),
+                "filipino" to ("Filipino" to "Kwentuhan"),
+                "makabansa" to ("Makabansa" to "Bayan at Kultura"),
             )
 
             LazyRow(
@@ -267,8 +287,8 @@ private fun ArenaHubView(
                     val isSelected = state.selectedSubjectId.equals(id, ignoreCase = true)
                     Surface(
                         shape = RoundedCornerShape(14.dp),
-                        color = if (isSelected) VillageTeal else White,
-                        border = BorderStroke(if (isSelected) 2.dp else 1.dp, if (isSelected) VillageTeal else VillageTeal.copy(alpha = 0.2f)),
+                        color = if (isSelected) VillageTeal else Cream,
+                        border = BorderStroke(1.dp, if (isSelected) VillageTeal else Ink.copy(alpha = 0.22f)),
                         modifier = Modifier
                             .clickable { onSelectSubject(id) }
                             .height(if (isCompact) 48.dp else 58.dp),
@@ -348,7 +368,7 @@ private fun CurriculumPackCard(
         val isCompact = maxWidth < 600.dp
 
         Card(
-            shape = RoundedCornerShape(18.dp),
+            shape = RoundedCornerShape(16.dp),
             colors = CardDefaults.cardColors(containerColor = White),
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
             border = BorderStroke(1.dp, if (isPassed) SuccessGreen else VillageTeal.copy(alpha = 0.15f)),
@@ -435,7 +455,7 @@ private fun CurriculumPackCard(
                             modifier = Modifier.height(36.dp),
                         ) {
                             Text(
-                                if (isPassed) "Retake 🔄" else "Take Quiz ▶",
+                                if (isPassed) "Retake quiz" else "Take quiz",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 12.sp,
                             )
@@ -519,7 +539,7 @@ private fun CurriculumPackCard(
                         shape = RoundedCornerShape(14.dp),
                     ) {
                         Text(
-                            if (isPassed) "Retake 🔄" else "Take Quiz ▶",
+                            if (isPassed) "Retake quiz" else "Take quiz",
                             fontWeight = FontWeight.Bold,
                             fontSize = 14.sp,
                         )
@@ -636,7 +656,7 @@ private fun ActiveQuizView(
                         modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("🔊", fontSize = 16.sp)
+                        Icon(Icons.Default.VolumeUp, contentDescription = "Listen", tint = VillageTeal, modifier = Modifier.size(18.dp))
                         Spacer(Modifier.width(4.dp))
                         Text("Listen", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = VillageTeal)
                     }
@@ -653,7 +673,7 @@ private fun ActiveQuizView(
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Text("💡", fontSize = 16.sp)
+                            Icon(Icons.Default.Lightbulb, contentDescription = "Hint", tint = OnGold, modifier = Modifier.size(18.dp))
                             Spacer(Modifier.width(4.dp))
                             Text(if (quiz.isHintVisible) "Hide Hint" else "Hint", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = DeepNight)
                         }
@@ -704,7 +724,7 @@ private fun ActiveQuizView(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
-                        if (quiz.isPassed) "🎉 Amazing Job, Maxine!" else "💪 Good Effort, Maxine!",
+                        if (quiz.isPassed) "Amazing job, Maxine!" else "Good effort, Maxine!",
                         fontWeight = FontWeight.Black,
                         fontSize = 24.sp,
                         color = DeepNight,
@@ -724,7 +744,7 @@ private fun ActiveQuizView(
                             border = BorderStroke(1.dp, SunshineGold),
                         ) {
                             Text(
-                                "Rewards Earned: +${quiz.earnedStars} ⭐ Stars  •  +${quiz.earnedTokens} 🐾 Tokens",
+                                "Rewards earned: +${quiz.earnedStars} stars · +${quiz.earnedTokens} tokens",
                                 fontWeight = FontWeight.ExtraBold,
                                 fontSize = 15.sp,
                                 color = DeepNight,
@@ -889,7 +909,7 @@ private fun ActiveQuizView(
                         modifier = Modifier.padding(16.dp),
                         verticalAlignment = Alignment.Top,
                     ) {
-                        Text("💡", fontSize = 22.sp)
+                        Icon(Icons.Default.Lightbulb, contentDescription = "Hint", tint = OnGold, modifier = Modifier.size(22.dp))
                         Spacer(Modifier.width(10.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
@@ -929,7 +949,7 @@ private fun ActiveQuizView(
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(
-                                if (quiz.isCorrect) "✨ Correct! Awesome job!" else "💡 Milo's Learning Clue:",
+                                if (quiz.isCorrect) "Correct! Awesome job!" else "Milo's learning clue:",
                                 fontWeight = FontWeight.ExtraBold,
                                 fontSize = 15.sp,
                                 color = DeepNight,
@@ -948,7 +968,7 @@ private fun ActiveQuizView(
                                     modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
                                     verticalAlignment = Alignment.CenterVertically,
                                 ) {
-                                    Text("🔊", fontSize = 14.sp)
+                                    Icon(Icons.Default.VolumeUp, contentDescription = "Read explanation", tint = DeepNight, modifier = Modifier.size(16.dp))
                                     Spacer(Modifier.width(4.dp))
                                     Text("Read Explanation", fontWeight = FontWeight.Bold, fontSize = 12.sp, color = DeepNight)
                                 }
@@ -989,7 +1009,7 @@ private fun ActiveQuizView(
                         modifier = Modifier.height(48.dp),
                     ) {
                         Text(
-                            if (quiz.currentIndex + 1 < quiz.items.size) "Next Question →" else "Finish Quiz 🏁",
+                            if (quiz.currentIndex + 1 < quiz.items.size) "Next question" else "Finish quiz",
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp,
                         )
@@ -1011,7 +1031,7 @@ private fun MiloCelebrationDialog(
         onDismissRequest = onDismiss,
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("🏆", fontSize = 32.sp)
+                Icon(Icons.Default.EmojiEvents, contentDescription = "Quiz trophy", tint = SunshineGold, modifier = Modifier.size(32.dp))
                 Spacer(Modifier.width(10.dp))
                 Text("Quiz Passed!", fontWeight = FontWeight.Black, color = DeepNight)
             }
@@ -1035,11 +1055,11 @@ private fun MiloCelebrationDialog(
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text("⭐", fontSize = 24.sp)
+                            Icon(Icons.Default.Star, contentDescription = "Stars", tint = SunshineGold, modifier = Modifier.size(24.dp))
                             Text("+$stars Stars", fontWeight = FontWeight.Bold, color = DeepNight)
                         }
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text("🐾", fontSize = 24.sp)
+                            Icon(Icons.Default.Pets, contentDescription = "Tokens", tint = VillageTeal, modifier = Modifier.size(24.dp))
                             Text("+$tokens Tokens", fontWeight = FontWeight.Bold, color = DeepNight)
                         }
                     }
@@ -1052,7 +1072,7 @@ private fun MiloCelebrationDialog(
                 colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
                 shape = RoundedCornerShape(12.dp),
             ) {
-                Text("Claim Rewards! ✨", fontWeight = FontWeight.Bold)
+                Text("Claim rewards", fontWeight = FontWeight.Bold)
             }
         },
         containerColor = White,

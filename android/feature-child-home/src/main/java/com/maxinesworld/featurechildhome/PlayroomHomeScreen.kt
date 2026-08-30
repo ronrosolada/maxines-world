@@ -193,7 +193,7 @@ fun PlayroomHomeScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = if (fullWidth >= 600.dp) 24.dp else 16.dp, vertical = 16.dp),
+                .padding(horizontal = if (fullWidth >= 600.dp) 32.dp else 16.dp, vertical = 16.dp),
         ) {
             // The subject catalogue can be much taller than the viewport (and
             // becomes taller still with Android text scaling). Keep the nav
@@ -292,8 +292,7 @@ private fun ContentLayout(
         }
     }
 
-    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        // Today's Quest Card (Primary action)
+    Column {
         TodayQuestCard(
             quest = content.quest,
             onQuestAction = questAction,
@@ -301,26 +300,23 @@ private fun ContentLayout(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        // Concrete learning progress follows the primary Today action.
-        LearningStreakCard(content.streakDays, Modifier.fillMaxWidth())
+        Spacer(Modifier.height(32.dp))
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            LearningStreakCard(content.streakDays, Modifier.fillMaxWidth())
+            AssessmentArenaBannerCard(
+                onClick = onAssessmentsClick,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            QuickBitsHomeCard(
+                onClick = onQuickBitsClick,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
 
-        // Grade 3 Assessment Arena Entry Card
-        AssessmentArenaBannerCard(
-            onClick = onAssessmentsClick,
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        // Quick Bits Full-Width Feature Card
-        QuickBitsHomeCard(
-            onClick = onQuickBitsClick,
-            modifier = Modifier.fillMaxWidth(),
-        )
-
-        // The active home uses a responsive vertical subject grid, not the
-        // retired illustrated map or a horizontally clipped subject row.
+        Spacer(Modifier.height(40.dp))
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Text(
                 text = stringResource(R.string.home_explore_subjects),
@@ -331,6 +327,7 @@ private fun ContentLayout(
                 fontWeight = FontWeight.Black,
                 fontSize = 22.sp,
                 lineHeight = 28.sp,
+                maxLines = 2,
             )
             SubjectGrid(
                 subjects = content.subjects,
@@ -343,12 +340,13 @@ private fun ContentLayout(
             )
         }
 
-        // Rewards and Sanctuary
+        Spacer(Modifier.height(40.dp))
         WildlifeStickersPreview(
             wildlifeStickers = content.wildlifeStickers,
             onOpenCollection = onOpenCollection,
             modifier = Modifier.fillMaxWidth(),
         )
+        Spacer(Modifier.height(32.dp))
         SanctuaryPreview(
             sanctuary = content.sanctuary,
             questTotal = content.quest.pawPrintTotal,

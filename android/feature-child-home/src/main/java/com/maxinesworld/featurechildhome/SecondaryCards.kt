@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.EmojiEvents
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -63,6 +65,7 @@ internal fun QuickBitsHomeCard(
         modifier = Modifier
             .then(modifier)
             .fillMaxWidth()
+            .heightIn(min = 64.dp, max = 72.dp)
             .graphicsLayer {
                 scaleX = scale
                 scaleY = scale
@@ -72,11 +75,9 @@ internal fun QuickBitsHomeCard(
                 contentDescription = "Quick Bits video explorer. Watch 60 fun bite-sized science, space, animals, and math videos offline."
                 role = Role.Button
             },
-        shape = RoundedCornerShape(20.dp),
+        shape = RoundedCornerShape(16.dp),
         color = PlayCream,
         contentColor = PlayInk,
-        border = BorderStroke(1.5.dp, PlayTeal.copy(alpha = 0.45f)),
-        shadowElevation = 2.dp,
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp),
@@ -137,17 +138,22 @@ internal fun QuickBitsHomeCard(
                 }
             }
 
-            Surface(
-                shape = RoundedCornerShape(14.dp),
-                color = PlayTeal,
-                modifier = Modifier.padding(start = 12.dp)
+            Row(
+                modifier = Modifier.padding(start = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    "Watch Shorts ▶",
-                    fontWeight = FontWeight.ExtraBold,
-                    color = Color.White,
+                    "Watch shorts",
+                    fontWeight = FontWeight.Bold,
+                    color = PlayTeal,
                     fontSize = 13.sp,
-                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)
+                )
+                Spacer(Modifier.width(4.dp))
+                Icon(
+                    Icons.Default.PlayArrow,
+                    contentDescription = "Watch shorts",
+                    tint = PlayTeal,
+                    modifier = Modifier.size(20.dp),
                 )
             }
         }
@@ -333,7 +339,14 @@ internal fun WatchToEarnQuestCard(
                     fontSize = 13.sp,
                 )
                 TextButton(onClick = onOpenVideos) {
-                    Text("Browse Videos ▶", color = PlayTeal, fontWeight = FontWeight.ExtraBold, fontSize = 13.sp)
+                    Text("Browse videos", color = PlayTeal, fontWeight = FontWeight.Bold, fontSize = 13.sp)
+                    Spacer(Modifier.width(4.dp))
+                    Icon(
+                        Icons.Default.PlayArrow,
+                        contentDescription = "Browse videos",
+                        tint = PlayTeal,
+                        modifier = Modifier.size(18.dp),
+                    )
                 }
             }
         }
@@ -349,10 +362,10 @@ internal fun AssessmentArenaBannerCard(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = PlayroomColors.GoldTop),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        border = BorderStroke(1.5.dp, SunshineGold),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = StoryPurple.copy(alpha = 0.10f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        border = BorderStroke(1.dp, StoryPurple.copy(alpha = 0.22f)),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 16.dp),
@@ -370,20 +383,22 @@ internal fun AssessmentArenaBannerCard(
                         .background(Color.White.copy(alpha = 0.9f)),
                     contentAlignment = Alignment.Center,
                 ) {
-                    Text("🏆", fontSize = 26.sp)
+                    Icon(
+                        Icons.Default.EmojiEvents,
+                        contentDescription = "Assessment trophy",
+                        tint = StoryPurple,
+                        modifier = Modifier.size(26.dp),
+                    )
                 }
                 Spacer(Modifier.width(16.dp))
                 Column {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            "Grade 3 Assessment Arena",
-                            color = DeepNight,
-                            fontWeight = FontWeight.Black,
-                            fontSize = 17.sp,
-                        )
-                        Spacer(Modifier.width(8.dp))
-                        Text("🇵🇭 🇸🇬 🇺🇸", fontSize = 14.sp)
-                    }
+                    Text(
+                        "Grade 3 Assessment Arena",
+                        color = DeepNight,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 17.sp,
+                        maxLines = 2,
+                    )
                     Spacer(Modifier.height(2.dp))
                     Text(
                         "Test your skills across all 6 subjects & earn +10 Stars!",
@@ -399,13 +414,24 @@ internal fun AssessmentArenaBannerCard(
                 color = VillageTeal,
                 modifier = Modifier.padding(start = 12.dp)
             ) {
-                Text(
-                    "Enter Arena ▶",
-                    fontWeight = FontWeight.ExtraBold,
-                    color = Color.White,
-                    fontSize = 13.sp,
-                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)
-                )
+                Row(
+                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        "Enter arena",
+                        fontWeight = FontWeight.Bold,
+                        color = White,
+                        fontSize = 13.sp,
+                    )
+                    Spacer(Modifier.width(4.dp))
+                    Icon(
+                        Icons.Default.PlayArrow,
+                        contentDescription = "Enter arena",
+                        tint = White,
+                        modifier = Modifier.size(18.dp),
+                    )
+                }
             }
         }
     }
