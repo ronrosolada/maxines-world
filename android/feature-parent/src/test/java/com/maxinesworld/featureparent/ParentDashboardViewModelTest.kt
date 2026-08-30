@@ -97,8 +97,8 @@ class ParentDashboardViewModelTest {
     fun `load observes child data, available badges and earned badges reactively`() = runTest {
         val childId = "child_maxine"
         val badges = listOf(
-            CollectibleBadge("badge_tarsier", "forest", "Tarsier", "Moon Eyed", "Fun fact"),
-            CollectibleBadge("badge_eagle", "sky", "Eagle", "Sky King", "Fun fact")
+            CollectibleBadge("badge_mammal_tarsier", "forest", "Tarsier", "Moon Eyed", "Fun fact"),
+            CollectibleBadge("badge_bird_eagle", "sky", "Eagle", "Sky King", "Fun fact")
         )
         coEvery { badgeLoader.loadAll() } returns badges
         childFlow.value = ChildProfileEntity(
@@ -109,20 +109,20 @@ class ParentDashboardViewModelTest {
             grade = 3,
             curriculum = "ph-matatag",
         )
-        badgeIdsFlow.value = listOf("badge_tarsier")
+        badgeIdsFlow.value = listOf("badge_mammal_tarsier")
 
         loadAndWait(childId)
 
         assertEquals("Maxine", viewModel.state.value.childName)
         assertFalse(viewModel.state.value.isLoading)
         assertEquals(2, viewModel.availableBadges.value.size)
-        assertTrue(viewModel.earnedBadgeIds.value.contains("badge_tarsier"))
+        assertTrue(viewModel.earnedBadgeIds.value.contains("badge_mammal_tarsier"))
     }
 
     @Test
     fun `awardSticker inserts into collectedBadgeDao`() = runTest {
         val childId = "child_maxine"
-        val badgeToAward = CollectibleBadge("badge_eagle", "sky", "Eagle", "Sky King", "Fun fact")
+        val badgeToAward = CollectibleBadge("badge_bird_eagle", "sky", "Eagle", "Sky King", "Fun fact")
 
         loadAndWait(childId)
         viewModel.awardSticker(childId, badgeToAward)
@@ -130,7 +130,7 @@ class ParentDashboardViewModelTest {
 
         coVerify {
             collectedBadgeDao.insert(match {
-                it.childId == childId && it.badgeId == "badge_eagle" && it.earnedDate == "parent_awarded"
+                it.childId == childId && it.badgeId == "badge_bird_eagle" && it.earnedDate == "parent_awarded"
             })
         }
     }
@@ -140,31 +140,31 @@ class ParentDashboardViewModelTest {
         val childId = "child_maxine"
 
         loadAndWait(childId)
-        viewModel.revokeSticker(childId, "badge_tarsier")
+        viewModel.revokeSticker(childId, "badge_mammal_tarsier")
         testDispatcher.scheduler.advanceUntilIdle()
 
         coVerify(exactly = 1) {
-            collectedBadgeDao.deleteByChildAndBadgeId(childId, "badge_tarsier")
+            collectedBadgeDao.deleteByChildAndBadgeId(childId, "badge_mammal_tarsier")
         }
     }
 
     @Test
     fun `revokeSticker removes the badge from earnedBadgeIds when the dao emits post-delete state`() = runTest {
         val childId = "child_maxine"
-        badgeIdsFlow.value = listOf("badge_tarsier", "badge_eagle")
+        badgeIdsFlow.value = listOf("badge_mammal_tarsier", "badge_bird_eagle")
 
         loadAndWait(childId)
-        assertTrue(viewModel.earnedBadgeIds.value.contains("badge_tarsier"))
+        assertTrue(viewModel.earnedBadgeIds.value.contains("badge_mammal_tarsier"))
 
-        viewModel.revokeSticker(childId, "badge_tarsier")
+        viewModel.revokeSticker(childId, "badge_mammal_tarsier")
         testDispatcher.scheduler.advanceUntilIdle()
 
         // Simulate Room invalidating the observed query after the DELETE lands.
-        badgeIdsFlow.value = listOf("badge_eagle")
+        badgeIdsFlow.value = listOf("badge_bird_eagle")
         testDispatcher.scheduler.advanceUntilIdle()
 
-        assertFalse(viewModel.earnedBadgeIds.value.contains("badge_tarsier"))
-        assertEquals(setOf("badge_eagle"), viewModel.earnedBadgeIds.value)
+        assertFalse(viewModel.earnedBadgeIds.value.contains("badge_mammal_tarsier"))
+        assertEquals(setOf("badge_bird_eagle"), viewModel.earnedBadgeIds.value)
     }
 
     @Test

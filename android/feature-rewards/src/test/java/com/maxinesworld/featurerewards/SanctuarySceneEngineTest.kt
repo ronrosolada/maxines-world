@@ -5,22 +5,23 @@ import org.junit.Test
 
 class SanctuarySceneEngineTest {
     @Test fun catalogContainsExpandedIconicRosterWithBilingualFacts() {
-        assertTrue(SanctuarySpeciesCatalog.species.size >= 10)
+        assertEquals(51, SanctuarySpeciesCatalog.species.size)
         val expected = mapOf(
-            "badge_peacock_pheasant" to "habitat-forest-floor", "badge_cebu_flowerpecker" to "habitat-canopy",
-            "badge_spotted_deer" to "sanctuary-meadow", "badge_pangolin" to "sanctuary-tree",
-            "badge_flying_fox" to "habitat-tall-trees", "badge_philippine_crocodile" to "sanctuary-pond",
+            "badge_mammal_tarsier" to "sanctuary-meadow", "badge_mammal_tamaraw" to "sanctuary-meadow",
+            "badge_bird_eagle" to "sanctuary-lookout", "badge_bird_peacock_pheasant" to "sanctuary-lookout",
+            "badge_reptile_philippine_crocodile" to "sanctuary-wildlife-sign", "badge_fish_sinarapan" to "sanctuary-pond",
         )
         expected.forEach { (badge, habitat) -> assertEquals(habitat, SanctuarySpeciesCatalog.requireByBadgeId(badge).primaryHabitatId) }
         assertTrue(SanctuarySpeciesCatalog.species.all { it.factEnglish.isNotBlank() && it.factFilipino.isNotBlank() && it.signatureBehavior.isNotBlank() })
-        assertEquals(SanctuarySpeciesCatalog.species.size, SanctuarySpeciesCatalog.species.map { it.animalAssetId }.distinct().size)
+        val wildlife = SanctuarySpeciesCatalog.species.filterNot { it.badgeId == "badge_milestone_first_steps" }
+        assertEquals(wildlife.size, wildlife.map { it.animalAssetId }.distinct().size)
     }
 
     @Test fun residentRequiresBothBadgeAndCompatibleUnlockedHabitat() {
         val engine = SanctuarySceneEngine()
         assertTrue(engine.build(setOf("sanctuary-lookout"), emptySet(), 7).residents.isEmpty())
-        assertTrue(engine.build(emptySet(), setOf("badge_philippine_eagle"), 7).residents.isEmpty())
-        assertEquals("badge_philippine_eagle", engine.build(setOf("sanctuary-lookout"), setOf("badge_philippine_eagle"), 7).residents.single().species.badgeId)
+        assertTrue(engine.build(emptySet(), setOf("badge_bird_eagle"), 7).residents.isEmpty())
+        assertEquals("badge_bird_eagle", engine.build(setOf("sanctuary-lookout"), setOf("badge_bird_eagle"), 7).residents.single().species.badgeId)
     }
 
     @Test fun sameSeedProducesSameOrderingAndValidDistinctAnchors() {
@@ -43,7 +44,7 @@ class SanctuarySceneEngineTest {
     }
 
     @Test fun feedingAcceptsPreferredTreatAndReturnsBilingualObservation() {
-        val fox = SanctuarySpeciesCatalog.requireByBadgeId("badge_flying_fox")
+        val fox = SanctuarySpeciesCatalog.requireByBadgeId("badge_mammal_flying_fox")
         assertEquals(SanctuaryTreat.SWEET_NECTAR, SanctuaryCareEngine.preferredTreat(fox))
         val happy = SanctuaryCareEngine.feed(fox, SanctuaryTreat.SWEET_NECTAR)
         assertTrue(happy.accepted); assertTrue(happy.messageEnglish.contains(fox.nameEnglish)); assertTrue(happy.messageFilipino.isNotBlank())
@@ -53,10 +54,11 @@ class SanctuarySceneEngineTest {
 
 class WildlifeHabitatAffinityTest {
     @Test fun badgeAndAssetIdsResolveToSameSpecies() {
-        SanctuarySpeciesCatalog.species.forEach { assertEquals(it, SanctuarySpeciesCatalog.byAnimalAssetId(it.animalAssetId)) }
+        SanctuarySpeciesCatalog.species.filterNot { it.badgeId == "badge_milestone_first_steps" }
+            .forEach { assertEquals(it, SanctuarySpeciesCatalog.byAnimalAssetId(it.animalAssetId)) }
     }
     @Test fun alternateHabitatAlsoMakesResidentEligible() {
-        val scene = SanctuarySceneEngine().build(setOf("habitat-tall-trees"), setOf("badge_philippine_eagle"), 9)
+        val scene = SanctuarySceneEngine().build(setOf("sanctuary-nest"), setOf("badge_bird_eagle"), 9)
         assertEquals(1, scene.residents.size)
     }
 }
