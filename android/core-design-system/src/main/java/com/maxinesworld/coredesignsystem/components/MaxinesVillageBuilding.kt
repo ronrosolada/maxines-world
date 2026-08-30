@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -48,7 +49,7 @@ data class VillageBuildingData(
  * - **Bottom-anchored building PNG** — the illustrated building sits at the base
  * - **Doorstep progress pill** — cream surface with colored progress bar + "8/12" count
  * - **Locked state** — gray pill with lock icon + "Level N" text
- * - **Today's focus** — 18dp raised elevation + gold ★ TODAY ribbon above the pill
+ * - **Today's focus** — 18dp raised elevation + gold focus ribbon above the pill
  * - **Tactile press** — lifts 4dp on press with spring animation
  *
  * Uses theme tokens exclusively from [Color.kt]; does NOT refactor Theme.kt.
@@ -142,7 +143,7 @@ fun MaxinesVillageBuilding(
 // ─── Sub-components ─────────────────────────────────────────────
 
 /**
- * Gold ★ TODAY ribbon that sits between the building PNG and the doorstep pill.
+ * Gold focus ribbon that sits between the building PNG and the doorstep pill.
  * Only shown when the building is today's focus destination.
  */
 @Composable
@@ -156,18 +157,18 @@ private fun TodayFocusRibbon() {
             modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            Icon(
+                Icons.Default.Star,
+                contentDescription = null,
+                tint = OnGold,
+                modifier = Modifier.size(14.dp),
+            )
+            Spacer(Modifier.width(4.dp))
             Text(
-                "★",
+                "Today's focus",
                 fontSize = 11.sp,
                 fontWeight = FontWeight.Bold,
-                color = White
-            )
-            Spacer(Modifier.width(3.dp))
-            Text(
-                "TODAY",
-                fontSize = 10.sp,
-                fontWeight = FontWeight.Bold,
-                color = White
+                color = OnGold
             )
         }
     }
