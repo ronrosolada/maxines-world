@@ -42,6 +42,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -562,12 +564,33 @@ private fun ActiveQuizView(
     modifier: Modifier = Modifier,
 ) {
     val currentItem = quiz.items.getOrNull(quiz.currentIndex)
+    val copy = arenaCopy(quiz.packId)
     var showExitDialog by remember { mutableStateOf(false) }
 
     val ttsContext = androidx.compose.ui.platform.LocalContext.current
     val ttsPlayer = remember { LessonTtsPlayer(ttsContext) }
+    val soundPlayer = remember { ArenaSoundEffectPlayer(ttsContext) }
+    val haptic = LocalHapticFeedback.current
+    val feedbackDisabled = LocalAnimationsDisabled.current
     DisposableEffect(Unit) {
-        onDispose { ttsPlayer.stop() }
+        onDispose { ttsPlayer.stop(); soundPlayer.close() }
+    }
+    LaunchedEffect(quiz.currentIndex, quiz.isAnswerSubmitted) {
+        arenaAnswerSound(quiz.isAnswerSubmitted, quiz.isCorrect)?.let { effect ->
+            if (!feedbackDisabled) {
+                soundPlayer.play(effect)
+                haptic.performHapticFeedback(
+                    if (effect == ArenaSoundEffect.CORRECT) HapticFeedbackType.LongPress
+                    else HapticFeedbackType.TextHandleMove,
+                )
+            }
+        }
+    }
+    LaunchedEffect(quiz.isFinished, quiz.isPassed) {
+        if (quiz.isFinished && quiz.isPassed && !feedbackDisabled) {
+            soundPlayer.play(ArenaSoundEffect.CELEBRATION)
+            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+        }
     }
 
     val handleExitRequest = {
@@ -647,8 +670,7 @@ private fun ActiveQuizView(
                     modifier = Modifier.clickable {
                         if (currentItem != null) {
                             val fullSpeechText = "${currentItem.prompt}. Option A: ${currentItem.options.getOrNull(0)?.text.orEmpty()}. Option B: ${currentItem.options.getOrNull(1)?.text.orEmpty()}. Option C: ${currentItem.options.getOrNull(2)?.text.orEmpty()}. Option D: ${currentItem.options.getOrNull(3)?.text.orEmpty()}."
-                            val lang = if (quiz.packId.contains("filipino") || quiz.packId.contains("makabansa") || quiz.packId.contains("gmrc")) "fil-PH" else "en-US"
-                            ttsPlayer.speak(fullSpeechText, lang)
+                            ttsPlayer.speak(fullSpeechText, copy.ttsLanguage)
                         }
                     }
                 ) {
@@ -724,7 +746,7 @@ private fun ActiveQuizView(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
-                        if (quiz.isPassed) "Amazing job, Maxine!" else "Good effort, Maxine!",
+                        arenaCompletionState(quiz.isPassed, copy.isFilipino).message,
                         fontWeight = FontWeight.Black,
                         fontSize = 24.sp,
                         color = DeepNight,
@@ -752,12 +774,7 @@ private fun ActiveQuizView(
                             )
                         }
                     } else {
-                        Text(
-                            "Score at least 8/10 to pass and earn rewards.",
-                            fontSize = 14.sp,
-                            color = OnError,
-                            fontWeight = FontWeight.Medium,
-                        )
+                        Text(if (copy.isFilipino) "Balikan natin ang mga pahiwatig at subukan muli." else "Review Milo's clues, then try again when you're ready.", fontSize = 14.sp, color = VillageTeal, fontWeight = FontWeight.Medium)
                     }
 
                     Spacer(Modifier.height(24.dp))
@@ -770,7 +787,11 @@ private fun ActiveQuizView(
                         ) {
                             Icon(Icons.Default.Refresh, null)
                             Spacer(Modifier.width(6.dp))
-                            Text("Try Again")
+                            Text(copy.retry)
+                        }
+
+                        if (!quiz.isPassed) OutlinedButton(onClick = onRestartQuiz, shape = RoundedCornerShape(14.dp)) {
+                            Text(copy.reviewClues)
                         }
 
                         OutlinedButton(
@@ -913,15 +934,13 @@ private fun ActiveQuizView(
                         Spacer(Modifier.width(10.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                "Milo's Smart Hint",
+                                copy.clueHeader,
                                 fontWeight = FontWeight.ExtraBold,
                                 fontSize = 15.sp,
                                 color = DeepNight,
                             )
                             Spacer(Modifier.height(4.dp))
-                            val hintText = currentItem.hint.ifBlank {
-                                "Read each choice carefully and eliminate options that do not match the question requirements!"
-                            }
+                            val hintText = currentItem.hint.ifBlank { copy.hintFallback }
                             Text(
                                 hintText,
                                 fontSize = 14.sp,
@@ -949,7 +968,7 @@ private fun ActiveQuizView(
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(
-                                if (quiz.isCorrect) "Correct! Awesome job!" else "Milo's learning clue:",
+                                if (quiz.isCorrect) copy.correctHeader else copy.clueHeader,
                                 fontWeight = FontWeight.ExtraBold,
                                 fontSize = 15.sp,
                                 color = DeepNight,
@@ -959,9 +978,8 @@ private fun ActiveQuizView(
                                 shape = RoundedCornerShape(10.dp),
                                 color = if (quiz.isCorrect) SuccessGreen.copy(alpha = 0.25f) else SunshineGold.copy(alpha = 0.35f),
                                 modifier = Modifier.clickable {
-                                    val prefix = if (quiz.isCorrect) "Correct! " else "Milo's Learning Clue: "
-                                    val lang = if (quiz.packId.contains("filipino") || quiz.packId.contains("makabansa") || quiz.packId.contains("gmrc")) "fil-PH" else "en-US"
-                                    ttsPlayer.speak(prefix + currentItem.explanation, lang)
+                                    val prefix = if (quiz.isCorrect) copy.correctTtsPrefix else copy.clueTtsPrefix
+                                    ttsPlayer.speak(prefix + currentItem.explanation, copy.ttsLanguage)
                                 }
                             ) {
                                 Row(
@@ -999,7 +1017,7 @@ private fun ActiveQuizView(
                         shape = RoundedCornerShape(14.dp),
                         modifier = Modifier.height(48.dp),
                     ) {
-                        Text("Check Answer", fontWeight = FontWeight.Bold, fontSize = 15.sp)
+                        Text(copy.checkAnswer, fontWeight = FontWeight.Bold, fontSize = 15.sp)
                     }
                 } else {
                     Button(
@@ -1009,7 +1027,7 @@ private fun ActiveQuizView(
                         modifier = Modifier.height(48.dp),
                     ) {
                         Text(
-                            if (quiz.currentIndex + 1 < quiz.items.size) "Next question" else "Finish quiz",
+                            if (quiz.currentIndex + 1 < quiz.items.size) copy.nextQuestion else copy.finishQuiz,
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp,
                         )

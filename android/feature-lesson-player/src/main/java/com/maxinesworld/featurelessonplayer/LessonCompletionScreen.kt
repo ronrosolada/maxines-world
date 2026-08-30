@@ -134,7 +134,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                         Text(lessonUiText(lang, "+$starsEarned Learning Stars", "+$starsEarned Bituin sa Pagkatuto"), fontWeight = FontWeight.Bold, fontSize = 15.sp)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(Icons.Default.Pets, "Sanctuary tokens", tint = VillageTeal, modifier = Modifier.height(28.dp))
+                        Icon(Icons.Default.Pets, sanctuaryTokensDescription(lang), tint = VillageTeal, modifier = Modifier.height(28.dp))
                         Text(lessonUiText(lang, "+$coinsEarned Tokens", "+$coinsEarned Token"), fontWeight = FontWeight.Bold, fontSize = 15.sp)
                     }
                 }
@@ -161,8 +161,8 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                         Text(
                             state.sanctuaryPieceId
                                 ?.let { SanctuaryCatalog.byId(it)?.name }
-                                ?.let { "Milo's sanctuary gained: $it" }
-                                ?: "Milo's sanctuary gained a new piece.",
+                                ?.let { sanctuaryGainedDescription(lang, it) }
+                                ?: lessonUiText(lang, "Milo's sanctuary gained a new piece.", "Nagkaroon ng bagong gamit ang santuwaryo ni Milo."),
                             textAlign = TextAlign.Center,
                             color = Ink.copy(alpha = 0.78f),
                             fontSize = 14.sp,
