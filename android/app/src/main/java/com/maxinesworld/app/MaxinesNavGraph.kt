@@ -34,6 +34,8 @@ import com.maxinesworld.featurechildhome.PlayroomHomeScreen
 import com.maxinesworld.featurechildhome.PlayroomHomeViewModel
 import com.maxinesworld.featurechildhome.PlayroomHomeUiState
 import com.maxinesworld.featurechildhome.QuestAction
+import com.maxinesworld.featurechildhome.LivingSanctuaryRoute
+import com.maxinesworld.featurechildhome.LivingSanctuaryViewModel
 import com.maxinesworld.featurelessonplayer.QuickBitsScreen
 import com.maxinesworld.featurelessonplayer.QuickBitsViewModel
 import com.maxinesworld.featurelessonplayer.VideoLibraryScreen
@@ -61,10 +63,12 @@ object Routes {
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
+    const val SANCTUARY = "sanctuary/{childId}"
 
     private fun segment(value: String): String = Uri.encode(value)
 
     fun childHome(childId: String) = "child_home/${segment(childId)}"
+    fun sanctuary(childId: String) = "sanctuary/${segment(childId)}"
     fun treatShop(childId: String) = "treat_shop/${segment(childId)}"
     fun assessmentArena(childId: String, subject: String? = null, packId: String? = null) =
         "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}&packId=${segment(packId.orEmpty())}"
@@ -216,11 +220,23 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onOpenCollection = {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
+                onVisitSanctuary = { navController.navigate(Routes.sanctuary(childId)) },
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
                 },
                 onRetry = homeViewModel::retry,
                 onBack = { navController.popBackStack() },
+            )
+        }
+
+        composable(
+            route = Routes.SANCTUARY,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType }),
+        ) { backStackEntry ->
+            val viewModel: LivingSanctuaryViewModel = hiltViewModel(backStackEntry)
+            LivingSanctuaryRoute(
+                onBack = { navController.popBackStack() },
+                viewModel = viewModel,
             )
         }
 

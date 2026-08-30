@@ -102,6 +102,7 @@ internal fun SanctuaryPreview(
     sanctuary: SanctuaryUi,
     questTotal: Int,
     onTreatShopClick: () -> Unit,
+    onVisitSanctuary: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     var selectedPieceForInspect by remember { mutableStateOf<SanctuaryPieceUi?>(null) }
@@ -226,6 +227,12 @@ internal fun SanctuaryPreview(
                 }
             }
             Spacer(Modifier.height(12.dp))
+            MaxinesPrimaryButton(
+                text = "Visit Sanctuary / Bisitahin ang Santuwaryo",
+                onClick = onVisitSanctuary,
+                modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp),
+            )
+            Spacer(Modifier.height(8.dp))
             val nextPiece = sanctuary.nextPiece
             if (nextPiece != null) {
                 Surface(

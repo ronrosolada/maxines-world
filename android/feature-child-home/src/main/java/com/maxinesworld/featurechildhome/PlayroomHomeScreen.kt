@@ -174,6 +174,7 @@ fun PlayroomHomeScreen(
     onQuickBitsClick: () -> Unit = onVideosClick,
     onParentsClick: () -> Unit,
     onOpenCollection: () -> Unit = onCollectionClick,
+    onVisitSanctuary: () -> Unit = {},
     onRetry: () -> Unit = {},
     onBack: () -> Unit = {},
     modifier: Modifier = Modifier,
@@ -230,6 +231,7 @@ fun PlayroomHomeScreen(
                         onQuestAction = onQuestAction,
                         onQuestTargetClick = onQuestTargetClick,
                         onOpenCollection = onOpenCollection,
+                        onVisitSanctuary = onVisitSanctuary,
                         onTreatShopClick = onTreatShopClick,
                         onVideosClick = onVideosClick,
                         onAssessmentsClick = onAssessmentsClick,
@@ -260,6 +262,7 @@ private fun ContentLayout(
     onQuestAction: (QuestAction) -> Unit,
     onQuestTargetClick: (QuestTargetUi) -> Unit,
     onOpenCollection: () -> Unit,
+    onVisitSanctuary: () -> Unit,
     onTreatShopClick: () -> Unit,
     onVideosClick: () -> Unit,
     onAssessmentsClick: () -> Unit = {},
@@ -351,6 +354,7 @@ private fun ContentLayout(
             sanctuary = content.sanctuary,
             questTotal = content.quest.pawPrintTotal,
             onTreatShopClick = onTreatShopClick,
+            onVisitSanctuary = onVisitSanctuary,
             modifier = Modifier.fillMaxWidth(),
         )
     }
