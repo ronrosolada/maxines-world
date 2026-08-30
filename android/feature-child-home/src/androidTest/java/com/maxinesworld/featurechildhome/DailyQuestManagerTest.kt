@@ -382,6 +382,7 @@ class DailyQuestManagerTest {
             assessmentRepository = AssessmentRepository(context),
             dailyQuestSetDao = database.dailyQuestSetDao(),
             dailyQuestCompletionDao = database.dailyQuestCompletionDao(),
+            masteryRecordDao = database.masteryRecordDao(),
             rewardDao = database.rewardDao(),
             dailyQuestRewardWriter = DailyQuestRewardWriter(
                 database = database,

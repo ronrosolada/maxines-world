@@ -33,6 +33,8 @@ data class Month1Activity(
     val activityId: String,
     val sequence: Int,
     val type: String,
+    /** Versioned renderer capability for specialized activity contracts. */
+    val capability: String? = null,
     val instruction: String,
     val content: kotlinx.serialization.json.JsonElement? = null,
     val required: Boolean = true,

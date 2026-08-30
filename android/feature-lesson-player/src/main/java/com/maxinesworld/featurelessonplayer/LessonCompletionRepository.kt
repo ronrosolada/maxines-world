@@ -2,6 +2,8 @@ package com.maxinesworld.featurelessonplayer
 
 import com.maxinesworld.coredatabase.LessonCompletionEntity
 import com.maxinesworld.coredatabase.LessonCompletionDao
+import com.maxinesworld.coredatabase.MasteryRecordDao
+import com.maxinesworld.coredatabase.MasteryRecordEntity
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.ProgressEventEntity
 import com.maxinesworld.coredatabase.RewardDao
@@ -9,7 +11,10 @@ import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coredatabase.RoomTransactionRunner
 import com.maxinesworld.coremodel.CollectibleBadge
 import com.maxinesworld.coremodel.LessonManifest
+import com.maxinesworld.coremodel.MasteryState
 import com.maxinesworld.engineactivity.ActivityResult
+import com.maxinesworld.enginemastery.MasteryEngine
+import java.util.concurrent.TimeUnit
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
@@ -57,6 +62,8 @@ data class LessonCompletionPersistenceResult(
 class LessonCompletionRepository @Inject constructor(
     private val transactionRunner: RoomTransactionRunner,
     private val progressEventDao: ProgressEventDao,
+    private val masteryRecordDao: MasteryRecordDao,
+    private val masteryEngine: MasteryEngine,
     private val rewardDao: RewardDao,
     private val lessonCompletionDao: LessonCompletionDao,
     private val badgeAwarder: BadgeAwarder,
@@ -129,6 +136,33 @@ class LessonCompletionRepository @Inject constructor(
                 )
             }
             failureInjector.after(CompletionWriteStage.PROGRESS_EVENTS_INSERTED)
+
+            if (accuracy >= 0.8) {
+                val now = System.currentTimeMillis()
+                for (skillId in lesson.skillIds.ifEmpty { listOf(lesson.id) }) {
+                    val previous = masteryRecordDao.getByChildAndSkill(childId, skillId)
+                    val attempts = (previous?.totalAttempts ?: 0) + scoredResults.size
+                    val previousCorrect = (previous?.accuracy ?: 0.0) * (previous?.totalAttempts ?: 0)
+                    val cumulativeAccuracy = (previousCorrect + scoredResults.count { it.correct }) / attempts
+                    val state = when {
+                        attempts >= 10 && cumulativeAccuracy >= 0.8 -> MasteryState.MASTERED
+                        attempts >= 5 -> MasteryState.PROFICIENT
+                        else -> MasteryState.PRACTICING
+                    }
+                    masteryRecordDao.upsert(
+                        MasteryRecordEntity(
+                            id = "${childId}_$skillId",
+                            childId = childId,
+                            skillId = skillId,
+                            state = state.name,
+                            accuracy = cumulativeAccuracy,
+                            totalAttempts = attempts,
+                            lastActivityAt = now,
+                            nextReviewAt = now + TimeUnit.DAYS.toMillis(masteryEngine.nextReviewDays(state).toLong()),
+                        )
+                    )
+                }
+            }
 
             val rewardKey = "lesson-first:$childId:${lesson.id}"
             val lessonReward = LessonRewardPolicy.forAccuracy(accuracy)

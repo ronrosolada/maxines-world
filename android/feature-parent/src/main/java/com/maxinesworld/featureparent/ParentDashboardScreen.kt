@@ -79,7 +79,19 @@ data class ParentDashboardState(
     val prefetchStatusMessage: String? = null,
     val accreditedWatchSeconds: Int = 0,
     val passedVideoCount: Int = 0,
+    val filipinoProficiency: String = "BEGINNER",
+    val foundationsProgress: List<FoundationsProgress> = emptyList(),
     val isLoading: Boolean = true
+)
+
+data class FoundationsProgress(val label: String, val completed: Int, val total: Int)
+
+private val FOUNDATIONS_GROUPS = listOf(
+    "Greetings & Introductions" to 1..4,
+    "Family & Everyday Needs" to 5..8,
+    "School Words, Colors & Numbers" to 9..14,
+    "Daily Life & Stories" to 15..20,
+    "Sounds & Early Reading" to 21..24,
 )
 
 data class SubjectProgress(
@@ -248,6 +260,17 @@ class ParentDashboardViewModel @Inject constructor(
         }
     }
 
+    fun onUpdateProficiency(proficiency: String) {
+        if (proficiency !in setOf("BEGINNER", "INTERMEDIATE", "ADVANCED")) return
+        val childId = observedChildId ?: return
+        viewModelScope.launch {
+            val child = childProfileDao.getById(childId) ?: return@launch
+            if (child.filipinoProficiency != proficiency) {
+                childProfileDao.upsert(child.copy(filipinoProficiency = proficiency))
+            }
+        }
+    }
+
     /** Pure projection of Room snapshots + imperative UI extras into screen state. */
     private fun buildDashboardState(
         ui: UiExtras,
@@ -274,6 +297,17 @@ class ParentDashboardViewModel @Inject constructor(
         val mastered = academic.mastery.count { it.state == "MASTERED" }
         val developing = academic.mastery.count { it.state == "DEVELOPING" }
         val needsReview = academic.mastery.count { it.state == "NEEDS_REVIEW" || it.state == "NOT_STARTED" }
+        val completedFoundationIds = academic.progress.map { it.lessonId }
+            .filter { it.startsWith("filipino-foundations-") }.toSet()
+        val foundationsProgress = FOUNDATIONS_GROUPS.map { (label, lessonNumbers) ->
+            FoundationsProgress(
+                label = label,
+                completed = lessonNumbers.count { number ->
+                    "filipino-foundations-${number.toString().padStart(2, '0')}" in completedFoundationIds
+                },
+                total = lessonNumbers.count(),
+            )
+        }
 
         return ParentDashboardState(
             childName = child?.name ?: "Learner",
@@ -296,6 +330,8 @@ class ParentDashboardViewModel @Inject constructor(
             prefetchStatusMessage = ui.prefetchStatusMessage,
             accreditedWatchSeconds = activity.accreditedSeconds,
             passedVideoCount = activity.passedMediaIds.size,
+            filipinoProficiency = child?.filipinoProficiency ?: "BEGINNER",
+            foundationsProgress = foundationsProgress,
             isLoading = false
         )
     }
@@ -452,6 +488,10 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                         }
                     }
                 }
+
+                FilipinoLanguageLevelCard(state.filipinoProficiency, viewModel::onUpdateProficiency)
+                FilipinoFoundationsProgressCard(state.foundationsProgress)
+                CaregiverPhrasesDeck()
 
                 // App Update Card for LAN & Guest VLAN
                 Card(
@@ -695,7 +735,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                 )
                                 val watchMinutes = state.accreditedWatchSeconds / 60
                                 Text(
-                                    "$watchMinutes mins accredited · ${state.passedVideoCount} videos mastered",
+                                    "$watchMinutes mins accredited · ${state.passedVideoCount} video checks passed",
                                     fontSize = 13.sp,
                                     color = Ink.copy(alpha = 0.6f)
                                 )
@@ -932,6 +972,50 @@ private fun AwardStickerDialog(
             }
         }
     )
+}
+
+@Composable
+private fun FilipinoLanguageLevelCard(selected: String, onSelected: (String) -> Unit) {
+    val choices = listOf(
+        "BEGINNER" to "Baguhan / Zero-Beginner",
+        "INTERMEDIATE" to "May Kaunti / Some Basics",
+        "ADVANCED" to "Handa sa Baitang 3 / Grade Ready",
+    )
+    Card(colors = CardDefaults.cardColors(containerColor = Color.White), shape = RoundedCornerShape(18.dp)) {
+        Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text("Filipino Language Level", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink)
+            Text("Choose the level that best describes your child today.", fontSize = 13.sp, color = Ink.copy(alpha = 0.65f))
+            choices.forEach { (value, label) ->
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(selected = selected == value, onClick = { onSelected(value) })
+                    Text(label, modifier = Modifier.weight(1f), color = Ink, fontSize = 15.sp)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun FilipinoFoundationsProgressCard(groups: List<FoundationsProgress>) {
+    val completed = groups.sumOf { it.completed }
+    val total = groups.sumOf { it.total }.coerceAtLeast(1)
+    Card(colors = CardDefaults.cardColors(containerColor = Color.White), shape = RoundedCornerShape(18.dp)) {
+        Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text("Filipino Foundations Progress", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink)
+            Text("$completed of 24 Pre-A1 micro-lessons complete", fontSize = 14.sp, color = Ink.copy(alpha = 0.65f))
+            LinearProgressIndicator(
+                progress = { completed.toFloat() / total },
+                modifier = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
+                color = VillageTeal, trackColor = VillageTeal.copy(alpha = 0.15f),
+            )
+            groups.forEach { group ->
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                    Text(group.label, fontSize = 14.sp, color = Ink)
+                    Text("${group.completed}/${group.total}", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = VillageTeal)
+                }
+            }
+        }
+    }
 }
 
 @Composable

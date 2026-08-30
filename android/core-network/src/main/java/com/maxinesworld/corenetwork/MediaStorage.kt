@@ -109,6 +109,9 @@ class MediaStorage(
         return root.listFiles()?.filter { it.isFile && (it.name.endsWith(".mp4") || it.name.endsWith(".part")) }?.sumOf { it.length() } ?: 0L
     }
 
+    internal fun downloadedMediaFiles(): List<File> =
+        root.listFiles()?.filter { it.isFile && it.name.endsWith(".mp4") }.orEmpty()
+
     fun clearDownloadedMedia(): Int {
         if (!root.exists() || !root.isDirectory) return 0
         var deletedCount = 0

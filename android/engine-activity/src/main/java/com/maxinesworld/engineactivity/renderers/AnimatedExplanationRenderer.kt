@@ -3,6 +3,10 @@ package com.maxinesworld.engineactivity.renderers
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Replay
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,7 +27,8 @@ fun AnimatedExplanationRenderer(
     step: ActivityStep,
     onResult: (ActivityResult) -> Unit,
     onHint: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNarrationReplay: (String) -> Unit = {},
 ) {
     val startTime = remember { System.currentTimeMillis() }
 
@@ -37,12 +42,18 @@ fun AnimatedExplanationRenderer(
         LessonVisual(step)
 
         Text(
-            text = step.narrationText.ifEmpty { step.question },
+            text = narrationPhrase(step),
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.semantics {
-                contentDescription = "Instruction: ${step.narrationText.ifEmpty { step.question }}"
+                contentDescription = activityUiText(step.language, "Instruction", "Panuto") + ": ${step.narrationText.ifEmpty { step.question }}"
             }
         )
+
+        TextButton(onClick = { onNarrationReplay(narrationPhrase(step)) }) {
+            Icon(Icons.Default.Replay, contentDescription = null)
+            Spacer(Modifier.width(8.dp))
+            Text(activityUiText(step.language, "Listen", "Makinig"))
+        }
 
         ActivityHint(step = step, onHint = onHint)
 
@@ -61,12 +72,18 @@ fun AnimatedExplanationRenderer(
                     )
                 )
             },
-            text = "Continue",
+            text = activityUiText(step.language, "Continue", "Magpatuloy"),
             containerColor = VillageTeal,
             modifier = Modifier
                 .fillMaxWidth()
                 .sizeIn(minHeight = 56.dp)
-                .semantics { contentDescription = "Continue to next activity" }
+                .semantics { contentDescription = activityUiText(step.language, "Continue to next activity", "Magpatuloy sa susunod na gawain") }
         )
     }
 }
+
+internal fun narrationPhrase(step: ActivityStep): String =
+    step.narrationText.ifBlank { step.question }
+
+internal fun hasReplayableNarration(step: ActivityStep): Boolean =
+    step.narrationText.isNotBlank()

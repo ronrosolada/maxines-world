@@ -66,6 +66,18 @@ jobs:
             --asset-dir android/app/src/main/assets/content-pack/month-01/assets/vectors \
             --report "$RUNNER_TEMP/content-pack-validation.json"
 
+      - name: Validate video checkpoint manifest
+        run: python3 android/tools/validate_video_checkpoints.py
+
+      - name: Validate skill graph manifest
+        run: python3 android/tools/validate_skill_graph.py
+
+      - name: Validate catalog parity across server and content manifests
+        run: python3 android/tools/validate_catalog_parity.py
+
+      - name: Audit media assessment uniqueness and explanations
+        run: python3 android/tools/audit_media_assessment_uniqueness.py
+
       - name: Upload schema and asset report
         if: always()
         uses: actions/upload-artifact@v4

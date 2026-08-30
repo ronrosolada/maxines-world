@@ -1,6 +1,43 @@
 package com.maxinesworld.coremodel
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+
+@Serializable
+data class VideoCheckpointDocument(
+    val schemaVersion: Int,
+    val media: List<MediaCheckpoints> = emptyList(),
+)
+
+@Serializable
+data class MediaCheckpoints(
+    val mediaId: String,
+    val checkpoints: List<VideoCheckpointItem> = emptyList(),
+)
+
+@Serializable
+data class VideoCheckpointItem(
+    val checkpointId: String,
+    val positionMs: Long,
+    val type: CheckpointType,
+    val prompt: String,
+    val options: List<CheckpointOption> = emptyList(),
+    val correctOptionId: String,
+    val feedbackLadder: CheckpointFeedbackLadder,
+)
+
+@Serializable
+data class CheckpointOption(val id: String, val text: String)
+
+@Serializable
+data class CheckpointFeedbackLadder(
+    @SerialName("hint1_clue") val hint1Clue: String,
+    @SerialName("hint2_worked_example") val hint2WorkedExample: String,
+    @SerialName("hint3_prereq_subquestion") val hint3PrereqSubquestion: String,
+)
+
+@Serializable
+enum class CheckpointType { PREDICTION, QUICK_CHECK, HANDS_ON_PAPER, VOCAB_SPOTLIGHT }
 
 /** Versioned, optional media catalog served independently from lesson content. */
 @Serializable

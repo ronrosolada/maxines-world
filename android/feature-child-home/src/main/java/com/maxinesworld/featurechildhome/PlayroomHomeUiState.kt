@@ -84,7 +84,7 @@ data class QuestTargetUi(
     val isReadyOffline: Boolean = false,
 )
 
-enum class QuestTargetType { VIDEO, ARENA }
+enum class QuestTargetType { VIDEO, ARENA, HOME_PRACTICE }
 
 enum class QuestTaskCopy {
     ParentMode,

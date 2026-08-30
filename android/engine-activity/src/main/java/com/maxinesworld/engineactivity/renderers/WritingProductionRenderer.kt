@@ -73,6 +73,10 @@ internal fun writingActionLabel(
 internal fun writingChecklistComplete(marks: List<Boolean>): Boolean =
     marks.isNotEmpty() && marks.all { it }
 
+/** Both interactive halves require authored content to render safely. */
+internal fun writingProductionContentIsRenderable(tileCount: Int, checklistCount: Int): Boolean =
+    tileCount > 0 && checklistCount > 0
+
 @Composable
 fun WritingProductionRenderer(
     step: ActivityStep,

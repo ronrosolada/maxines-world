@@ -130,12 +130,12 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                     horizontalArrangement = Arrangement.spacedBy(24.dp),
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(Icons.Default.Star, "Stars", tint = SunshineGold, modifier = Modifier.height(28.dp))
-                        Text("+$starsEarned Learning Stars", fontWeight = FontWeight.Bold, fontSize = 15.sp)
+                        Icon(Icons.Default.Star, lessonUiText(lang, "Stars", "Mga bituin"), tint = SunshineGold, modifier = Modifier.height(28.dp))
+                        Text(lessonUiText(lang, "+$starsEarned Learning Stars", "+$starsEarned Bituin sa Pagkatuto"), fontWeight = FontWeight.Bold, fontSize = 15.sp)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(Icons.Default.Pets, "Sanctuary tokens", tint = VillageTeal, modifier = Modifier.height(28.dp))
-                        Text("+$coinsEarned Tokens", fontWeight = FontWeight.Bold, fontSize = 15.sp)
+                        Text(lessonUiText(lang, "+$coinsEarned Tokens", "+$coinsEarned Token"), fontWeight = FontWeight.Bold, fontSize = 15.sp)
                     }
                 }
             }
@@ -143,7 +143,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
             if (state.activityPawPrintsEarned > 0) {
                 Spacer(Modifier.height(8.dp))
                 Text(
-                    "You filled ${state.activityPawPrintsEarned} learning paw prints.",
+                    lessonUiText(lang, "You filled ${state.activityPawPrintsEarned} learning paw prints.", "Napunan mo ang ${state.activityPawPrintsEarned} bakas ng paa sa pagkatuto."),
                     color = Teal40,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp,
@@ -157,7 +157,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                     colors = CardDefaults.cardColors(containerColor = LeafGreen.copy(alpha = 0.16f)),
                 ) {
                     Column(Modifier.padding(14.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("Daily Quest complete!", fontWeight = FontWeight.ExtraBold, color = Teal40)
+                        Text(lessonUiText(lang, "Daily Quest complete!", "Tapos na ang Pang-araw-araw na Hamon!"), fontWeight = FontWeight.ExtraBold, color = Teal40)
                         Text(
                             state.sanctuaryPieceId
                                 ?.let { SanctuaryCatalog.byId(it)?.name }
@@ -185,7 +185,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                 },
                 label = "rewardGatePop",
             )
-            MaxinesPrimaryButton(onClick = onComplete, text = "Continue", modifier = Modifier.fillMaxWidth())
+            MaxinesPrimaryButton(onClick = onComplete, text = lessonUiText(lang, "Continue", "Magpatuloy"), modifier = Modifier.fillMaxWidth())
             if (state.rewardBreakId != null) {
                 Spacer(Modifier.height(12.dp))
                 Box(Modifier.fillMaxWidth().graphicsLayer(scaleX = rewardPop, scaleY = rewardPop)) {
@@ -200,7 +200,7 @@ fun LessonCompleteScreen(state: LessonUiState, onComplete: () -> Unit, onPlayGam
                     ) {
                         Icon(Icons.Default.SportsEsports, "Games", modifier = Modifier.height(22.dp))
                         Spacer(Modifier.height(8.dp))
-                        Text("Play a Reward Game", fontSize = 18.sp)
+                        Text(lessonUiText(lang, "Play a Reward Game", "Maglaro ng Gantimpalang Laro"), fontSize = 18.sp)
                     }
                 }
             }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CloudDownload
 import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material.icons.filled.Replay
 import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -27,10 +29,13 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -54,7 +59,15 @@ import com.maxinesworld.coredesignsystem.theme.Ink
 import com.maxinesworld.coredesignsystem.theme.Teal40
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
 import com.maxinesworld.coremodel.ActivityStep
+import com.maxinesworld.coremodel.CheckpointType
+import com.maxinesworld.coremodel.VideoCheckpointItem
+import kotlinx.coroutines.delay
 import java.io.File
+
+internal val VIDEO_PLAYBACK_SPEEDS = listOf(0.75f, 1.0f, 1.25f, 1.5f, 2.0f)
+
+internal fun replaySegmentPosition(currentPositionMs: Long): Long =
+    maxOf(0L, currentPositionMs - 5_000L)
 
 @Composable
 internal fun VideoStep(
@@ -62,6 +75,7 @@ internal fun VideoStep(
     mediaState: MediaDownloadUiState,
     onDownload: () -> Unit,
     onContinue: () -> Unit,
+    checkpoints: List<VideoCheckpointItem> = emptyList(),
 ) {
     val mediaId = step.mediaId
     val localFile = mediaState.filePath
@@ -84,7 +98,7 @@ internal fun VideoStep(
                 )
             }
 
-            localFile != null -> OfflineVideoPlayer(localFile)
+            localFile != null -> OfflineVideoPlayer(localFile, checkpoints = checkpoints)
 
             else -> {
                 MediaStatusCard(
@@ -154,11 +168,16 @@ private fun MediaStatusCard(
 internal fun OfflineVideoPlayer(
     file: File,
     onCompleted: () -> Unit = {},
+    checkpoints: List<VideoCheckpointItem> = emptyList(),
 ) {
     val context = LocalContext.current
     val currentOnCompleted = androidx.compose.runtime.rememberUpdatedState(onCompleted)
     var currentSpeed by androidx.compose.runtime.saveable.rememberSaveable { mutableFloatStateOf(1.0f) }
     var savedPosition by androidx.compose.runtime.saveable.rememberSaveable(file.absolutePath) { androidx.compose.runtime.mutableLongStateOf(0L) }
+    val runtime = remember(file.absolutePath, checkpoints) { VideoCheckpointRuntime(checkpoints) }
+    var activeCheckpoint by remember { mutableStateOf<VideoCheckpointItem?>(null) }
+    var selectedOptionId by remember { mutableStateOf<String?>(null) }
+    var submitted by remember { mutableStateOf(false) }
 
     val player = remember(file.absolutePath) {
         ExoPlayer.Builder(context).build().apply {
@@ -187,6 +206,7 @@ internal fun OfflineVideoPlayer(
         }
     }
 
+    LaunchedEffect(player, runtime) { while (true) { runtime.check(player.currentPosition)?.let { player.pause(); activeCheckpoint=it; selectedOptionId=null; submitted=false }; delay(200) } }
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Box(
             modifier = Modifier
@@ -207,6 +227,7 @@ internal fun OfflineVideoPlayer(
                 },
                 update = { it.player = player },
             )
+            activeCheckpoint?.let { cp -> VideoCheckpointOverlay(cp, selectedOptionId, submitted, runtime.visibleHint, runtime.answerIsCorrect, { if(!submitted) selectedOptionId=it }, { submitted=selectedOptionId!=null; runtime.submit(selectedOptionId) }, { player.seekTo(replaySegmentPosition(player.currentPosition)) }, { if(runtime.acknowledge()){ activeCheckpoint=null; player.play() } }) }
         }
 
         // Playback speed control bar (1.0x, 1.25x, 1.5x, 2.0x)
@@ -234,7 +255,7 @@ internal fun OfflineVideoPlayer(
             }
 
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                listOf(1.0f, 1.25f, 1.5f, 2.0f).forEach { speed ->
+                VIDEO_PLAYBACK_SPEEDS.forEach { speed ->
                     val isSelected = currentSpeed == speed
                     Surface(
                         shape = RoundedCornerShape(8.dp),
@@ -257,3 +278,12 @@ internal fun OfflineVideoPlayer(
         }
     }
 }
+
+internal class VideoCheckpointRuntime(checkpoints: List<VideoCheckpointItem>) {
+ private val ordered=checkpoints.sortedBy{it.positionMs}; private val completed=mutableSetOf<String>(); var activeCheckpoint:VideoCheckpointItem?=null; private set; var selectedOptionId:String?=null; private set; var answerIsCorrect=false; private set; private var wrongAttempts=0
+ val completedCheckpointIds:Set<String> get()=completed.toSet(); val visibleHint:String? get()=activeCheckpoint?.feedbackLadder?.let{when(wrongAttempts.coerceAtMost(3)){1->it.hint1Clue;2->it.hint2WorkedExample;3->it.hint3PrereqSubquestion;else->null}}
+ fun check(positionMs:Long):VideoCheckpointItem? { if(activeCheckpoint!=null)return null; return ordered.firstOrNull{it.checkpointId !in completed&&positionMs>=it.positionMs}?.also{activeCheckpoint=it;selectedOptionId=null;answerIsCorrect=false;wrongAttempts=0} }
+ fun submit(optionId:String?):Boolean {val cp=activeCheckpoint?:return false;if(optionId==null)return false;selectedOptionId=optionId;answerIsCorrect=optionId==cp.correctOptionId;if(!answerIsCorrect)wrongAttempts++;return answerIsCorrect}
+ fun acknowledge():Boolean {val cp=activeCheckpoint?:return false;if(selectedOptionId==null)return false;completed+=cp.checkpointId;activeCheckpoint=null;return true}
+}
+@Composable private fun VideoCheckpointOverlay(cp:VideoCheckpointItem,selected:String?,submitted:Boolean,hint:String?,correct:Boolean,select:(String)->Unit,submit:()->Unit,replay:()->Unit,ack:()->Unit){Surface(modifier=Modifier.fillMaxSize(),color=Cream.copy(alpha=.97f)){Column(Modifier.padding(16.dp),verticalArrangement=Arrangement.spacedBy(8.dp)){Text(when(cp.type){CheckpointType.PREDICTION->"Make a prediction";CheckpointType.QUICK_CHECK->"Quick check";CheckpointType.HANDS_ON_PAPER->"Hands on paper";CheckpointType.VOCAB_SPOTLIGHT->"Vocabulary spotlight"},fontWeight=FontWeight.Bold,color=VillageTeal);Text(cp.prompt,fontWeight=FontWeight.Bold,color=Ink);TextButton(onClick=replay){Icon(Icons.Default.Replay,contentDescription=null);Spacer(Modifier.width(6.dp));Text("Replay Video Segment")};cp.options.forEach{o->Surface(modifier=Modifier.fillMaxWidth().clickable{select(o.id)},shape=RoundedCornerShape(8.dp),color=if(selected==o.id)Teal40.copy(alpha=.25f)else Color.White){Text(o.text,Modifier.padding(8.dp),color=Ink)}};if(submitted){Text(if(correct)"Correct!" else hint?:"Try another answer.",color=Ink);MaxinesPrimaryButton(onClick=ack,text="Continue video",modifier=Modifier.fillMaxWidth())}else TextButton(onClick=submit,enabled=selected!=null){Text("Check answer")}}}}

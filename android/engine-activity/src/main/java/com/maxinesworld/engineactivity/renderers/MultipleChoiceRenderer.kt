@@ -5,6 +5,10 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Replay
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
@@ -28,7 +32,8 @@ fun MultipleChoiceRenderer(
     step: ActivityStep,
     onResult: (ActivityResult) -> Unit,
     onHint: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNarrationReplay: (String) -> Unit = {},
 ) {
     val startTime = remember { System.currentTimeMillis() }
     var attempts by remember { mutableIntStateOf(0) }
@@ -72,6 +77,14 @@ fun MultipleChoiceRenderer(
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.semantics { contentDescription = "Question: ${step.question}" }
         )
+
+        if (hasReplayableNarration(step)) {
+            TextButton(onClick = { onNarrationReplay(narrationPhrase(step)) }) {
+                Icon(Icons.Default.Replay, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text("Replay Phrase")
+            }
+        }
 
         options.forEachIndexed { index, option ->
             val cardState = when {
@@ -182,14 +195,14 @@ fun MultipleChoiceRenderer(
                         hintVisible = true
                         onHint()
                     },
-                    text = "Hint",
+                    text = activityUiText(step.language, "Hint", "Pahiwatig"),
                     containerColor = SunshineGold,
                     contentColor = OnGold,
                     enabled = !submitted || feedbackState == false,
                     modifier = Modifier
                         .weight(1f)
                         .sizeIn(minHeight = 48.dp)
-                        .semantics { contentDescription = "Get a hint" }
+                        .semantics { contentDescription = activityUiText(step.language, "Get a hint", "Kumuha ng pahiwatig") }
                 )
             }
 
@@ -222,9 +235,9 @@ fun MultipleChoiceRenderer(
                     }
                 },
                 text = when {
-                    submitted && feedbackState == false && attempts >= 3 -> "Keep going →"
-                    submitted && feedbackState == false -> "Retry"
-                    else -> "Submit"
+                    submitted && feedbackState == false && attempts >= 3 -> activityUiText(step.language, "Keep going →", "Magpatuloy →")
+                    submitted && feedbackState == false -> activityUiText(step.language, "Try Again", "Subukan Muli")
+                    else -> activityUiText(step.language, "Submit", "Isumite")
                 },
                 containerColor = if (submitted && feedbackState == false) Coral else VillageTeal,
                 contentColor = if (submitted && feedbackState == false) OnCoral else White,
@@ -233,7 +246,7 @@ fun MultipleChoiceRenderer(
                     .weight(1f)
                     .sizeIn(minHeight = 48.dp)
                     .semantics {
-                        contentDescription = if (submitted && feedbackState == false) "Retry" else "Submit answer"
+                        contentDescription = if (submitted && feedbackState == false) activityUiText(step.language, "Try Again", "Subukan Muli") else activityUiText(step.language, "Submit answer", "Isumite ang sagot")
                     }
             )
         }

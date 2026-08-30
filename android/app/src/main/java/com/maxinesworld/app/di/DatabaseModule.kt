@@ -61,6 +61,7 @@ object DatabaseModule {
                 MaxinesMigrations.MIGRATION_8_9,
                 MaxinesMigrations.MIGRATION_9_10,
                 MaxinesMigrations.MIGRATION_10_11,
+                MaxinesMigrations.MIGRATION_11_12,
             )
             // Last-resort crash prevention: if an unknown schema version ever
             // appears (e.g. a build that shipped and was later rolled back),

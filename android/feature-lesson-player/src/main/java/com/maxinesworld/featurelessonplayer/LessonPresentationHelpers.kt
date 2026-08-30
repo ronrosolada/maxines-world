@@ -25,9 +25,9 @@ import com.maxinesworld.coredesignsystem.theme.Ink
 import com.maxinesworld.coredesignsystem.theme.Teal40
 import com.maxinesworld.coremodel.ActivityStep
 
-/** Minimal lesson-chrome localization retained for completion and renderer contracts. */
+/** Localizes chrome for Filipino-language and Filipino-taught learning areas. */
 internal fun lessonUiText(language: String?, en: String, fil: String): String =
-    if (language?.lowercase()?.startsWith("fil") == true) fil else en
+    if (language?.trim()?.lowercase() in setOf("fil", "fil-ph", "filipino", "makabansa", "gmrc")) fil else en
 
 /** Returns the localized fallback message shown when lesson narration is unavailable. */
 internal fun ttsUnavailableMessage(language: String?): String =
