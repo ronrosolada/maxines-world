@@ -205,9 +205,9 @@ fun MiniGameLibraryScreen(
                         .fillMaxSize()
                         .background(Cream)
                         .padding(paddingValues),
-                    contentPadding = PaddingValues(16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                    contentPadding = PaddingValues(horizontal = 24.dp, vertical = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
                 ) {
                     item(span = { GridItemSpan(maxLineSpan) }) {
                         LibraryHeader(

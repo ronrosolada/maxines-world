@@ -39,6 +39,7 @@ import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.PlayCircle
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -183,9 +184,10 @@ internal fun LearningStreakCard(
         "${stringResource(R.string.home_streak_no_learning_days)} $title. $explanation"
     }
 
-    Card(
+    Surface(
         modifier = modifier
             .fillMaxWidth()
+            .heightIn(min = 64.dp, max = 72.dp)
             .graphicsLayer(scaleX = cardScale.value, scaleY = cardScale.value)
             .testTag(PlayroomHomeTestTags.Streak)
             .clickable(
@@ -196,12 +198,11 @@ internal fun LearningStreakCard(
             .semantics(mergeDescendants = true) {
                 contentDescription = accessibleLabel
             },
-        shape = RoundedCornerShape(18.dp),
-        colors = CardDefaults.cardColors(containerColor = PlayCream.copy(alpha = 0.94f)),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        shape = RoundedCornerShape(16.dp),
+        color = PlayCream,
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Box(
@@ -284,8 +285,8 @@ private fun BalanceChips(stars: Int, coins: Int, modifier: Modifier = Modifier) 
         }
     }
     Row(modifier.graphicsLayer(scaleX = balScale.value, scaleY = balScale.value), horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
-        BalanceChip("stars", "★", stars, PlaySunshine)
-        BalanceChip("sanctuary tokens", "●", coins, PlayTeal)
+        BalanceChip("stars", Icons.Default.Star, stars, PlaySunshine)
+        BalanceChip("sanctuary tokens", Icons.Default.Pets, coins, PlayTeal)
     }
 }
 
@@ -340,7 +341,7 @@ private fun KeepsakesStrip(keepsakes: List<KeepsakeUi>) {
 }
 
 @Composable
-private fun BalanceChip(label: String, icon: String, value: Int, tint: Color) {
+private fun BalanceChip(label: String, icon: ImageVector, value: Int, tint: Color) {
     Surface(
         modifier = Modifier.semantics(mergeDescendants = true) {
             contentDescription = "$value $label"
@@ -354,7 +355,7 @@ private fun BalanceChip(label: String, icon: String, value: Int, tint: Color) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
-            Text(icon, fontSize = 16.sp, color = tint, fontWeight = FontWeight.Black)
+            Icon(icon, contentDescription = label, tint = tint, modifier = Modifier.size(18.dp))
             Text(
                 "$value",
                 color = PlayInk,

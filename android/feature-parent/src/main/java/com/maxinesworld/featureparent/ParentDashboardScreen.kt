@@ -460,7 +460,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
             navigationIcon = {
                 IconButton(onBack) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back") }
             },
-            colors = TopAppBarDefaults.topAppBarColors(containerColor = VillageTeal, titleContentColor = Color.White, navigationIconContentColor = Color.White)
+            colors = TopAppBarDefaults.topAppBarColors(containerColor = VillageTeal, titleContentColor = White, navigationIconContentColor = White)
         )
 
         if (state.isLoading) {
@@ -471,9 +471,10 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
             Column(
                 Modifier
                     .fillMaxSize()
+                    .background(Cream)
                     .verticalScroll(rememberScrollState())
-                    .padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+                    .padding(horizontal = 24.dp, vertical = 24.dp),
+                verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
                 // Child info card
                 Card(colors = CardDefaults.cardColors(containerColor = VillageTeal.copy(alpha = 0.08f))) {
@@ -843,7 +844,7 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
             onDismiss = { showAwardStickerDialog = false },
             onAward = { badge ->
                 viewModel.awardSticker(childId, badge)
-                Toast.makeText(context, "Awarded ${badge.name} sticker to Maxine! ✨", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Awarded ${badge.name} sticker to Maxine.", Toast.LENGTH_SHORT).show()
             }
         )
     }

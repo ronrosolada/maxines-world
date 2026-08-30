@@ -44,10 +44,24 @@ internal fun CaregiverPhrasesDeck(
     val practicedToday = remember { mutableStateMapOf<String, Boolean>() }
     val cards = repository.filterCards(query, category)
 
-    Card(colors = CardDefaults.cardColors(containerColor = VillageTeal.copy(alpha = 0.06f)), shape = RoundedCornerShape(18.dp)) {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Text("Home Practice Phrases", fontWeight = FontWeight.Bold, color = Ink)
-            Text("Try one Filipino phrase in a real family moment today.", color = Ink.copy(alpha = 0.7f))
+    Card(
+        colors = CardDefaults.cardColors(containerColor = VillageTeal.copy(alpha = 0.06f)),
+        shape = RoundedCornerShape(16.dp),
+    ) {
+        Column(Modifier.padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    "Home Practice Phrases",
+                    style = androidx.compose.material3.MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = Ink,
+                )
+                Text(
+                    "Try one Filipino phrase in a real family moment today.",
+                    style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
+                    color = Ink.copy(alpha = 0.72f),
+                )
+            }
             OutlinedTextField(
                 value = query,
                 onValueChange = { query = it },

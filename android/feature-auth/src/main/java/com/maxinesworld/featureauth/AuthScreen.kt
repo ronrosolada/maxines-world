@@ -285,9 +285,9 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
         if (locked) {
             Spacer(Modifier.height(8.dp))
             Surface(
-                shape = RoundedCornerShape(12.dp),
-                color = ErrorRed.copy(alpha = 0.08f),
-                border = androidx.compose.foundation.BorderStroke(1.dp, ErrorRed.copy(alpha = 0.25f)),
+                shape = RoundedCornerShape(16.dp),
+                color = SunshineGold.copy(alpha = 0.12f),
+                border = androidx.compose.foundation.BorderStroke(1.dp, SunshineGold.copy(alpha = 0.4f)),
                 modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
             ) {
                 Column(
@@ -296,10 +296,10 @@ private fun PinLoginScreen(state: AuthUiState, viewModel: ParentAuthViewModel) {
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
                     Text(
-                        "🔒 Keypad Locked (${state.lockRemainingSeconds}s remaining)",
+                        "Please take a short pause (${state.lockRemainingSeconds}s)",
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.Bold,
-                        color = ErrorRed,
+                        color = Teal40,
                         textAlign = TextAlign.Center,
                     )
                     Text(

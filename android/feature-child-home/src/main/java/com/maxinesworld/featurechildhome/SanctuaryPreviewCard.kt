@@ -128,9 +128,10 @@ internal fun SanctuaryPreview(
 
     Card(
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(22.dp),
-        colors = CardDefaults.cardColors(containerColor = PlayroomColors.SanctuarySurface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = PlayCream),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        border = BorderStroke(1.dp, PlaySunshine.copy(alpha = 0.28f)),
     ) {
         Column(Modifier.fillMaxWidth().padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -508,7 +509,7 @@ private fun SanctuaryPieceInspectionDialog(
                                     modifier = Modifier.padding(vertical = 2.dp)
                                 ) {
                                     Text(
-                                        "🐾 $animal",
+                                        animal,
                                         style = MaterialTheme.typography.labelSmall,
                                         fontWeight = FontWeight.Medium,
                                         color = PlayInk,
@@ -548,11 +549,11 @@ internal fun WildlifeStickersPreview(
     onOpenCollection: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Card(
+    Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(22.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        shape = RoundedCornerShape(20.dp),
+        color = PlayCream,
+        border = BorderStroke(1.dp, PlaySunshine.copy(alpha = 0.28f)),
     ) {
         Column(Modifier.fillMaxWidth().padding(14.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -624,7 +625,7 @@ private fun StickerSlot(sticker: StickerUi) {
                 RoundedCornerShape(10.dp),
             )
             .border(
-                2.dp,
+                1.dp,
                 if (sticker.won) PlaySunshine else PlayroomColors.StickerLockedBorder,
                 RoundedCornerShape(10.dp),
             )

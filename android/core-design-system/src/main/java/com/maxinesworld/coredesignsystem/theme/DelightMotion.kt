@@ -21,11 +21,25 @@ object DelightMotion {
     val EaseOutBack: Easing = CubicBezierEasing(0.34f, 1.56f, 0.64f, 1f)
     val EaseInOutQuad: Easing = CubicBezierEasing(0.455f, 0.03f, 0.515f, 0.955f)
 
-    // Durations (ms)
-    const val QuickPopMs = 420
+    // One-shot interaction durations (ms). Keep celebratory sequences bounded.
+    const val PawPopMs = 240
+    const val CheckPopMs = 180
+    const val TrophyEntranceMs = 360
+    const val RewardRevealMs = 420
+    const val ReducedMotionCrossfadeMs = 120
+
+    // Existing animation contracts retained for callers.
+    const val QuickPopMs = RewardRevealMs
     const val BouncyMs = 800
     const val ConfettiMs = 3000
     const val SparkleMs = 4000
+
+    // Specs — ready to pass to animate*AsState
+    fun pawPopSpec() = tween<Float>(durationMillis = PawPopMs, easing = FastOutSlowInEasing)
+    fun checkPopSpec() = tween<Float>(durationMillis = CheckPopMs, easing = FastOutSlowInEasing)
+    fun trophyEntranceSpec() = tween<Float>(durationMillis = TrophyEntranceMs, easing = EaseOutCubic)
+    fun rewardRevealSpec() = tween<Float>(durationMillis = RewardRevealMs, easing = EaseOutCubic)
+    fun reducedMotionCrossfadeSpec() = tween<Float>(durationMillis = ReducedMotionCrossfadeMs)
 
     // Specs — ready to pass to animate*AsState
     fun bouncySpec() = tween<Float>(durationMillis = BouncyMs, easing = EaseOutBack)

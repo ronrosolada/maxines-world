@@ -112,8 +112,8 @@ fun CatCafeDashScreen(
 
 @Composable
 private fun GameStage(ui: CatCafeUiState, vm: CatCafeViewModel, sounds: CafeSoundPlayer, modifier: Modifier) {
-    Card(modifier, shape = RoundedCornerShape(28.dp), colors = CardDefaults.cardColors(Cream.copy(alpha = .96f))) {
-        Column(Modifier.fillMaxSize().padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+    Card(modifier, shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(Cream.copy(alpha = .96f))) {
+        Column(Modifier.fillMaxSize().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             OrderHeader(ui.game.order)
             Spacer(Modifier.height(8.dp))
             Text(ui.game.feedback, color = Ink, fontSize = 19.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center)
@@ -185,8 +185,8 @@ private fun Tray(items: List<FoodItem>, onRemove: (Int) -> Unit, modifier: Modif
 @Composable
 private fun FoodGrid(enabled: Boolean, onFood: (FoodItem) -> Unit, modifier: Modifier) {
     LazyVerticalGrid(
-        columns = GridCells.Adaptive(94.dp), modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
+        columns = GridCells.Adaptive(104.dp), modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(12.dp), verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(FoodItem.entries) { item ->
             Card(
@@ -204,8 +204,8 @@ private fun FoodGrid(enabled: Boolean, onFood: (FoodItem) -> Unit, modifier: Mod
 
 @Composable
 private fun SidePanel(ui: CatCafeUiState, vm: CatCafeViewModel, onExit: () -> Unit, modifier: Modifier) {
-    Card(modifier, shape = RoundedCornerShape(28.dp), colors = CardDefaults.cardColors(Teal.copy(alpha = .96f))) {
-        Column(Modifier.fillMaxSize().padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+    Card(modifier, shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(Teal.copy(alpha = .96f))) {
+        Column(Modifier.fillMaxSize().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Text("Cat Café Dash", color = Color.White, fontWeight = FontWeight.ExtraBold, fontSize = 28.sp)
             Text(formatTime(ui.remainingMillis), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 34.sp,
                 modifier = Modifier.semantics { contentDescription = "${formatTime(ui.remainingMillis)} reward break time remaining" })
@@ -252,7 +252,7 @@ private fun CompactHeader(ui: CatCafeUiState, onExit: () -> Unit, vm: CatCafeVie
 @Composable
 private fun PauseOverlay(onResume: () -> Unit) {
     Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha=.72f)).clickable(onClick=onResume), contentAlignment = Alignment.Center) {
-        Card(shape = RoundedCornerShape(28.dp)) {
+        Card(shape = RoundedCornerShape(20.dp)) {
             Column(Modifier.padding(32.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Icon(Icons.Default.Pause, null, Modifier.size(56.dp), tint=Teal)
                 Text("Café paused", fontSize=28.sp, fontWeight=FontWeight.Bold, color=Ink)

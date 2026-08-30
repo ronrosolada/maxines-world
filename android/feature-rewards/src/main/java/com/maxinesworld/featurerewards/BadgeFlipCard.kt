@@ -110,7 +110,7 @@ private fun BadgeFlipFront(
     Column(
         Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -120,7 +120,7 @@ private fun BadgeFlipFront(
             fallbackTint = accentColor,
         )
         Spacer(Modifier.height(8.dp))
-        Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 18.sp, color = accentColor)
+        Text(badge.title, fontWeight = FontWeight.Bold, fontSize = 17.sp, color = accentColor)
         Text(badge.name, fontSize = 13.sp, color = Ink.copy(alpha = 0.65f))
         Spacer(Modifier.height(12.dp))
         Text(
@@ -164,7 +164,7 @@ private fun BadgeFlipBack(
             Text(
                 "${badgePhotoKindLabel(badge.photoKind)} · Photo credit: $credit" +
                     (badge.photoLicense?.let { " · $it" } ?: ""),
-                fontSize = 9.sp,
+                fontSize = 11.sp,
                 lineHeight = 12.sp,
                 color = Ink.copy(alpha = 0.5f),
             )

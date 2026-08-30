@@ -10,16 +10,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.height
 import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -125,14 +122,12 @@ private fun RewardBreakUnavailable(
     // For "locked gate" case, morph lock → controller feel: alpha crossfade + scale, not a true SVG morph.
     val gateAlpha by androidx.compose.animation.core.animateFloatAsState(
         targetValue = 1f,
-        animationSpec = if (reduceMotion) androidx.compose.animation.core.snap() else tween(620, easing = FastOutSlowInEasing),
+        animationSpec = if (reduceMotion) androidx.compose.animation.core.snap() else tween(400, easing = FastOutSlowInEasing),
         label = "gateAlpha",
     )
-    val ringScale by if (reduceMotion || !unlocked) remember(message) { androidx.compose.runtime.mutableStateOf(1f) } else rememberInfiniteTransition(label = "gateRing").animateFloat(
-        1f, 1.06f, infiniteRepeatable(tween(1400, easing = FastOutSlowInEasing), RepeatMode.Reverse), "ringPulse"
-    ).let { s -> s as androidx.compose.runtime.State<Float>; s }
+    val ringScale = 1f
     Column(
-        Modifier.fillMaxSize().padding(32.dp),
+        Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
     ) {
@@ -158,7 +153,7 @@ private fun RewardBreakUnavailable(
             )
         }
         Spacer(Modifier.height(16.dp))
-        Text(message, textAlign = TextAlign.Center, fontSize = 19.sp, color = Ink)
+        Text(message, textAlign = TextAlign.Center, style = MaterialTheme.typography.titleMedium, color = Ink)
         Spacer(Modifier.height(24.dp))
         Button(onClick = onReturnToVillage, shape = RoundedCornerShape(16.dp)) {
             Icon(Icons.Default.Home, "Playroom")

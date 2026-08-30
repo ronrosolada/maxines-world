@@ -37,6 +37,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maxinesworld.coredesignsystem.theme.*
 
+// ─── Shared layout metrics ───
+
+/** 4dp-grid spacing tiers shared by caregiver and child surfaces. */
+object MaxinesSpacing {
+    val XSmall = 8.dp
+    val Small = 12.dp
+    val Medium = 16.dp
+    val Large = 24.dp
+    val XLarge = 32.dp
+    val Chapter = 40.dp
+}
+
+/** Restrained radius family: flatter for adult UI, softer for child UI. */
+object MaxinesRadii {
+    val Compact = 12.dp
+    val Control = 14.dp
+    val Card = 16.dp
+    val Feature = 20.dp
+}
+
 // ─── Utility ───
 
 /** Darken a color by the given factor (0..1). Default 0.7 = 30% darker. */

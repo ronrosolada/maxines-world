@@ -110,14 +110,27 @@ internal fun SubjectGrid(
     onSubjectClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val featured = subjects.firstOrNull { it.id == firstFocusId } ?: subjects.firstOrNull()
+    val remaining = subjects.filterNot { it.id == featured?.id }
     Column(
         modifier = modifier.testTag(PlayroomHomeTestTags.SubjectGrid),
-        verticalArrangement = Arrangement.spacedBy(14.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        subjects.chunked(columns).forEach { rowSubjects ->
+        featured?.let { subject ->
+            SubjectCard(
+                subject = subject,
+                opening = subject.id == openingSubjectId,
+                firstFocus = subject.id == firstFocusId,
+                firstFocusRequester = firstFocusRequester,
+                onClick = { onSubjectClick(subject.id) },
+                featured = true,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+        remaining.chunked(columns).forEach { rowSubjects ->
             Row(
                 Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(14.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 rowSubjects.forEach { subject ->
                     SubjectCard(
@@ -143,6 +156,7 @@ private fun SubjectCard(
     firstFocusRequester: FocusRequester,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    featured: Boolean = false,
 ) {
     val accent = subjectAccent(subject.id)
     val pale = subjectPale(subject.id)
@@ -191,7 +205,7 @@ private fun SubjectCard(
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .heightIn(min = 150.dp)
+            .heightIn(min = if (featured) 120.dp else 104.dp)
             .testTag(PlayroomHomeTestTags.subject(subject.id))
             .semantics(mergeDescendants = true) {
                 contentDescription = spoken
@@ -205,7 +219,7 @@ private fun SubjectCard(
             .border(
                 width = if (focused) 3.dp else 0.dp,
                 color = if (focused) PlayTeal else Color.Transparent,
-                shape = RoundedCornerShape(22.dp),
+                shape = RoundedCornerShape(16.dp),
             )
             .clickable(
                 enabled = enabled,
@@ -215,11 +229,12 @@ private fun SubjectCard(
                 onClickLabel = "Open ${subject.formalName}",
                 onClick = onClick,
             ),
-        shape = RoundedCornerShape(22.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp, pressedElevation = 1.dp),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = pale),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp, pressedElevation = 0.dp),
     ) {
         Box(Modifier.fillMaxWidth()) {
+            Box(Modifier.fillMaxHeight().width(4.dp).background(accent))
             Column(
                 Modifier.fillMaxWidth().padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp),

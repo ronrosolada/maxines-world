@@ -146,17 +146,20 @@ internal fun TodayQuestCard(
                 leadingContent = { PawGlyph(PlayroomColors.LockedSurfaceText, size = 20.dp) },
             )
 
-            Column(Modifier.padding(20.dp)) {
+            Column(
+                modifier = Modifier.padding(24.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Box(
-                        Modifier.size(64.dp).clip(CircleShape).background(Color.White, CircleShape),
+                        Modifier.size(56.dp).clip(CircleShape).background(Color.White, CircleShape),
                         contentAlignment = Alignment.Center,
                     ) {
                         Icon(
                             painterResource(R.drawable.mw_mascot_guide),
                             contentDescription = null,
                             tint = Color.Unspecified,
-                            modifier = Modifier.size(58.dp),
+                            modifier = Modifier.size(52.dp),
                         )
                     }
                     Spacer(Modifier.width(12.dp))
@@ -180,13 +183,16 @@ internal fun TodayQuestCard(
                                     val reduceMotionQuest = LocalAnimationsDisabled.current
                                     val pawScale by animateFloatAsState(
                                         targetValue = if (filled) 1f else 0.95f,
-                                        animationSpec = if (reduceMotionQuest) snap() else spring(dampingRatio = 0.62f, stiffness = 720f),
+                                        animationSpec = if (reduceMotionQuest) snap() else tween(
+                                            durationMillis = 240,
+                                            easing = FastOutSlowInEasing,
+                                        ),
                                         label = "pawScale$i",
                                     )
                                     // Only pop the paw that just filled: stagger hint via index
                                     Box(Modifier.graphicsLayer(scaleX = if (!reduceMotionQuest && filled) pawScale else 1f, scaleY = if (!reduceMotionQuest && filled) pawScale else 1f)) {
                                         PawGlyph(
-                                            if (filled) PlaySunshine else PlayInk.copy(alpha = 0.18f),
+                                            if (filled) PlayTeal else PlayInk.copy(alpha = 0.18f),
                                             size = 18.dp,
                                         )
                                     }
@@ -325,13 +331,24 @@ internal fun TodayQuestCard(
                                                 shape = RoundedCornerShape(8.dp),
                                                 color = PlaySuccess.copy(alpha = 0.15f),
                                             ) {
-                                                Text(
-                                                    "🐾 Offline",
+                                                Row(
                                                     modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp),
-                                                    color = PlaySuccess,
-                                                    fontSize = 11.sp,
-                                                    fontWeight = FontWeight.Bold,
-                                                )
+                                                    verticalAlignment = Alignment.CenterVertically,
+                                                ) {
+                                                    Icon(
+                                                        Icons.Default.Pets,
+                                                        contentDescription = "Available offline",
+                                                        tint = SuccessGreenText,
+                                                        modifier = Modifier.size(14.dp),
+                                                    )
+                                                    Spacer(Modifier.width(4.dp))
+                                                    Text(
+                                                        "Offline",
+                                                        color = SuccessGreenText,
+                                                        fontSize = 11.sp,
+                                                        fontWeight = FontWeight.Bold,
+                                                    )
+                                                }
                                             }
                                             Spacer(Modifier.width(6.dp))
                                         }
