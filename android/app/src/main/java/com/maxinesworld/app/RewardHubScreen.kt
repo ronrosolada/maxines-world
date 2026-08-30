@@ -45,6 +45,7 @@ fun RewardHubScreen(
     onPlayParkour: (Long) -> Unit,
     onPlayKittenMatch: (Long) -> Unit,
     onPlaySourceGame: (String, Long) -> Unit,
+    onPlayTarsier: (Long) -> Unit = {},
     onReturnToVillage: () -> Unit,
     viewModel: RewardBreakViewModel = androidx.hilt.navigation.compose.hiltViewModel(),
 ) {
@@ -55,6 +56,7 @@ fun RewardHubScreen(
         onPlayCatCafe = onPlayCatCafe,
         onPlayParkour = onPlayParkour,
         onPlayKittenMatch = onPlayKittenMatch,
+        onPlayTarsier = onPlayTarsier,
         consumeOnBack = true,
         onBack = onReturnToVillage,
         onReturnToVillage = onReturnToVillage,

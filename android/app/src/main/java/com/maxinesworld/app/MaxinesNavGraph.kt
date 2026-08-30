@@ -50,7 +50,11 @@ import com.maxinesworld.gamecatcafe.CatCafeDashScreen
 import com.maxinesworld.gamekittenmatch.KittenMatchScreen
 import com.maxinesworld.gamepawprintparkour.PawprintParkourScreen
 import com.maxinesworld.gamepawprintparkour.ParkourResult
+import com.maxinesworld.gametarsiercanopy.TARSIER_CANOPY_GAME_ID
 import com.maxinesworld.gametarsiercanopy.TarsierCanopyScreen
+import com.maxinesworld.gametarsiercanopy.TarsierResult
+import com.maxinesworld.featurerangerjournal.PolaroidCameraScreen
+import com.maxinesworld.featurerangerjournal.RangerJournalScreen
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.launch
 
@@ -65,13 +69,13 @@ object Routes {
     const val PARENT_GATE = "parent_gate/{childId}"
     const val WILDLIFE_FIELD_GUIDE = "wildlife_field_guide/{childId}?badgeId={badgeId}"
     const val SANCTUARY = "sanctuary/{childId}"
-    const val JOURNAL = "journal/{childId}"
+    const val RANGER_JOURNAL = "ranger_journal/{childId}"
+    const val RANGER_CAMERA = "ranger_camera/{childId}?sceneId={sceneId}"
 
     private fun segment(value: String): String = Uri.encode(value)
 
     fun childHome(childId: String) = "child_home/${segment(childId)}"
     fun sanctuary(childId: String) = "sanctuary/${segment(childId)}"
-    fun journal(childId: String) = "journal/${segment(childId)}"
     fun treatShop(childId: String) = "treat_shop/${segment(childId)}"
     fun assessmentArena(childId: String, subject: String? = null, packId: String? = null) =
         "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}&packId=${segment(packId.orEmpty())}"
@@ -84,6 +88,11 @@ object Routes {
     fun parentGate(childId: String) = "parent_gate/${segment(childId)}"
     fun wildlifeFieldGuide(childId: String, badgeId: String? = null): String =
         "wildlife_field_guide/${segment(childId)}?badgeId=${segment(badgeId.orEmpty())}"
+
+    fun rangerJournal(childId: String) = "ranger_journal/${segment(childId)}"
+
+    fun rangerCamera(childId: String, sceneId: String? = null) =
+        "ranger_camera/${segment(childId)}?sceneId=${segment(sceneId.orEmpty())}"
 }
 
 @Composable
@@ -224,6 +233,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     navController.navigate(Routes.wildlifeFieldGuide(childId))
                 },
                 onVisitSanctuary = { navController.navigate(Routes.sanctuary(childId)) },
+                onOpenJournal = { navController.navigate(Routes.rangerJournal(childId)) },
                 onParentsClick = {
                     navController.navigate(Routes.parentGate(childId))
                 },
@@ -236,16 +246,45 @@ fun MaxinesNavGraph(navController: NavHostController) {
             route = Routes.SANCTUARY,
             arguments = listOf(navArgument("childId") { type = NavType.StringType }),
         ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
             val viewModel: LivingSanctuaryViewModel = hiltViewModel(backStackEntry)
             LivingSanctuaryRoute(
                 onBack = { navController.popBackStack() },
-                onOpenJournal = { navController.navigate(Routes.journal(backStackEntry.arguments?.getString("childId") ?: return@LivingSanctuaryRoute)) },
+                onOpenJournal = { navController.navigate(Routes.rangerCamera(childId)) },
                 viewModel = viewModel,
             )
         }
 
-        composable(route = Routes.JOURNAL, arguments = listOf(navArgument("childId") { type = NavType.StringType })) { entry ->
-            com.maxinesworld.featurechildhome.RangerJournalScreen(entry.arguments?.getString("childId") ?: return@composable, onBack = { navController.popBackStack() })
+        composable(
+            route = Routes.RANGER_JOURNAL,
+            arguments = listOf(navArgument("childId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            RangerJournalScreen(
+                childId = childId,
+                onBack = { navController.popBackStack() },
+                onTakePhoto = { navController.navigate(Routes.rangerCamera(childId)) },
+            )
+        }
+
+        composable(
+            route = Routes.RANGER_CAMERA,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("sceneId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                },
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val sceneId = backStackEntry.arguments?.getString("sceneId")?.takeIf(String::isNotBlank)
+            PolaroidCameraScreen(
+                childId = childId,
+                initialSceneId = sceneId,
+                onBack = { navController.popBackStack() },
+            )
         }
 
                 composable(
@@ -370,6 +409,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onPlayKittenMatch = { durationMillis ->
                     navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
                 },
+                onPlayTarsier = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.tarsierCanopy(childId, breakId, durationMillis))
+                },
                 onPlaySourceGame = { gameSlug, durationMillis ->
                     navController.navigate(MiniGameRoutes.sourceWebGame(childId, breakId, durationMillis, gameSlug))
                 },
@@ -405,6 +447,9 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onPlayKittenMatch = { durationMillis ->
                     navController.navigate(MiniGameRoutes.kittenMatch(childId, breakId, durationMillis))
                 },
+                onPlayTarsier = { durationMillis ->
+                    navController.navigate(MiniGameRoutes.tarsierCanopy(childId, breakId, durationMillis))
+                },
                 onBack = { navController.popBackStack() },
                 onReturnToVillage = {
                     navController.navigate(Routes.childHome(childId)) {
@@ -412,6 +457,57 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     }
                 },
             )
+        }
+
+        composable(
+            route = MiniGameRoutes.TARSIER_CANOPY,
+            arguments = listOf(
+                navArgument("childId") { type = NavType.StringType },
+                navArgument("rewardBreakId") { type = NavType.StringType },
+                navArgument("durationMillis") { type = NavType.LongType },
+            )
+        ) { backStackEntry ->
+            val childId = backStackEntry.arguments?.getString("childId") ?: return@composable
+            val breakId = backStackEntry.arguments?.getString("rewardBreakId") ?: return@composable
+            val routeDuration = backStackEntry.arguments?.getLong("durationMillis") ?: return@composable
+            val sessionViewModel: RewardBreakViewModel = hiltViewModel(backStackEntry)
+            val scope = rememberCoroutineScope()
+            RewardBreakRouteGuard(
+                childId = childId,
+                rewardBreakId = breakId,
+                viewModel = sessionViewModel,
+                onReturnToVillage = {
+                    navController.navigate(Routes.childHome(childId)) { popUpTo(0) { inclusive = true } }
+                },
+            ) { remainingMillis ->
+                TarsierCanopyScreen(
+                    childId = childId,
+                    rewardBreakId = breakId,
+                    durationMillis = minOf(routeDuration, remainingMillis),
+                    onExit = { result: TarsierResult ->
+                        scope.launch {
+                            sessionViewModel.saveResult(
+                                MiniGameResult(
+                                    rewardBreakId = result.rewardBreakId,
+                                    gameId = TARSIER_CANOPY_GAME_ID,
+                                    childId = result.childId,
+                                    startedAtEpochMillis = result.startedAtEpochMillis,
+                                    endedAtEpochMillis = result.endedAtEpochMillis,
+                                    roundsCompleted = result.roundsCompleted,
+                                    correctOrders = result.firefliesCollected,
+                                    pawTokensEarned = result.pawTokensEarned,
+                                    collectibleId = result.collectibleId,
+                                )
+                            )
+                            if (!navController.popBackStack()) {
+                                navController.navigate(Routes.childHome(childId)) {
+                                    popUpTo(0) { inclusive = true }
+                                }
+                            }
+                        }
+                    }
+                )
+            }
         }
 
         composable(
@@ -456,19 +552,6 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     },
                     onBack = { navController.popBackStack() },
                 )
-            }
-        }
-
-        composable(
-            route = MiniGameRoutes.TARSIER_CANOPY,
-            arguments = listOf(navArgument("childId") { type = NavType.StringType }, navArgument("rewardBreakId") { type = NavType.StringType }),
-        ) { entry ->
-            val childId = entry.arguments?.getString("childId") ?: return@composable
-            val breakId = entry.arguments?.getString("rewardBreakId") ?: return@composable
-            val sessionViewModel: RewardBreakViewModel = hiltViewModel(entry)
-            val scope = rememberCoroutineScope()
-            RewardBreakRouteGuard(childId, breakId, sessionViewModel, onReturnToVillage = { navController.navigate(Routes.childHome(childId)) }) {
-                TarsierCanopyScreen(childId, breakId) { result -> scope.launch { sessionViewModel.saveResult(result); navController.popBackStack() } }
             }
         }
 

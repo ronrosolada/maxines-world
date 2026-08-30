@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Language
+import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -31,14 +32,17 @@ import java.util.Locale
 import java.util.Calendar
 
 @Composable
-fun LivingSanctuaryRoute(onBack: () -> Unit, onOpenJournal: () -> Unit = {}, viewModel: LivingSanctuaryViewModel) {
+fun LivingSanctuaryRoute(
+    onBack: () -> Unit,
+    viewModel: LivingSanctuaryViewModel,
+    onOpenJournal: () -> Unit = {},
+) {
     val scene by viewModel.scene.collectAsStateWithLifecycle()
-    val childId = viewModel.childId
-    LivingSanctuaryScreen(scene, childId, onBack, onOpenJournal)
+    LivingSanctuaryScreen(scene, onBack, onOpenJournal)
 }
 
 @Composable
-fun LivingSanctuaryScreen(scene: SanctuaryScene, childId: String = "default", onBack: () -> Unit, onOpenJournal: () -> Unit = {}) {
+fun LivingSanctuaryScreen(scene: SanctuaryScene, onBack: () -> Unit, onOpenJournal: () -> Unit = {}) {
     val context = LocalContext.current
     val haptic = LocalHapticFeedback.current
     val reduceMotion = LocalAnimationsDisabled.current
@@ -48,11 +52,6 @@ fun LivingSanctuaryScreen(scene: SanctuaryScene, childId: String = "default", on
     var miloMessage by remember { mutableStateOf<String?>(null) }
     var chosenTreat by remember { mutableStateOf<SanctuaryTreat?>(null) }
     var fedBadge by remember { mutableStateOf<String?>(null) }
-    var cameraMode by rememberSaveable { mutableStateOf(false) }
-    var miloPose by rememberSaveable { mutableStateOf("Smile") }
-    var stickers by remember { mutableStateOf(setOf("🐾")) }
-    var flash by remember { mutableStateOf(false) }
-    val journal = remember { RangerJournalRepository(FileRangerJournalStore(context)) }
     val timePeriod = remember { SanctuaryCareEngine.timePeriod(Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) }
     var tts by remember { mutableStateOf<TextToSpeech?>(null) }
     DisposableEffect(Unit) {
@@ -88,32 +87,16 @@ fun LivingSanctuaryScreen(scene: SanctuaryScene, childId: String = "default", on
         CareBar(chosenTreat, filipino, { chosenTreat = it }, Modifier.align(Alignment.BottomCenter).padding(bottom = 74.dp))
         Row(Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.safeDrawing).padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             FilledIconButton(onClick = onBack, modifier = Modifier.size(56.dp).semantics { contentDescription = "Exit sanctuary" }) { Icon(Icons.Default.ArrowBack, null) }
+            FilledIconButton(
+                onClick = onOpenJournal,
+                modifier = Modifier.size(56.dp).semantics { contentDescription = "Open Ranger Journal camera" },
+            ) {
+                Icon(Icons.Default.PhotoCamera, null)
+            }
             FilledTonalButton(onClick = { filipino = !filipino }, modifier = Modifier.heightIn(min = 52.dp)) {
                 Icon(Icons.Default.Language, null); Spacer(Modifier.width(8.dp)); Text(if (filipino) "Filipino" else "English", fontWeight = FontWeight.Bold)
             }
         }
-        Column(Modifier.align(Alignment.TopCenter).padding(top = 76.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button({ cameraMode = !cameraMode }) { Text(if (filipino) "Kunan ng Litrato" else "Take Photo") }
-                FilledTonalButton(onOpenJournal) { Text(if (filipino) "Talaan" else "Journal") }
-            }
-            if (cameraMode) {
-                Surface(color = Color.Black.copy(.68f), shape = RoundedCornerShape(18.dp), modifier = Modifier.padding(8.dp).semantics { contentDescription = "Camera viewfinder" }) {
-                    Column(Modifier.padding(12.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("⌜   ✦   ⌝\n\n⌞       ⌟", color = Color.White, fontSize = 22.sp)
-                        Row { listOf("Smile","Pounce","Curious").forEach { FilterChip(miloPose == it, { miloPose = it }, { Text(it) }) } }
-                        Row { listOf("🐾","⭐","🌿").forEach { stamp -> FilterChip(stamp in stickers, { stickers = if(stamp in stickers) stickers-stamp else stickers+stamp }, { Text(stamp) }) } }
-                        Button({
-                            flash = true
-                            val period = when(timePeriod){ SanctuaryTimePeriod.MORNING_DAY -> "Morning"; SanctuaryTimePeriod.DUSK -> "Dusk"; SanctuaryTimePeriod.NIGHT -> "Night" }
-                            journal.saveSnapshot(RangerSnapshot(System.nanoTime().toString(), childId, if(filipino) "Mga kaibigan sa santuwaryo" else "Sanctuary friends", System.currentTimeMillis(), period, scene.residents.map { it.species.badgeId }, stickers.toList(), miloPose))
-                            miloMessage = if(filipino) "Nailagay sa Talaan ng Tanod-Gubat!" else "Saved to your Ranger Journal!"
-                        }) { Text("Snap!") }
-                    }
-                }
-            }
-        }
-        if (flash) { Box(Modifier.fillMaxSize().background(Color.White.copy(.82f))); LaunchedEffect(Unit){ kotlinx.coroutines.delay(120); flash=false } }
         miloMessage?.let { Surface(Modifier.align(Alignment.Center).padding(22.dp).widthIn(max = 420.dp), RoundedCornerShape(20.dp), color = Color.White.copy(.94f)) { Text(it, Modifier.padding(16.dp), fontSize = 17.sp, fontWeight = FontWeight.Bold) } }
     }
     selected?.let { animal ->

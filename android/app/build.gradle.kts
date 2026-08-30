@@ -107,6 +107,7 @@ dependencies {
     implementation(project(":game-pawprint-parkour"))
     implementation(project(":game-kitten-match"))
     implementation(project(":game-tarsier-canopy"))
+    implementation(project(":feature-ranger-journal"))
 
     // Material Components (for XML theme)
     implementation("com.google.android.material:material:1.12.0")

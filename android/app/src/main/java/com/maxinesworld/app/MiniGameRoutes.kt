@@ -7,7 +7,7 @@ object MiniGameRoutes {
     const val CAT_CAFE = "reward/cat-cafe/{childId}/{rewardBreakId}/{durationMillis}"
     const val PARKOUR = "reward/parkour/{childId}/{rewardBreakId}/{durationMillis}"
     const val KITTEN_MATCH = "reward/kitten-match/{childId}/{rewardBreakId}/{durationMillis}"
-    const val TARSIER_CANOPY = "reward-break/{childId}/{rewardBreakId}/tarsier-canopy"
+    const val TARSIER_CANOPY = "reward/tarsier-canopy/{childId}/{rewardBreakId}/{durationMillis}"
 
     private fun segment(value: String): String = buildString {
         value.toByteArray(Charsets.UTF_8).forEach { byte ->
@@ -48,6 +48,6 @@ object MiniGameRoutes {
     fun kittenMatch(childId: String, breakId: String, durationMillis: Long) =
         "reward/kitten-match/${segment(childId)}/${segment(breakId)}/$durationMillis"
 
-    fun tarsierCanopy(childId: String, breakId: String) =
-        "reward-break/${segment(childId)}/${segment(breakId)}/tarsier-canopy"
+    fun tarsierCanopy(childId: String, breakId: String, durationMillis: Long) =
+        "reward/tarsier-canopy/${segment(childId)}/${segment(breakId)}/$durationMillis"
 }

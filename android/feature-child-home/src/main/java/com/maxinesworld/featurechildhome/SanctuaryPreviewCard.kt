@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Park
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.PlayCircle
@@ -48,6 +49,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -103,6 +105,7 @@ internal fun SanctuaryPreview(
     questTotal: Int,
     onTreatShopClick: () -> Unit,
     onVisitSanctuary: () -> Unit = {},
+    onOpenJournal: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     var selectedPieceForInspect by remember { mutableStateOf<SanctuaryPieceUi?>(null) }
@@ -232,6 +235,20 @@ internal fun SanctuaryPreview(
                 onClick = onVisitSanctuary,
                 modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp),
             )
+            Spacer(Modifier.height(8.dp))
+            OutlinedButton(
+                onClick = onOpenJournal,
+                modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp),
+            ) {
+                Icon(Icons.Default.MenuBook, null, tint = PlayTeal, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    "Ranger Journal / Talaan ng Ranger",
+                    color = PlayInk,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
             Spacer(Modifier.height(8.dp))
             val nextPiece = sanctuary.nextPiece
             if (nextPiece != null) {

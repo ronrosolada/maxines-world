@@ -108,6 +108,14 @@ private val BuiltInMiniGames = listOf(
         accent = SunshineGold,
         thumbnailRes = com.maxinesworld.gamekittenmatch.R.drawable.ic_milo,
     ),
+    BuiltInMiniGame(
+        id = "tarsier-canopy",
+        title = "Tarsier Canopy",
+        description = "Hop through the forest with Tarsier!",
+        category = "Adventure",
+        accent = LeafGreen,
+        thumbnailRes = com.maxinesworld.gametarsiercanopy.R.drawable.ic_tarsier_canopy,
+    ),
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -119,6 +127,7 @@ fun MiniGameLibraryScreen(
     onPlayCatCafe: (Long) -> Unit = {},
     onPlayParkour: (Long) -> Unit = {},
     onPlayKittenMatch: (Long) -> Unit = {},
+    onPlayTarsier: (Long) -> Unit = {},
     consumeOnBack: Boolean = false,
     onBack: () -> Unit,
     onReturnToVillage: () -> Unit,
@@ -249,6 +258,7 @@ fun MiniGameLibraryScreen(
                                         "cat-cafe" -> onPlayCatCafe(duration)
                                         "pawprint-parkour" -> onPlayParkour(duration)
                                         "kitten-match" -> onPlayKittenMatch(duration)
+                                        "tarsier-canopy" -> onPlayTarsier(duration)
                                     }
                                 }
                             },
