@@ -52,6 +52,8 @@ class VideoLibraryRewardPolicyTest {
         height = 720,
         subjectId = "science",
         episodeNumber = 1,
+        gradeLevel = 3,
+        releaseStatus = "RELEASED",
         assessment = MediaAssessment(
             questionCount = 5,
             passingCorrectCount = 4,

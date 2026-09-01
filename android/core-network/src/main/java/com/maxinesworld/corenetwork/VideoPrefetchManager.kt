@@ -1,5 +1,6 @@
 package com.maxinesworld.corenetwork
 
+import com.maxinesworld.coremodel.ChildFacingMediaPolicy
 import com.maxinesworld.coremodel.MediaAsset
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -19,7 +20,9 @@ class VideoPrefetchManager @Inject constructor(
     suspend fun prefetchNextVideos(count: Int = 2): Int = withContext(Dispatchers.IO) {
         try {
             val catalog = mediaLibrary.getCatalog()
-            val unverified = catalog.media.filter { !mediaStorage.isVerified(it) }.take(count)
+            val unverified = ChildFacingMediaPolicy.childFacing(catalog.media)
+                .filter { !mediaStorage.isVerified(it) }
+                .take(count)
             var successCount = 0
             for (asset in unverified) {
                 val file = mediaLibrary.download(asset.mediaId)

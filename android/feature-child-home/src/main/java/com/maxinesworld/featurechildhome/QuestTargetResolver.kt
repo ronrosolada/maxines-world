@@ -1,5 +1,6 @@
 package com.maxinesworld.featurechildhome
 
+import com.maxinesworld.coremodel.ChildFacingMediaPolicy
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.AssessmentPackMetadata
 import com.maxinesworld.coremodel.CaregiverPhraseCard
@@ -52,7 +53,7 @@ object QuestTargetResolver {
             }
             if (assets == null) return@mapNotNull null
             val asset = assetById[mediaId] ?: return@mapNotNull null
-            if (asset.releaseStatus != RELEASED) return@mapNotNull null
+            if (!ChildFacingMediaPolicy.isChildFacingCurriculum(asset)) return@mapNotNull null
             val subjectId = asset.subjectId.takeIf(String::isNotBlank) ?: return@mapNotNull null
             QuestTargetUi(
                 mediaId = mediaId,
@@ -72,7 +73,6 @@ object QuestTargetResolver {
         return "%02d:%02d".format(safeSeconds / 60, safeSeconds % 60)
     }
 
-    private const val RELEASED = "RELEASED"
     private const val ARENA_PREFIX = "arena:"
     private const val HOME_PHRASE_PREFIX = "home-phrase:"
 }

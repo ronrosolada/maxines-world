@@ -2,6 +2,7 @@ package com.maxinesworld.featurechildhome
 
 import com.maxinesworld.corecontent.AssessmentRepository
 import com.maxinesworld.coremodel.AssessmentPackMetadata
+import com.maxinesworld.coremodel.ChildFacingMediaPolicy
 import com.maxinesworld.coremodel.MasteryRecord
 import com.maxinesworld.coremodel.MasteryState
 import com.maxinesworld.coremodel.MiloReviewQueueResolver
@@ -260,12 +261,7 @@ class DailyQuestManager @Inject constructor(
         val catalogMedia = runCatching { mediaLibrary.getCatalog().media }.getOrElse { emptyList() }
         val eligibleMedia = catalogMedia
             .asSequence()
-            .filter { asset ->
-                asset.gradeLevel == 3 &&
-                    asset.releaseStatus == RELEASED &&
-                    asset.subjectId.isNotBlank() &&
-                    asset.durationSeconds > 0
-            }
+            .filter(ChildFacingMediaPolicy::isChildFacingCurriculum)
             .filter { asset -> availableMediaOverride == null || asset.mediaId in availableMediaOverride }
             .toList()
         val frontier = eligibleMedia
@@ -358,7 +354,6 @@ class DailyQuestManager @Inject constructor(
             .getOrElse { raw.split('|').map(String::trim).filter(String::isNotEmpty) }
 
     private companion object {
-        const val RELEASED = "RELEASED"
         const val ARENA_PREFIX = "arena:"
         const val ARENA_REWARD_PREFIX = "assessment_arena_passed:"
         const val GRADE_THREE_PREFIX = "Grade 3"

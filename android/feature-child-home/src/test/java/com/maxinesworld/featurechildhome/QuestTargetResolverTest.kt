@@ -73,6 +73,21 @@ class QuestTargetResolverTest {
         assertTrue(targets.single().isCompleted)
     }
 
+    @Test
+    fun `preview and other-grade assigned videos do not resolve as quest targets`() {
+        val targets = QuestTargetResolver.resolve(
+            assigned = listOf("g3-released", "g3-preview", "g1-released"),
+            completed = emptySet(),
+            assets = listOf(
+                asset("g3-released", "english", "Grade 3", 60),
+                asset("g3-preview", "english", "Preview", 60).copy(releaseStatus = "PREVIEW"),
+                asset("g1-released", "english", "Grade 1", 60).copy(gradeLevel = 1),
+            ),
+        )
+
+        assertEquals(listOf("g3-released"), targets.map { it.mediaId })
+    }
+
     private fun asset(mediaId: String, subject: String, title: String, seconds: Int) = MediaAsset(
         mediaId = mediaId,
         title = title,
