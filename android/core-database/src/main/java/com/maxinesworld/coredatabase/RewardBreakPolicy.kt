@@ -4,7 +4,9 @@ package com.maxinesworld.coredatabase
  * Pure reward-break rules shared by entitlement creation and route/session code.
  *
  * Entitlements are created once for a child/day, start only when the child
- * chooses a game, and become unusable after consumption or expiry.
+ * chooses a game, and become unusable after consumption or expiry. Remaining
+ * time may resume within the same entitlement; the session is never re-armed
+ * to a fresh 5 minutes.
  */
 object RewardBreakPolicy {
     const val DEFAULT_DURATION_MILLIS: Long = 5 * 60 * 1000L

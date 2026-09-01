@@ -7,8 +7,10 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
-import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.ProgressEventDao
+import com.maxinesworld.coredatabase.RewardBreakDao
+import com.maxinesworld.coredatabase.RewardBreakEntitlementEntity
+import com.maxinesworld.coredatabase.RewardBreakPolicy
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
@@ -244,7 +246,63 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
-    fun `latest passed ids win when profile updates`() = runTest(dispatcher) {
+    fun `home video progress ignores preview and other-grade catalog rows`() = runTest(dispatcher) {
+        val vm = buildViewModel()
+        advanceUntilIdle()
+
+        val derived = withVideoProgress(
+            baseContent = content(vm).copy(subjects = canonicalSubjects),
+            assets = listOf(
+                MediaAsset(
+                    mediaId = "g3-math",
+                    title = "Grade 3",
+                    file = "mathematics/1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    gradeLevel = 3,
+                    releaseStatus = "RELEASED",
+                ),
+                MediaAsset(
+                    mediaId = "g1-math",
+                    title = "Grade 1",
+                    file = "mathematics/g1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    gradeLevel = 1,
+                    releaseStatus = "RELEASED",
+                ),
+                MediaAsset(
+                    mediaId = "g3-preview",
+                    title = "Preview",
+                    file = "mathematics/preview.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 60,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    gradeLevel = 3,
+                    releaseStatus = "PREVIEW",
+                ),
+            ),
+            passedMediaIds = setOf("g3-math", "g1-math", "g3-preview"),
+        )
+
+        val mathematics = derived.subjects.first { it.id == "mathematics" }
+        assertEquals(1, mathematics.completedVideos)
+        assertEquals(1, mathematics.totalVideos)
+    }
+
+    @Test
+    fun `latest passed ids win when an older base content emission completes later`() = runTest(dispatcher) {
         val profiles = MutableStateFlow<ChildProfileEntity?>(profile("Maxine"))
         val passedIds = MutableStateFlow(listOf("mathematics-video-1"))
 
@@ -290,6 +348,56 @@ class PlayroomHomeViewModelTest {
         advanceUntilIdle()
         val quest = content(vm).quest
         assertTrue(quest.isComplete)
+        assertEquals(QuestButtonLabel.OpenSanctuary, quest.buttonLabel)
+        assertEquals(QuestAction.ViewReward, quest.buttonAction)
+    }
+
+    @Test
+    fun `completed quest with unused reward break opens the playground`() = runTest(dispatcher) {
+        val entitlement = RewardBreakPolicy.newEntitlement(
+            id = "reward-break:child_1:2026-08-04",
+            childId = "child_1",
+            dailyQuestCompletionId = "child_1:2026-08-04",
+            nowEpochMillis = 1_000L,
+        )
+        val vm = buildViewModel(
+            quest = ChallengeProgress(
+                english = true, gmrc = true, science = true,
+                completedCount = 3, subjectCount = 2, expeditionComplete = true,
+            ),
+            rewardBreakFlow = flowOf(entitlement),
+        )
+        advanceUntilIdle()
+        val quest = content(vm).quest
+        assertTrue(quest.isComplete)
+        assertTrue(quest.playgroundUnlocked)
+        assertEquals(QuestButtonLabel.OpenPlayground, quest.buttonLabel)
+        assertEquals(QuestAction.OpenPlayground, quest.buttonAction)
+    }
+
+    @Test
+    fun `consumed reward break after quest completion opens sanctuary`() = runTest(dispatcher) {
+        val consumed = RewardBreakEntitlementEntity(
+            id = "reward-break:child_1:2026-08-04",
+            childId = "child_1",
+            dailyQuestCompletionId = "child_1:2026-08-04",
+            durationMillis = RewardBreakPolicy.DEFAULT_DURATION_MILLIS,
+            remainingMillis = 0L,
+            createdAtEpochMillis = 1_000L,
+            consumedAtEpochMillis = 2_000L,
+            state = RewardBreakPolicy.CONSUMED,
+        )
+        val vm = buildViewModel(
+            quest = ChallengeProgress(
+                english = true, gmrc = true, science = true,
+                completedCount = 3, subjectCount = 2, expeditionComplete = true,
+            ),
+            rewardBreakFlow = flowOf(consumed),
+        )
+        advanceUntilIdle()
+        val quest = content(vm).quest
+        assertTrue(quest.isComplete)
+        assertFalse(quest.playgroundUnlocked)
         assertEquals(QuestButtonLabel.OpenSanctuary, quest.buttonLabel)
         assertEquals(QuestAction.ViewReward, quest.buttonAction)
     }
@@ -505,6 +613,7 @@ class PlayroomHomeViewModelTest {
         persistedQuestIds: List<String>? = null,
         arenaRewardsFlow: Flow<List<RewardEntity>> = flowOf(emptyList()),
         dailyQuestEnsureObserver: (() -> Unit)? = null,
+        rewardBreakFlow: Flow<RewardBreakEntitlementEntity?> = flowOf(null),
     ): PlayroomHomeViewModel {
         val profileDao = mockk<ChildProfileDao>()
         coEvery { profileDao.observeById("child_1") } returns (
@@ -553,10 +662,8 @@ class PlayroomHomeViewModelTest {
         every { videoWatchLedgerDao.observePassedMediaIds("child_1") } returns passedVideoMediaIdsFlow
         every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
-        val playgroundUnlockReceiptDao = mockk<PlaygroundUnlockReceiptDao>()
-        every {
-            playgroundUnlockReceiptDao.observeByChildAndDay("child_1", any())
-        } returns flowOf(null)
+        val rewardBreakDao = mockk<RewardBreakDao>()
+        every { rewardBreakDao.observeByQuestCompletion(any()) } returns rewardBreakFlow
         val godModeManager = mockk<GodModeManager>()
         every { godModeManager.isEnabled("child_1") } returns flowOf(godModeEnabled)
         val localDateChangeSource = mockk<LocalDateChangeSource>()
@@ -572,7 +679,7 @@ class PlayroomHomeViewModelTest {
             videoWatchLedgerDao = videoWatchLedgerDao,
             dailyQuestManager = dailyQuestManager,
             godModeManager = godModeManager,
-            playgroundUnlockReceiptDao = playgroundUnlockReceiptDao,
+            rewardBreakDao = rewardBreakDao,
             localDateChangeSource = localDateChangeSource,
         )
     }

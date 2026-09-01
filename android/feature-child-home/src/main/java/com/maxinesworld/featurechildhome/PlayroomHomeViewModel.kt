@@ -10,8 +10,9 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
-import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.ProgressEventDao
+import com.maxinesworld.coredatabase.RewardBreakDao
+import com.maxinesworld.coredatabase.RewardBreakPolicy
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.corenetwork.MediaLibrary
@@ -110,7 +111,7 @@ class PlayroomHomeViewModel @Inject constructor(
     private val videoWatchLedgerDao: VideoWatchLedgerDao,
     private val dailyQuestManager: DailyQuestManager,
     private val godModeManager: GodModeManager,
-    private val playgroundUnlockReceiptDao: PlaygroundUnlockReceiptDao,
+    private val rewardBreakDao: RewardBreakDao,
     private val localDateChangeSource: LocalDateChangeSource,
 ) : ViewModel() {
 
@@ -208,9 +209,9 @@ class PlayroomHomeViewModel @Inject constructor(
 
         stateJob = viewModelScope.launch {
             try {
-                val playgroundUnlockFlow = playgroundUnlockReceiptDao.observeByChildAndDay(
-                    childId = childId,
-                    dayKey = LocalDate.now(ZoneId.systemDefault()).toString(),
+                val dayKey = LocalDate.now(ZoneId.systemDefault()).toString()
+                val rewardBreakFlow = rewardBreakDao.observeByQuestCompletion(
+                    RewardBreakPolicy.dailyQuestCompletionId(childId, dayKey),
                 )
                 val coreQuestInputs = combine(
                     profileFlow,
@@ -241,11 +242,12 @@ class PlayroomHomeViewModel @Inject constructor(
                 combine(
                     questInputs,
                     godModeManager.isEnabled(childId),
-                    playgroundUnlockFlow,
-                ) { data, godMode, playgroundReceipt ->
+                    rewardBreakFlow,
+                ) { data, godMode, entitlement ->
                     data.copy(
                         godModeEnabled = godMode,
-                        playgroundUnlocked = playgroundReceipt != null,
+                        playgroundUnlocked = entitlement != null &&
+                            RewardBreakPolicy.canUse(entitlement, System.currentTimeMillis()),
                     )
                 }.collect { data ->
                     val dailyQuest = dailyQuestManager.ensureToday(

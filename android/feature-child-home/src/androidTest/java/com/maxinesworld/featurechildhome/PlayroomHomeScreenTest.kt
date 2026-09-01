@@ -311,8 +311,8 @@ class PlayroomHomeScreenTest {
     @Test
     fun dailyQuestShowsItsRewardBeforeCompletionAndSanctuaryProgress() {
         setHome(stateFor())
-        composeRule.onNodeWithText("Reward after all 3 adventures: a sanctuary piece + 5-minute play break").assertExists()
-        composeRule.onNodeWithContentDescription("Quest reward: one sanctuary piece and five minute play break").assertExists()
+        composeRule.onNodeWithText("Reward after all 3 adventures: a sanctuary piece + one 5-minute play break").assertExists()
+        composeRule.onNodeWithContentDescription("Quest reward: one sanctuary piece and one five minute play break").assertExists()
         composeRule.onNodeWithText("Milo’s Wildlife Sanctuary").assertExists()
         composeRule.onNodeWithText("0 / 12 places added").assertExists()
         composeRule.onNodeWithText("Next place to add").assertExists()

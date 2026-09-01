@@ -126,9 +126,9 @@ class DailyQuestRewardWriter @Inject constructor(
                 )
             )
         }
-        // Day-pass: playground unlocked for the rest of this local calendar day
-        // once the daily quest is complete. First-write-wins, idempotent within
-        // the same transaction so retries / process death cannot double-mint.
+        // One 5-minute playground session per child/day. The receipt records
+        // that today's quest completed; the entitlement is the actual play
+        // window and is consumed when the break finishes.
         playgroundUnlockReceiptDao.insertIgnoring(
             PlaygroundUnlockReceiptEntity(
                 id = "$childId:$dayKey",

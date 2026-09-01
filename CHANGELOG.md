@@ -4,6 +4,19 @@ All notable changes to Maxine's World. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track the
 Android `versionName`.
 
+## Unreleased
+
+### Child-facing Grade 3 video library
+
+- Child surfaces (video library, daily quests, home progress, parent prefetch) now show only Grade 3 `RELEASED` videos. Grade 1/2/4 and `PREVIEW` catalog rows stay on the LAN for later review and are not presented as core curriculum.
+- `licenseStatus=PERSONAL_USE` is unchanged: household LAN-only media, not a public-distribution license.
+
+### One 5-minute playground session
+
+- Completing Today's mission still unlocks the playground, but the break is one 5-minute session. Leaving and returning can use remaining time; the session is not re-armed for the rest of the day.
+- Home copy says "one 5-minute play break". After the break is consumed, the quest card returns to Open Sanctuary.
+- The child mini-game shelf is now an 8-year-old allowlist. Wordle, Sudoku, Solitaire, FreeCell, Checkers, Reversi, Mancala, Yahtzee, and Domino stay bundled but are hidden from the child route.
+
 ## [0.64.0] - 2026-08-22
 
 ### Resilient Daily Mission Fallback & Arena Audio Read-Aloud

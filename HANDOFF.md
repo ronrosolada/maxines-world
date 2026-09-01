@@ -58,15 +58,23 @@ secret belongs in git.
 
 ### Video lessons
 
-- 237 workbook-selected Grade 1–4 videos are available through optional LAN media.
-- Subject totals are Filipino 100, Makabansa 51, Mathematics 24, English 22,
-  GMRC 20, and Science 20; the app filters by subject and orders by episode.
+- The LAN catalog still holds 237 workbook-selected Grade 1–4 videos.
+  Child-facing surfaces (library, daily quests, home progress, prefetch) show
+  only **Grade 3 `RELEASED`** videos (95 as of the current catalog). Grade 1,
+  Grade 2, Grade 4, and `PREVIEW` rows stay in the catalog for later review
+  and are not presented as core curriculum.
+- Subject totals in the full catalog are Filipino 100, Makabansa 51,
+  Mathematics 24, English 22, GMRC 20, and Science 20; the app filters by
+  subject and orders by episode.
 - Each video has five subject-appropriate memory-check questions; 4/5 is the
   pass threshold and playback completion gates the check.
-- The media catalog is `PREVIEW` / `PERSONAL_USE`; it is not a public content
-  release and must remain LAN-only until HTTPS and licensing are reviewed.
-- See `docs/video-playlist-replacement-2026-08-20.md` for deployment, hashes,
-  rollback, and verification evidence.
+- Every catalog row is `PERSONAL_USE`. That is a legal fact, not a product
+  toggle: these videos are household LAN-only media and are not a public
+  content license. Do not rewrite `licenseStatus` to imply redistribution
+  rights.
+- See `docs/video-playlist-replacement-2026-08-20.md` and
+  `android/docs/optional-video-media.md` for deployment, hashes, rollback,
+  and verification evidence.
 
 ### Assessment Arena
 
@@ -80,9 +88,14 @@ secret belongs in git.
 
 ### Reward breaks
 
-- The Playroom reward library contains bundled HTML mini-games plus the native
-  reward games, with a curated kid-first shelf ordering (`MiniGameShelf.kt`,
-  pure tested model).
+- Completing Today's mission grants **one 5-minute play break**. Remaining
+  time can resume; consume/expiry does not re-arm a fresh window the same day.
+  Home copy says "one 5-minute play break". After the break is consumed, the
+  quest card returns to Open Sanctuary.
+- The Playroom reward library bundles HTML mini-games plus the native reward
+  games, but the child shelf is an 8-year-old allowlist (`MiniGameShelf.kt`).
+  Wordle, Sudoku, Solitaire, FreeCell, Checkers, Reversi, Mancala, Yahtzee, and
+  Domino stay bundled but are hidden from the child route.
 - The library exposes categories and clear entitlement/empty states rather than
   pretending that a break is available.
 - Games are bounded by the reward-break policy and contain no ads, analytics,
@@ -132,9 +145,8 @@ secret belongs in git.
 ## Security and privacy posture
 
 - The release manifest intentionally includes `android.permission.INTERNET`
-  for optional media served by the trusted home LAN. Cleartext is permitted
-  only for the configured LAN media host; it must be replaced with HTTPS before
-  exposing the endpoint outside the home network.
+  for optional media served by the trusted home LAN over HTTPS. Cleartext HTTP
+  is not permitted; the homelab CA is bundled as a trust anchor.
 - App backups/data extraction are disabled; child data stays on-device.
 - No cloud content sync or telemetry download is part of the release design.
 - Media downloads are verified end-to-end: catalog paths are validated
@@ -179,8 +191,9 @@ Before tagging a release:
 - Compose stays on the 1.7 line (BOM 2024.12.01): the 1.8 line changed IME
   inset propagation and broke the PIN keypad UI test under injected insets.
   Validate on a physical device before bumping.
-- The optional video catalog remains `PREVIEW` / `PERSONAL_USE` and LAN-only
-  until HTTPS and licensing are reviewed.
+- Child-facing video surfaces show Grade 3 `RELEASED` only; other grades remain
+  `PREVIEW` in the LAN catalog. `PERSONAL_USE` is the household license, not a
+  product toggle. Videos stay LAN-only.
 - The app has not yet been exercised on a physical device with a real child
   session; emulator coverage is complete but this remains the final product
   validation.
