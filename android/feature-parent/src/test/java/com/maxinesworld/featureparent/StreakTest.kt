@@ -1,6 +1,6 @@
 package com.maxinesworld.featureparent
 
-import com.maxinesworld.coredatabase.LessonCompletionEntity
+import com.maxinesworld.coredatabase.VideoWatchLedgerEntity
 import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coremodel.longestLearningStreak
@@ -69,32 +69,47 @@ class StreakTest {
     }
 
     @Test
-    fun `recent activity uses one row per completed lesson`() {
-        val completions = listOf(
-            LessonCompletionEntity("old", "child", "lesson-old", "attempt-old", 0.8, completedAtEpochMillis = 100L),
-            LessonCompletionEntity("new", "child", "lesson-new", "attempt-new", 1.0, completedAtEpochMillis = 200L),
+    fun `recent activity uses one row per passed video newest first`() {
+        val watched = listOf(
+            VideoWatchLedgerEntity(
+                id = "child_video-old", childId = "child", mediaId = "video-old",
+                subjectId = "english", quizPassed = true, bestQuizScore = 0.8f,
+                firstPassedAtEpochMillis = 100L,
+            ),
+            VideoWatchLedgerEntity(
+                id = "child_video-new", childId = "child", mediaId = "video-new",
+                subjectId = "english", quizPassed = true, bestQuizScore = 1.0f,
+                firstPassedAtEpochMillis = 200L,
+            ),
         )
 
         assertEquals(
-            listOf("New lesson — 100%", "Old lesson — 80%"),
-            recentActivityLabels(completions) { lessonId ->
-                if (lessonId == "lesson-new") "New lesson" else "Old lesson"
+            listOf("New video — 100%", "Old video — 80%"),
+            recentActivityLabels(watched) { mediaId ->
+                if (mediaId == "video-new") "New video" else "Old video"
             },
         )
     }
 
     @Test
-    fun `recent activity keeps only the latest attempt for each lesson`() {
-        val completions = listOf(
-            LessonCompletionEntity("lesson-a:old", "child", "lesson-a", "old", 0.6, completedAtEpochMillis = 100L),
-            LessonCompletionEntity("lesson-a:new", "child", "lesson-a", "new", 0.9, completedAtEpochMillis = 300L),
-            LessonCompletionEntity("lesson-b:new", "child", "lesson-b", "new", 1.0, completedAtEpochMillis = 200L),
+    fun `recent activity excludes videos whose memory check was not passed`() {
+        val watched = listOf(
+            VideoWatchLedgerEntity(
+                id = "child_video-a", childId = "child", mediaId = "video-a",
+                subjectId = "mathematics", quizPassed = true, bestQuizScore = 0.9f,
+                firstPassedAtEpochMillis = 300L,
+            ),
+            VideoWatchLedgerEntity(
+                id = "child_video-b", childId = "child", mediaId = "video-b",
+                subjectId = "mathematics", quizPassed = false, bestQuizScore = 0.4f,
+                firstPassedAtEpochMillis = null, lastWatchedAtEpochMillis = 200L,
+            ),
         )
 
         assertEquals(
-            listOf("Lesson A — 90%", "Lesson B — 100%"),
-            recentActivityLabels(completions) { lessonId ->
-                if (lessonId == "lesson-a") "Lesson A" else "Lesson B"
+            listOf("Video A — 90%"),
+            recentActivityLabels(watched) { mediaId ->
+                if (mediaId == "video-a") "Video A" else "Video B"
             },
         )
     }

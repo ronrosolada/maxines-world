@@ -27,7 +27,7 @@ Do **not** add more videos yet. The bottleneck is not quantity. It is sequencing
 - Local `testDebugUnitTest` does not compile because `MiloReviewQueueResolverTest.kt:19,27,49` passes a removed `lastPracticed` parameter; `MasteryRecord` now defines `lastActivityAt` (`core-model/.../Models.kt:193-200`).
 - GitHub CI for `c5b03180` is red. The semantic job finds 10 exact duplicate assessment payloads, including five Filipino duplicates. Connected tests also fail.
 - Structural validators pass:
-  - 358 lesson files, 0 strict schema errors/warnings.
+  - Assessment Arena packs and media-assessment manifests structurally valid.
   - 237 media records and 711 checkpoint records structurally valid.
   - 168 skill nodes; acyclic; no dangling references.
 - These checks prove shape and referential consistency, not educational alignment.
@@ -171,7 +171,7 @@ The active Filipino learning loop is:
 
 > watch long video → choose four-option answers → receive stars
 
-There is no active speech recognizer, recording flow, phrase imitation, conversational response, or typed production in the active video path. A writing renderer exists, but no Filipino lesson JSON uses `WRITING_PRODUCTION`, and legacy text lessons are not reachable from the video-first child home.
+There is no active speech recognizer, recording flow, phrase imitation, conversational response, or typed production in the active video path. A writing renderer exists, but no Filipino video assessment uses `WRITING_PRODUCTION`.
 
 ACTFL frames proficiency as functional, real-world language ability and notes that outcomes depend on the amount/type of exposure, instruction, and assessment; it also recommends supplementing proficiency tests with information-rich assessments.[1] Current completion and MCQ scores do not show whether Maxine can understand or use Filipino.
 

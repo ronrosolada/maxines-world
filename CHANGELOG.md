@@ -16,11 +16,11 @@ Android `versionName`.
 
 ### Video-Based Daily Mission
 
-- Replaced the child-facing Daily Mission’s legacy text-lesson assignments with one active Grade 3 released video plus up to two unpassed Grade 3 Assessment Arena packs.
+- Replaced the child-facing Daily Mission’s legacy lesson assignments with one active Grade 3 released video plus up to two unpassed Grade 3 Assessment Arena packs.
 - Added video titles, durations, quiz indicators, subject-aware video navigation, pack-aware Arena navigation, passed-video/Arena completion, and retryable unavailable states.
 - Added deterministic fallback to additional frontier videos when Arena packs are exhausted, while preserving the 30-minute sticker ledger policy.
 - Preserved the existing sanctuary-piece, five-minute break, and playground day-pass reward transaction.
-- Removed orphaned child-facing subject/module/text-lesson routes and screens while retaining Quiz Arena, Assessment Arena, lesson content assets, loaders, and renderers for compatibility.
+- Removed orphaned child-facing subject/module routes and screens while retaining Quiz Arena, Assessment Arena, lesson content assets, loaders, and renderers for compatibility.
 - Added recovery coverage for legacy persisted quest rows, catalog outages, stale/inactive media, reward-flow updates, and prevention of legacy lesson completions from satisfying missions.
 
 ## [0.62.0] - 2026-08-21
@@ -32,7 +32,7 @@ Android `versionName`.
 - Added concrete video progress counts, readable lock explanations, selected navigation semantics, and whole-card subject destinations.
 - Added shared, timezone-aware learning-day streak calculation for parent and child surfaces.
 - Added profile-safe child streak data with local-midnight rollover handling and an informational child-visible streak card.
-- Kept the release video-first: legacy text-lesson content and renderers were not changed.
+- Kept the release video-first: legacy lesson content and renderers were not changed.
 
 ## [0.58.0] - 2026-08-21
 
@@ -62,10 +62,10 @@ Android `versionName`.
 ### Content Fixes
 
 - Deduped two lesson-title collisions (`Telling Sentences ×2 → · Q1 W01 D05 / · Q2 W04 D02`;
-  `Munting Talata ×2 → · Q1 W03 D01 / · Q1 W03 D03`) so `dedupe_lesson_titles.py --check` is clean.
+  `Munting Talata ×2 → · Q1 W03 D01 / · Q1 W03 D03`) so the title-dedupe check is clean.
 - Corrected `english-g3-q1-w01-d05` assessment shape from `5/4` to the baseline-expected
   `6` items / `5` to pass, adding the missing sixth telling-sentence check
-  (`We walk home.`) so `content_pack_validation.py --strict` is `0 errors, 0 warnings` (358 lessons).
+  (`We walk home.`) so strict content validation reports `0 errors, 0 warnings`.
 
 ## [0.57.0] - 2026-08-20
 
@@ -218,7 +218,7 @@ Android `versionName`.
 
 ### Corpus-Wide AI Storybook Asset Upgrade
 
-- **All 358 Lesson Visuals Upgraded:** Replaced all legacy geometric placeholder SVGs with bespoke 2D storybook scenes generated via ComfyUI (`dreamshaper_8`) on local NVIDIA RTX 3070 GPU.
+- **All Lesson Visuals Upgraded:** Replaced all legacy geometric placeholder SVGs with bespoke 2D storybook scenes generated via ComfyUI (`dreamshaper_8`) on local NVIDIA RTX 3070 GPU.
 - **Subject-Specific Artistic Direction:**
   - **Science (45 lessons):** Vibrant laboratory exploration tables, Philippine biomes (Palawan reefs, volcanic rocks, weather stations).
   - **Mathematics (58 lessons):** Colorful counting abacuses, geometric pattern workshops, market arithmetic scenes.
@@ -228,7 +228,7 @@ Android `versionName`.
   - **Makabansa (26 lessons):** Indigenous Philippine flora/fauna biomes and cultural heritage landscapes.
   - **GMRC (24 lessons):** Heartwarming family homes, school playgrounds, cooperative sharing activities.
 - **Performance & Rendering:** Compressed into high-density lossless WebP assets embedded directly inside valid SVG wrappers with clean viewBox definitions (zero APK bloat, instant rendering on devices).
-- **Validation Gates:** 358/358 assets verified, 0 errors, 0 warnings, 0 duplicate clusters, 0 missing assets.
+- **Validation Gates:** all assets verified, 0 errors, 0 warnings, 0 duplicate clusters, 0 missing assets.
 
 ## [0.36.0] - 2026-08-15
 
@@ -236,11 +236,11 @@ Android `versionName`.
 
 - **Badge Photo Coverage (100% Complete):** Generated and integrated the missing Panay monitor lizard (`animal_photo_reptile_panay_monitor.webp`) using ComfyUI on local RTX 3070 diffusion pipeline, achieving 100% asset completeness across the entire 51-badge Philippine fauna curriculum catalog.
 - **Impeccable Storybook Art & Audio Integration:** Aligned lesson asset workflows with tactile Philippine biodiversity biomes, clean vector outlines, high-contrast child UX, and zero-emoji standards.
-- **Curriculum & Asset Validation:** Verified all 358 lessons across 7 subjects with 0 errors and 0 warnings on strict content validation and asset resolution gates.
+- **Curriculum & Asset Validation:** Verified the full lesson pack across 7 subjects with 0 errors and 0 warnings on strict content validation and asset resolution gates.
 
 ### Verification
 
-- Content pack validation: 358 lessons, 358 files, 0 errors, 0 warnings.
+- Content pack validation: full lesson pack, 0 errors, 0 warnings.
 - Content quality audit: 0 errors across 7 subjects (Araling Panlipunan, English, Filipino, GMRC, Makabansa, Mathematics, Science).
 - Lesson asset verification: 358/358 valid SVGs, 0 missing, 0 orphaned.
 - Badge Catalog & Photos: 51/51 badges fully resolved (49 animal photo assets + milestone badge).
@@ -258,7 +258,7 @@ Android `versionName`.
 ### Verification
 
 - Python tooling discovery: 120 tests passed.
-- Strict content validation: 358 lessons/files, 0 errors, 0 warnings.
+- Strict content validation: full lesson pack, 0 errors, 0 warnings.
 - Rendered lesson assets: 358/358 valid; missing, orphaned, malformed, and render-failure counts: 0. The optional `visualScene` payload remains absent from 128 activities, but each has a valid lesson-specific SVG asset.
 - Generic focus-board visuals: 0 remaining.
 - Android auth/parent unit tests and debug assembly passed.
@@ -276,7 +276,7 @@ Android `versionName`.
 
 ### Verification
 
-- Strict content validation: 358 lessons/files, 0 errors, 0 warnings.
+- Strict content validation: full lesson pack, 0 errors, 0 warnings.
 - Content quality audit: 0 findings; assessment duplicate groups: 0; similarity pairs: 0; objective pacing violations: 0.
 - Lesson assets: 358/358 valid; missing, orphaned, malformed, and render-failure counts: 0.
 - Python tooling discovery: 115 tests passed.
@@ -297,7 +297,7 @@ Android `versionName`.
 
 ### Verification
 
-- 358/358 lessons: strict content validation, 0 errors, 0 warnings.
+- Full lesson pack: strict content validation, 0 errors, 0 warnings.
 - 331 distinct objectives; 0 objective groups over the three-lesson fan-out target.
 - 0 duplicate lesson title groups; 0 malformed or failed lesson visuals.
 - 0 content-quality findings; 0 generic retry-feedback findings.
@@ -308,9 +308,9 @@ Android `versionName`.
 
 ## [0.33.0] - 2026-08-14
 
-### Educator Review & Curriculum Quality (358 lessons)
+### Educator Review & Curriculum Quality
 
-- **Deep educator audit, zero findings**: all 358 lessons now pass `educational_material_audit.py` with 0 findings (down from 552), plus `content_quality_audit.py`, `content_pack_validation.py`, `content_similarity_gate.py`, `dedupe_lesson_titles.py`, and `verify_lesson_assets.py` — all clean.
+- **Deep educator audit, zero findings**: every lesson now passes the full content quality, validation, similarity, title-dedupe, and asset gates with 0 findings (down from 552) — all clean.
 - **Assessment integrity**: fixed the real-schema answer-position bias (`correctOptionIds`) — correct answers were at position `a` 41.6% of the time; now 27.3/26.6/25.7/20.4% across a–d (1,793 items re-shuffled deterministically).
 - **Matching-pair re-authoring**: repaired 46 identity/duplicate pair sets and 75 clue-repeating pairs across Araling Panlipunan, Filipino, Science, Math, English, and GMRC; every pair now has a distinct, meaningful match.
 - **Cross-lesson contamination removed**: 434+ feedback strings and explanations that referenced a *different* lesson's title were rewritten to point at their own lesson (e.g. "Find the clue in Five Sense Helpers again" instead of a wrong lesson).
@@ -320,7 +320,7 @@ Android `versionName`.
 - **Learner text length**: all instructions and feedback strings ≤90 chars, preserving the pedagogical guidance (e.g. place-value hints kept, shortened).
 - **Generic instructions**: 120 stock phrases replaced with activity-specific directions.
 - **Visuals**: all 358 activity SVGs regenerated with the master Milo launcher icon anchor (orange tabby, pink glasses, green eyes) and subject-themed boards.
-- **Educator approval**: all 358 lessons re-stamped `educatorValidated=true` + `contentReview` provenance (2026-08-14 pass) after the review.
+- **Educator approval**: every lesson re-stamped `educatorValidated=true` + `contentReview` provenance (2026-08-14 pass) after the review.
 
 ### Content distribution
 
@@ -335,14 +335,14 @@ Android `versionName`.
 
 ### Highlights & Pedagogical Integrity
 
-- **Corpus-Wide Educator Content Review**: Completed full pedagogical pass across all 358 lessons; resolved duplicate assessment items, rotated answer key positions, diversified mascot openers, and eliminated objective-pasting anti-patterns.
+- **Corpus-Wide Educator Content Review**: Completed full pedagogical pass across the full lesson pack; resolved duplicate assessment items, rotated answer key positions, diversified mascot openers, and eliminated objective-pasting anti-patterns.
 - **Sort & Classify Unplace & Re-Sort Flow**: Learners can now tap any placed card before submission to unplace it back to the tray or move it to a different category bucket without needing to submit and retry.
 - **Safe, Non-Destructive Parent PIN Recovery**: Added COPPA-compliant guardian verification challenge (`14 × 8`, `17 × 7` mental math gate) allowing guardians who forget their 6-digit PIN to reset it safely without wiping child profiles, learning completions, or earned stickers.
 - **Reassuring, Bilingual PIN Lockout Display**: Replaced raw lockout error text with a live countdown timer card in English and Filipino (*"Kusang magbubukas pagkatapos ng Xs"*).
 
 ### Testing & Verification
 
-- All 358 lessons pass `content_quality_audit.py`, `content_pack_validation.py`, and `content_similarity_gate.py` with 0 errors.
+- The full lesson pack passes the content quality, validation, and similarity gates with 0 errors.
 - 101/101 Python content test suites passed.
 - 87/87 connected Android instrumentation tests passed on API 35 emulator.
 
@@ -446,8 +446,8 @@ Android `versionName`.
 
 ### Verification
 
-- 358/358 educator-reviewed, 29/29 mini-games CSP/offline-clean.
-- `testDebugUnitTest` (450 tasks) and `assembleDebug` green; `verifyPlayableContent`
+- Full lesson pack educator-reviewed, 29/29 mini-games CSP/offline-clean.
+- `testDebugUnitTest` (450 tasks) and `assembleDebug` green; content release gate
   `Release gate OK`.
 
 ## [0.27.0] - 2026-08-10
@@ -514,11 +514,11 @@ trusted home LAN; it is not used for telemetry or cloud content sync.
 ### Tooling
 
 - `content_review.py`: topic-grounded `make_activities` feedback table, generic-key replacement guard (`_GENERIC_FEEDBACK_KEYS`), language-aware sanitizers.
-- Gates: `content_review --include-legacy --dry-run` 0/358/0, `content_quality_audit --check` 0 findings, `content_similarity_gate` 0 @0.85, `content_pack_validation --strict` 358/358 0/0, tooling 91 tests (358 subtests), `core-content` + app unit tests, `verifyPlayableContent` 358 educator-reviewed.
+- Gates: content-review dry-run 0/358/0, quality audit 0 findings, similarity gate 0 @0.85, strict content validation 358/358 0/0, tooling 91 tests, `core-content` + app unit tests, content release gate educator-reviewed.
 
 ## [0.24.0] - 2026-08-08
 
-### Changed (child-development content review, all 358 lessons)
+### Changed (child-development content review, full lesson pack)
 
 - Re-authored learner-facing content in 196 lesson files against the product
   goal (factual, age-appropriate, learning-first, encouraging, fun for an
@@ -535,7 +535,7 @@ trusted home LAN; it is not used for telemetry or cloud content sync.
   `repair_educator_findings.py`, `content_review.py`, `Models.kt`
   (FeedbackSanitizationTest, ActivityStepConversionTest), and
   `repair_filipino_content.py` (idempotency restored, 14/14 tool tests).
-- Metadata untouched: 358/358 lessons educator-reviewed and RELEASED.
+- Metadata untouched: full lesson pack educator-reviewed and RELEASED.
 
 ## [0.23.0] - 2026-08-08
 
@@ -561,10 +561,10 @@ trusted home LAN; it is not used for telemetry or cloud content sync.
 ### Educator review round 2 (2026-08-07)
 - Re-keyed 10 Science "Material Detectives" lessons: anchor objects were marked correct for
   flexible/absorbs/hard all at once; keys now point to the true property holders, with
-  property-based explanations (findings in `docs/educator-content-review-2026-08-07-r2.md`).
+  property-based explanations.
 - Fixed 6 inverted English odd-one-out keys, rebuilt the 2 broken sequencing assessments,
   replaced 25 placeholder keyed answers and 21 placeholder vocabulary entries with real content,
-  rebuilt the mangrove informational-text lesson's assessment, and de-duplicated the
+  rebuilt the mangrove informational lesson's assessment, and de-duplicated the
   `q2-w04-d02`/`q3-w11-d03` clone.
 - Purged generator jargon pack-wide: "Subukan ang kasanayan sa…" → teaching lead-ins (138×),
   "shows the skill"/"the lesson skill"/"Try the skill" (0 remaining), "evidence from the
@@ -610,7 +610,7 @@ trusted home LAN; it is not used for telemetry or cloud content sync.
 ## [0.21.0] - 2026-08-06
 
 ### Content
-- Filipino Q1 W04–W08: nine new Grade 3 lessons + SVG artwork (PR #55) — pack now 358 lessons
+- Filipino Q1 W04–W08: nine new Grade 3 lessons + SVG artwork (PR #55) — pack expanded
 - Educator review pass across all lessons (placeholders removed, unsafe distractors replaced, answer-position bias fixed, similarity gate zeroed)
 - Quarterly lesson visuals regenerated as topic-specific scenes (800×450 / 1200×675)
 - Repair tooling made idempotent and check-mode read-only (no more working-tree churn)

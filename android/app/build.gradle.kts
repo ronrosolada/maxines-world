@@ -99,9 +99,6 @@ dependencies {
     implementation(project(":feature-parent"))
     implementation(libs.okhttp)
     implementation(project(":feature-rewards"))
-    implementation(project(":engine-activity"))
-    implementation(project(":engine-assessment"))
-    implementation(project(":engine-mastery"))
     implementation(project(":engine-minigame"))
     implementation(project(":game-cat-cafe"))
     implementation(project(":game-pawprint-parkour"))
@@ -166,85 +163,6 @@ dependencies {
     androidTestImplementation(libs.compose.ui.test.junit4)
 }
 
-// ─── Educator metadata gate ────────────────────────────────────────────────
-// By default, fails if any playable lesson in the bundled pack is not
-// educator-approved (educatorValidated=true AND releaseStatus=RELEASED).
-// PR CI may explicitly allow review-gated drafts so content can be validated
-// before human approval. The tag-based release workflow never sets this flag.
-// Approval is performed deliberately via tools/mark_lessons_reviewed.py
-// after a human curriculum review — the strict release gate exists so a
-// release can never accidentally ship draft curriculum to a child.
-val allowUnreviewedContent = providers.gradleProperty("allowUnreviewedContent")
-    .map { it.toBoolean() }
-    .orElse(false)
-
-val verifyPlayableContent by tasks.registering {
-    group = "verification"
-    description = "Validate educator metadata and enforce release approval across EVERY lesson-bearing asset directory"
-    // Scan the whole assets tree, not just content-pack/month-01: any JSON that
-    // has the lesson shape (an `activities` list) is playable content, and no
-    // unreviewed lesson may ship in the APK (external review finding C3).
-    val assetsDir = project.layout.projectDirectory.dir("src/main/assets")
-    doLast {
-        val slurper = groovy.json.JsonSlurper()
-        var total = 0
-        var unreviewed = 0
-        val bad = mutableListOf<String>()
-        val invalidMetadata = mutableListOf<String>()
-        val files = assetsDir.asFileTree.matching {
-            include("**/*.json")
-            exclude("**/mini-games/**")
-        }.files.filter { file ->
-            // Lesson-like shape only: parse is cheap relative to a false positive
-            // on non-lesson JSON (badge_catalog, mini-game configs, manifests).
-            runCatching {
-                @Suppress("UNCHECKED_CAST")
-                val candidate = slurper.parse(file) as Map<String, Any?>
-                candidate["activities"] is List<*>
-            }.getOrDefault(false)
-        }
-        files.forEach { file ->
-            total++
-            @Suppress("UNCHECKED_CAST")
-            val lesson = slurper.parse(file) as Map<String, Any?>
-            val validated = lesson["educatorValidated"] as? Boolean ?: false
-            val releaseStatus = lesson["releaseStatus"] as? String
-            val released = validated && releaseStatus == "RELEASED"
-            val metadataConsistent = released ||
-                (!validated && releaseStatus == "REQUIRES_EDUCATOR_REVIEW")
-            if (!metadataConsistent) {
-                invalidMetadata += file.relativeTo(assetsDir.asFile).path
-            }
-            if (!(validated && released)) {
-                unreviewed++
-                bad += file.relativeTo(assetsDir.asFile).path
-            }
-        }
-        if (invalidMetadata.isNotEmpty()) {
-            throw GradleException(
-                "Educator metadata INVALID for ${invalidMetadata.size}/$total lessons " +
-                    "(e.g. ${invalidMetadata.take(5)}). Use educatorValidated=false " +
-                    "with REQUIRES_EDUCATOR_REVIEW, or educatorValidated=true with RELEASED."
-            )
-        }
-        if (unreviewed > 0 && !allowUnreviewedContent.get()) {
-            throw GradleException(
-                "Release gate FAILED: $unreviewed/$total playable lessons are not " +
-                    "educator-reviewed (e.g. ${bad.take(5)}). " +
-                    "Run tools/mark_lessons_reviewed.py after a human curriculum review."
-            )
-        }
-        if (unreviewed > 0) {
-            println(
-                "Educator metadata OK: $total playable lessons parsed; " +
-                    "$unreviewed remain explicitly gated for human review."
-            )
-        } else {
-            println("Release gate OK: $total playable lessons are educator-reviewed.")
-        }
-    }
-}
-
 // ─── Offline mini-game gate ────────────────────────────────────────────────
 // Reward-break games are bundled HTML. Keep the catalog complete and prevent
 // accidental network-capable content from entering the child-facing WebView.
@@ -305,16 +223,14 @@ val verifyOfflineMiniGames by tasks.registering {
     }
 }
 
-// The educator gate must run on every verification pass AND on the
-// release build itself — a release can never ship draft curriculum.
-// (2026-08-06: previously registered but never wired into any task.)
+// The offline mini-game isolation gate must run on every verification pass AND
+// on the release build itself — a release can never ship a network-capable or
+// missing reward-break game.
 tasks.named("check") {
-    dependsOn(verifyPlayableContent)
     dependsOn(verifyOfflineMiniGames)
 }
 // assembleRelease is created by AGP after project evaluation, so hook
 // via matching/configureEach rather than named().
 tasks.matching { it.name == "assembleRelease" }.configureEach {
-    dependsOn(verifyPlayableContent)
     dependsOn(verifyOfflineMiniGames)
 }

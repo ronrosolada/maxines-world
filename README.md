@@ -21,10 +21,10 @@ curious rather than distract from understanding.
 - Modular architecture (19 Gradle modules)
 - Bundled HTML reward-break games with CSP-isolated WebViews
 
-## Content Architecture Evolution
-- **Legacy Text Lessons (Archived):** The 358 hand-authored / converted SLM text-based lessons are archived in `archive/legacy-text-lessons/month-01/`. A compatibility copy remains in `android/app/src/main/assets/content-pack/month-01/` for offline/fallback compatibility.
-- **Active Video-First Lessons:** Video lessons streamed/cached from the homelab Caddy hub with real-time Whisper subtitle sync and post-watch video quizzes (`android/app/src/main/assets/content-pack/media-assessments.json`).
-- **Active Assessment Arena:** Multi-curriculum quiz packs (`android/app/src/main/assets/assessment-packs/`) covering Philippine DepEd, Singapore MOE, and US standards.
+## Content Architecture
+- **Video-First Lessons:** Video lessons streamed/cached from the homelab Caddy hub with real-time Whisper subtitle sync and post-watch video quizzes (`android/app/src/main/assets/content-pack/media-assessments.json`).
+- **Assessment Arena:** Multi-curriculum quiz packs (`android/app/src/main/assets/assessment-packs/`) covering Philippine DepEd, Singapore MOE, and US standards.
+- **Reward Mini-Games:** Bundled HTML reward-break games plus native reward games, gated by the reward-break entitlement engine.
 
 ## Project Structure
 ```
@@ -56,14 +56,17 @@ cd android
 ./gradlew assembleDebug
 ```
 
-The release is offline-first: lessons and reward-break games are bundled, with
-optional media available from the trusted home LAN. It must pass both the
-educator-content gate and the bundled mini-game isolation gate:
+The release is offline-first: the Assessment Arena packs and reward-break games
+are bundled, with optional video media available from the trusted home LAN. It
+must pass the bundled mini-game isolation gate and the video/catalog validators:
 
 ```bash
 ./gradlew check assembleRelease
-python3 tools/content_quality_audit.py --check
-python3 tools/dedupe_lesson_titles.py --check
+python3 android/tools/validate_video_checkpoints.py
+python3 android/tools/validate_skill_graph.py
+python3 android/tools/validate_catalog_parity.py
+python3 android/tools/audit_media_assessment_uniqueness.py
+python3 android/tools/validate_arena_packs.py
 ```
 
 The release manifest intentionally includes `android.permission.INTERNET` for
@@ -76,22 +79,20 @@ stored in this repository.
 
 ## Independent educator review
 
-The bundled Grade 3 lesson pack has a dedicated handoff for independent LLM or
-human curriculum review:
+The video library and Assessment Arena have a dedicated educator quality report
+for independent review:
 
-- [Educator content review brief](docs/educator-content-review-brief.md)
+- [Assessment Arena + video educator quality report](docs/educator-quality-report-assessment-arena-video-2026-08-27.md)
 - [Current state and handoff](HANDOFF.md)
 
-The brief names the exact review baseline, lesson counts, non-destructive audit
-commands, educator rubric, high-risk patterns, and required findings format.
-Approval metadata and passing structural tests are not substitutes for factual,
-pedagogical, language, and safety review.
+Passing structural tests are not substitutes for factual, pedagogical, language,
+and safety review.
 
 ## Optional video lessons
 
 The current personal-use preview catalog contains 237 workbook-selected videos
 across Filipino, Makabansa, Mathematics, English, GMRC, and Science. It keeps
-core lessons offline-first while offering verified LAN downloads, subject tags,
+the Assessment Arena offline-first while offering verified LAN downloads, subject tags,
 episode ordering, and five-question memory checks with a 4/5 pass threshold.
 See the complete [playlist replacement and release documentation](docs/video-playlist-replacement-2026-08-20.md)
 and the [optional media contract](android/docs/optional-video-media.md).

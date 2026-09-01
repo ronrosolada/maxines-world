@@ -58,7 +58,6 @@ import com.maxinesworld.coredesignsystem.theme.Cream
 import com.maxinesworld.coredesignsystem.theme.Ink
 import com.maxinesworld.coredesignsystem.theme.Teal40
 import com.maxinesworld.coredesignsystem.theme.VillageTeal
-import com.maxinesworld.coremodel.ActivityStep
 import com.maxinesworld.coremodel.CheckpointType
 import com.maxinesworld.coremodel.VideoCheckpointItem
 import kotlinx.coroutines.delay
@@ -68,100 +67,6 @@ internal val VIDEO_PLAYBACK_SPEEDS = listOf(0.75f, 1.0f, 1.25f, 1.5f, 2.0f)
 
 internal fun replaySegmentPosition(currentPositionMs: Long): Long =
     maxOf(0L, currentPositionMs - 5_000L)
-
-@Composable
-internal fun VideoStep(
-    step: ActivityStep,
-    mediaState: MediaDownloadUiState,
-    onDownload: () -> Unit,
-    onContinue: () -> Unit,
-    checkpoints: List<VideoCheckpointItem> = emptyList(),
-) {
-    val mediaId = step.mediaId
-    val localFile = mediaState.filePath
-        ?.let(::File)
-        ?.takeIf { it.isFile && it.length() > 0L }
-
-    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        Text(
-            text = step.question,
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold,
-            color = Ink,
-        )
-
-        when {
-            mediaId.isNullOrBlank() -> {
-                MediaStatusCard(
-                    icon = { Icon(Icons.Default.PlayCircle, contentDescription = null, tint = Teal40) },
-                    message = "This video is not configured yet.",
-                )
-            }
-
-            localFile != null -> OfflineVideoPlayer(localFile, checkpoints = checkpoints)
-
-            else -> {
-                MediaStatusCard(
-                    icon = { Icon(Icons.Default.CloudDownload, contentDescription = null, tint = Teal40) },
-                    message = when {
-                        mediaState.isDownloading -> "Downloading this video for offline play…"
-                        mediaState.error != null -> "The video could not be downloaded. Check the home Wi-Fi and try again."
-                        else -> "Download this short video once, then watch it offline."
-                    },
-                )
-                if (mediaState.isDownloading) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                        color = Teal40,
-                    )
-                } else {
-                    MaxinesPrimaryButton(
-                        onClick = onDownload,
-                        text = if (mediaState.error == null) "Download video" else "Try again",
-                        modifier = Modifier.fillMaxWidth(),
-                        enabled = mediaId.isNotBlank(),
-                    )
-                }
-            }
-        }
-
-        if (localFile == null && !mediaId.isNullOrBlank()) {
-            Text(
-                text = "You can skip this optional video and continue the lesson.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = Ink.copy(alpha = 0.70f),
-            )
-        }
-
-        MaxinesPrimaryButton(
-            onClick = onContinue,
-            text = if (localFile == null) "Skip for now" else "Continue",
-            modifier = Modifier.fillMaxWidth(),
-            containerColor = if (localFile == null) Teal40.copy(alpha = 0.82f) else Teal40,
-        )
-    }
-}
-
-@Composable
-private fun MediaStatusCard(
-    icon: @Composable () -> Unit,
-    message: String,
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Cream),
-    ) {
-        Row(
-            modifier = Modifier.padding(20.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            icon()
-            Spacer(Modifier.width(8.dp))
-            Text(message, color = Ink, style = MaterialTheme.typography.bodyLarge)
-        }
-    }
-}
 
 @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 @Composable

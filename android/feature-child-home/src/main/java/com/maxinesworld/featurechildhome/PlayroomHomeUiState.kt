@@ -218,8 +218,7 @@ val canonicalSubjects: List<SubjectCardUi> = listOf(
         illustrationRes = R.drawable.mw_subject_filipino_kwentuhan,
         progressPercent = null, destination = "filipino",
     ),
-    // Makabansa (Matatag successor of Araling Panlipunan) — the legacy AP
-    // lessons are folded into this collection; see ModuleCatalog.
+    // Makabansa is the Matatag-curriculum successor of Araling Panlipunan.
     SubjectCardUi(
         id = "makabansa", formalName = "Makabansa", playfulName = "Bayan at Kultura",
         illustrationRes = R.drawable.mw_subject_ap_heritage,

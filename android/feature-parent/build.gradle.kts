@@ -24,7 +24,6 @@ dependencies {
     implementation(project(":core-network"))
     implementation(project(":feature-auth"))
     implementation(project(":feature-rewards"))
-    implementation(project(":engine-mastery"))
     implementation(libs.core.ktx)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coroutines.core)

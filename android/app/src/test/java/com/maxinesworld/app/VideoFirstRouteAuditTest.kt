@@ -8,9 +8,10 @@ import java.io.File
 /**
  * Static navigation audit for the video-first child-home contract.
  *
- * The lesson JSON, ContentLessonLoader, and renderer/conversion tests remain
- * intentionally supported for offline compatibility and assessment/reward
- * integration. They are not child-home navigation targets.
+ * The text-lesson stack (bundled lesson JSON, ContentLessonLoader, activity
+ * renderers, and the three activity engines) has been fully removed; only
+ * video, Assessment Arena, and reward surfaces remain. These tests enforce
+ * that the text-lesson system never returns.
  */
 class VideoFirstRouteAuditTest {
 
@@ -77,21 +78,21 @@ class VideoFirstRouteAuditTest {
     }
 
     @Test
-    fun `intentional lesson compatibility surfaces remain without a child route`() {
+    fun `text lesson stack is fully removed from the repo`() {
         val root = repoRoot()
-        val intentionalFiles = listOf(
+        val removedArtifacts = listOf(
             "android/core-content/src/main/java/com/maxinesworld/corecontent/ContentLessonLoader.kt",
+            "android/core-content/src/main/java/com/maxinesworld/corecontent/ModuleCatalog.kt",
             "android/feature-lesson-player/src/main/java/com/maxinesworld/featurelessonplayer/LessonPlayerViewModel.kt",
-            "android/engine-activity/src/main/java/com/maxinesworld/engineactivity/renderers/ActivityRenderer.kt",
-            "android/app/src/androidTest/java/com/maxinesworld/app/OfflineLessonLoadTest.kt",
+            "android/engine-activity",
+            "android/engine-assessment",
+            "android/engine-mastery",
+            "android/app/src/main/assets/content-pack/month-01",
+            "archive/legacy-text-lessons",
         )
-        intentionalFiles.forEach { relative ->
-            assertTrue("intentional compatibility file is missing: $relative", File(root, relative).isFile)
+        removedArtifacts.forEach { relative ->
+            assertFalse("text-lesson artifact must be removed: $relative", File(root, relative).exists())
         }
-        assertTrue(
-            "bundled lesson assets remain for offline/content-loader compatibility",
-            File(root, "android/app/src/main/assets/content-pack").isDirectory,
-        )
     }
 
     @Test

@@ -270,8 +270,8 @@ Incorrect response:
 > Playroom: the subject guides (Mira, Milo, Niko, Lakan, Duke) appear as
 > subject illustrations and the quest/sanctuary mascot, not as 8–14
 > standing village animals. The layered village scenery that satisfies
-> this table is scheduled with the CH-07 phase model — see
-> `docs/phase-model-ch07.md`. The child-facing principle "animals must
+> this table is scheduled as a later CH-07 phase-model milestone. The
+> child-facing principle "animals must
 > not crowd controls or distract during reading and assessment" already
 > applies to every shipped screen.
 | Celebration | 4–10 |
