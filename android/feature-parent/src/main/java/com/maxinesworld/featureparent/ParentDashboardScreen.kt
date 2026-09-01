@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxinesworld.coredatabase.*
-import com.maxinesworld.corecontent.ModuleCatalog
+import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.coremodel.CollectibleBadge
 import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
@@ -102,19 +102,17 @@ data class SubjectProgress(
     val accuracy: Float
 )
 
-/** One feed row per completed lesson, never one row per assessment question. */
+/** One feed row per watched video whose memory check was passed. */
 internal fun recentActivityLabels(
-    completions: List<LessonCompletionEntity>,
-    titleForLesson: (String) -> String,
-): List<String> = completions
-    .sortedWith(
-        compareByDescending<LessonCompletionEntity> { it.completedAtEpochMillis }
-            .thenByDescending { it.id },
-    )
-    .distinctBy { it.lessonId }
-    .take(5)
-    .map { completion ->
-        "${titleForLesson(completion.lessonId)} — ${(completion.accuracy * 100).toInt()}%"
+    watched: List<VideoWatchLedgerEntity>,
+    titleForMedia: (String) -> String,
+): List<String> = watched
+    .filter { it.quizPassed }
+    .sortedByDescending { it.firstPassedAtEpochMillis ?: it.lastWatchedAtEpochMillis }
+    .distinctBy { it.mediaId }
+    .take(RECENT_ACTIVITY_LIMIT)
+    .map { entry ->
+        "${titleForMedia(entry.mediaId)} — ${(entry.bestQuizScore * 100).toInt()}%"
     }
 
 /** Resolve both current full subject IDs and legacy abbreviated IDs. */
@@ -144,8 +142,7 @@ class ParentDashboardViewModel @Inject constructor(
     private val rewardDao: RewardDao,
     private val masteryRecordDao: MasteryRecordDao,
     private val progressEventDao: ProgressEventDao,
-    private val lessonCompletionDao: LessonCompletionDao,
-    private val moduleCatalog: ModuleCatalog,
+    private val mediaLibrary: MediaLibrary,
     private val godModeManager: GodModeManager,
     private val badgeLoader: BadgeLoader,
     private val collectedBadgeDao: CollectedBadgeDao,
@@ -178,7 +175,7 @@ class ParentDashboardViewModel @Inject constructor(
     )
 
     private data class ActivitySnapshot(
-        val completions: List<LessonCompletionEntity>,
+        val watched: List<VideoWatchLedgerEntity>,
         val accreditedSeconds: Int,
         val passedMediaIds: List<String>,
     )
@@ -221,18 +218,9 @@ class ParentDashboardViewModel @Inject constructor(
                 .onEach { badgeIds -> _earnedBadgeIds.value = badgeIds.toSet() }
                 .launchIn(viewModelScope)
 
-            val titleByLessonId = mutableMapOf<String, String>()
-            suspend fun friendlyTitle(lessonId: String): String {
-                titleByLessonId[lessonId]?.let { return it }
-                val subject = subjectKeyForLessonId(lessonId)
-                val title = subject?.let { s ->
-                    moduleCatalog.modulesFor(s).asSequence()
-                        .flatMap { it.lessons.asSequence() }
-                        .firstOrNull { it.lessonId == lessonId }?.title
-                } ?: "Lesson"
-                titleByLessonId[lessonId] = title
-                return title
-            }
+            val titleByMediaId: Map<String, String> = runCatching {
+                mediaLibrary.getCatalog().media.associate { it.mediaId to it.title }
+            }.getOrDefault(emptyMap())
 
             val academic = combine(
                 childProfileDao.observeById(childId),
@@ -244,16 +232,15 @@ class ParentDashboardViewModel @Inject constructor(
             }
 
             val activity = combine(
-                lessonCompletionDao.observeRecentByChild(childId, limit = RECENT_ACTIVITY_LIMIT),
+                videoWatchLedgerDao.observeLedger(childId),
                 videoWatchLedgerDao.observeTotalAccreditedSeconds(childId),
                 videoWatchLedgerDao.observePassedMediaIds(childId),
-            ) { completions, accreditedSeconds, passedMediaIds ->
-                ActivitySnapshot(completions, accreditedSeconds, passedMediaIds)
+            ) { watched, accreditedSeconds, passedMediaIds ->
+                ActivitySnapshot(watched, accreditedSeconds, passedMediaIds)
             }
 
             combine(academic, activity, extras) { a, act, ui ->
-                act.completions.map { it.lessonId }.distinct().forEach { lessonId -> friendlyTitle(lessonId) }
-                buildDashboardState(ui, a, act) { lessonId -> titleByLessonId[lessonId] ?: "Lesson" }
+                buildDashboardState(ui, a, act) { mediaId -> titleByMediaId[mediaId] ?: "Video lesson" }
             }
                 .catch { emit(ParentDashboardState(isLoading = false)) }
                 .onEach { dashboardState -> _state.value = dashboardState }
@@ -277,7 +264,7 @@ class ParentDashboardViewModel @Inject constructor(
         ui: UiExtras,
         academic: AcademicSnapshot,
         activity: ActivitySnapshot,
-        titleForLesson: (String) -> String,
+        titleForMedia: (String) -> String,
     ): ParentDashboardState {
         val child = academic.child
 
@@ -317,7 +304,7 @@ class ParentDashboardViewModel @Inject constructor(
             totalCoins = academic.rewards.filter { it.type == "COIN" }.sumOf { it.amount },
             subjectProgress = subjectProgress,
             masterySummary = MasterySummary(mastered, developing, needsReview),
-            recentActivity = recentActivityLabels(activity.completions, titleForLesson),
+            recentActivity = recentActivityLabels(activity.watched, titleForMedia),
             streakDays = currentLearningStreak(
                 localDates = localLearningDates(academic.progress.map { it.timestamp }, ZoneId.systemDefault()),
                 today = LocalDate.now(),

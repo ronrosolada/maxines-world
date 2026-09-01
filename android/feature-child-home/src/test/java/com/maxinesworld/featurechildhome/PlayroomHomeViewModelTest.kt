@@ -1,16 +1,12 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.lifecycle.SavedStateHandle
-import com.maxinesworld.corecontent.ContentModule
-import com.maxinesworld.corecontent.ContentModuleLesson
-import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.MediaCatalog
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
-import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
@@ -82,21 +78,8 @@ class PlayroomHomeViewModelTest {
 
 
     @Test
-    fun `per-subject progress divides completed lessons by catalog total`() = runTest(dispatcher) {
-        val completed = (1..3).map { "mathematics-g3-m01-d%02d".format(it) }
-        val vm = buildViewModel(
-            completedLessons = completed,
-            catalog = catalogWithTotals(mapOf("mathematics" to 6)),
-        )
-        advanceUntilIdle()
-        assertEquals(50, content(vm).subjects.first { it.id == "mathematics" }.progressPercent)
-    }
-
-    @Test
     fun `per-subject video progress uses passed media ids and active media total`() = runTest(dispatcher) {
         val vm = buildViewModel(
-            completedLessons = listOf("mathematics-g3-m01-d01", "mathematics-g3-m01-d02", "mathematics-g3-m01-d03"),
-            catalog = catalogWithTotals(mapOf("mathematics" to 6)),
             videoCatalog = mediaCatalogWithTotals("mathematics" to 6),
             passedVideoMediaIds = (1..3).map { "mathematics-video-$it" },
         )
@@ -156,10 +139,8 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
-    fun `missing video catalog does not expose legacy lesson progress as video progress`() = runTest(dispatcher) {
+    fun `missing video catalog does not expose stale video progress`() = runTest(dispatcher) {
         val vm = buildViewModel(
-            completedLessons = (1..3).map { "mathematics-g3-m01-d%02d".format(it) },
-            catalog = catalogWithTotals(mapOf("mathematics" to 6)),
             videoCatalogLoadFails = true,
         )
         advanceUntilIdle()
@@ -263,39 +244,20 @@ class PlayroomHomeViewModelTest {
     }
 
     @Test
-    fun `latest passed ids win when an older base content emission completes later`() = runTest(dispatcher) {
+    fun `latest passed ids win when profile updates`() = runTest(dispatcher) {
         val profiles = MutableStateFlow<ChildProfileEntity?>(profile("Maxine"))
         val passedIds = MutableStateFlow(listOf("mathematics-video-1"))
-        val rebuildStarted = CompletableDeferred<Unit>()
-        val releaseRebuild = CompletableDeferred<Unit>()
-        val catalogCalls = AtomicInteger()
-        var initialCallCount = Int.MAX_VALUE
-        val catalog = mockk<ModuleCatalog>()
-        coEvery { catalog.modulesFor(any()) } coAnswers {
-            val call = catalogCalls.incrementAndGet()
-            if (call > initialCallCount && rebuildStarted.complete(Unit)) {
-                releaseRebuild.await()
-            }
-            emptyList()
-        }
 
         val vm = buildViewModel(
-            catalog = catalog,
             videoCatalog = mediaCatalogWithTotals("mathematics" to 2),
             profileFlow = profiles,
             passedVideoMediaIdsFlow = passedIds,
         )
         advanceUntilIdle()
-        initialCallCount = catalogCalls.get()
         assertEquals(1, content(vm).subjects.first { it.id == "mathematics" }.completedVideos)
 
         profiles.value = profile("Updated Maxine")
-        runCurrent()
-        rebuildStarted.await()
-
         passedIds.value = listOf("mathematics-video-1", "mathematics-video-2")
-        runCurrent()
-        releaseRebuild.complete(Unit)
         advanceUntilIdle()
 
         val mathematics = content(vm).subjects.first { it.id == "mathematics" }
@@ -346,15 +308,12 @@ class PlayroomHomeViewModelTest {
     @Test
     fun `god mode exposes all reward components and the playground without changing lesson progress`() = runTest(dispatcher) {
         val vm = buildViewModel(
-            completedLessons = listOf("english-g3-m01-d01"),
             badges = listOf(badge("b1", true), badge("b2", false)),
-            catalog = catalogWithTotals(mapOf("english" to 1)),
             godModeEnabled = true,
         )
         advanceUntilIdle()
 
         val content = content(vm)
-        assertEquals(100, content.subjects.first { it.id == "english" }.progressPercent)
         assertEquals(2, content.wildlifeStickers.collectedCount)
         assertEquals(3, content.ownedKeepsakes.size)
         assertEquals(12, content.sanctuary.earnedPieces)
@@ -525,11 +484,9 @@ class PlayroomHomeViewModelTest {
     }
 
     private fun buildViewModel(
-        completedLessons: List<String> = emptyList(),
         quest: ChallengeProgress = ChallengeProgress(),
         badges: List<com.maxinesworld.coremodel.CollectibleBadge> = emptyList(),
         childName: String? = "Maxine",
-        catalog: ModuleCatalog = emptyCatalog(),
         videoCatalog: MediaCatalog = mediaCatalogWithTotals(
             "mathematics" to 1,
             "english" to 1,
@@ -553,8 +510,6 @@ class PlayroomHomeViewModelTest {
         coEvery { profileDao.observeById("child_1") } returns (
             profileFlow ?: flowOf(childName?.let(::profile))
         )
-        val completionDao = mockk<LessonCompletionDao>()
-        coEvery { completionDao.observeDistinctLessonIds("child_1") } returns flowOf(completedLessons)
         val progressEventDao = mockk<ProgressEventDao>()
         if (streakTimestampLoadFails) {
             every { progressEventDao.observeTimestampsByChild("child_1") } throws
@@ -608,10 +563,8 @@ class PlayroomHomeViewModelTest {
         every { localDateChangeSource.observe(any()) } returns flowOf(LocalDate.now())
         return PlayroomHomeViewModel(
             savedStateHandle = SavedStateHandle(mapOf("childId" to "child_1")),
-            catalog = catalog,
             mediaLibrary = mediaLibrary,
             childProfileDao = profileDao,
-            lessonCompletionDao = completionDao,
             progressEventDao = progressEventDao,
             badgeAwarder = awarder,
             rewardDao = rewardDao,
@@ -626,34 +579,6 @@ class PlayroomHomeViewModelTest {
 
     private fun content(vm: PlayroomHomeViewModel): PlayroomHomeUiState.Content =
         vm.state.value as PlayroomHomeUiState.Content
-
-    private fun emptyCatalog(): ModuleCatalog {
-        val catalog = mockk<ModuleCatalog>()
-        coEvery { catalog.modulesFor(any()) } returns emptyList()
-        return catalog
-    }
-
-    private fun catalogWithTotals(lessonCounts: Map<String, Int>): ModuleCatalog {
-        val catalog = mockk<ModuleCatalog>()
-        coEvery { catalog.modulesFor(any()) } answers { call ->
-            val subject = call.invocation.args[0] as String
-            val count = lessonCounts[subject] ?: 0
-            listOf(
-                ContentModule(
-                    key = "m01",
-                    title = "Module",
-                    lessons = (1..count).map {
-                        ContentModuleLesson(
-                            lessonId = "${subject}-g3-m01-d%02d".format(it),
-                            title = "Lesson $it",
-                            day = it,
-                        )
-                    },
-                )
-            )
-        }
-        return catalog
-    }
 
     private fun mediaCatalogWithTotals(vararg subjectAndCount: Pair<String, Int>): MediaCatalog {
         val assets = subjectAndCount.flatMap { (subject, count) ->

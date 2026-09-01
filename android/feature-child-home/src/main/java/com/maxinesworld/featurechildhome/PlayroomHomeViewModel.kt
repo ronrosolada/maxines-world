@@ -3,7 +3,6 @@ package com.maxinesworld.featurechildhome
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
@@ -11,7 +10,6 @@ import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.ChildProfileEntity
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.InventoryDao
-import com.maxinesworld.coredatabase.LessonCompletionDao
 import com.maxinesworld.coredatabase.PlaygroundUnlockReceiptDao
 import com.maxinesworld.coredatabase.ProgressEventDao
 import com.maxinesworld.coredatabase.RewardDao
@@ -91,7 +89,6 @@ class LocalDateChangeSource @Inject constructor() {
 
 private data class HomeDataTuple(
     val profile: com.maxinesworld.coredatabase.ChildProfileEntity?,
-    val lessonIds: List<String>,
     val passedMediaIds: Set<String>,
     val mediaAssets: List<MediaAsset>?,
     val totalAccreditedSeconds: Int,
@@ -104,10 +101,8 @@ private data class HomeDataTuple(
 @HiltViewModel
 class PlayroomHomeViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val catalog: ModuleCatalog,
     private val mediaLibrary: MediaLibrary,
     private val childProfileDao: ChildProfileDao,
-    private val lessonCompletionDao: LessonCompletionDao,
     private val progressEventDao: ProgressEventDao,
     private val badgeAwarder: BadgeAwarder,
     private val rewardDao: RewardDao,
@@ -207,7 +202,6 @@ class PlayroomHomeViewModel @Inject constructor(
     private fun collectState() {
         stateJob?.cancel()
         val profileFlow = childProfileDao.observeById(childId)
-        val lessonIdsFlow = lessonCompletionDao.observeDistinctLessonIds(childId)
         val passedMediaIdsFlow = videoWatchLedgerDao.observePassedMediaIds(childId)
         val accreditedSecondsFlow = videoWatchLedgerDao.observeTotalAccreditedSeconds(childId)
         val arenaRewardsFlow = rewardDao.observeByChild(childId)
@@ -220,14 +214,12 @@ class PlayroomHomeViewModel @Inject constructor(
                 )
                 val coreQuestInputs = combine(
                     profileFlow,
-                    lessonIdsFlow,
                     passedMediaIdsFlow,
                     videoAssets,
                     accreditedSecondsFlow,
-                ) { profile, lessonIds, passedMediaIds, assets, seconds ->
+                ) { profile, passedMediaIds, assets, seconds ->
                     HomeDataTuple(
                         profile = profile,
-                        lessonIds = lessonIds,
                         passedMediaIds = passedMediaIds.toSet(),
                         mediaAssets = assets,
                         totalAccreditedSeconds = seconds,
@@ -310,7 +302,6 @@ class PlayroomHomeViewModel @Inject constructor(
                     }
                     baseContent.value = buildContent(
                         data.profile?.name,
-                        data.lessonIds,
                         data.passedMediaIds,
                         data.mediaAssets,
                         dailyQuest,
@@ -361,7 +352,6 @@ class PlayroomHomeViewModel @Inject constructor(
 
     private suspend fun buildContent(
         childName: String?,
-        lessonIds: List<String>,
         passedMediaIds: Set<String>,
         mediaAssets: List<MediaAsset>?,
         dailyQuest: DailyQuestProgress,
@@ -374,21 +364,11 @@ class PlayroomHomeViewModel @Inject constructor(
         godModeEnabled: Boolean,
         playgroundUnlocked: Boolean = false,
     ): PlayroomHomeUiState.Content {
-        val completed = lessonIds.toSet()
-
         val subjects = canonicalSubjects.map { subject ->
-            val total = runCatching {
-                catalog.modulesFor(subject.destination).sumOf { it.lessons.size }
-            }.getOrDefault(0)
-            val done = completed.count {
-                it.startsWith("${subject.destination}-g3-") ||
-                    (subject.id == "makabansa" && it.startsWith("araling-panlipunan-g3-"))
-            }
-            val progress = if (total > 0) (done * 100 / total) else null
+            // The child-facing card renders live video counts (see withVideoProgress);
+            // subjects are always openable in the video-first experience.
             subject.copy(
-                // Kept for compatibility with internal/legacy calculations only;
-                // the child-facing card renders video counts below.
-                progressPercent = if (progress == 0) null else progress,
+                progressPercent = null,
                 availability = SubjectAvailability.Available,
                 lockReason = null,
             )

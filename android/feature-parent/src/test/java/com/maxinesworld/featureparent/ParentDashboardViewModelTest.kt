@@ -1,8 +1,9 @@
 package com.maxinesworld.featureparent
 
-import com.maxinesworld.corecontent.ModuleCatalog
 import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.CollectibleBadge
+import com.maxinesworld.coremodel.MediaCatalog
+import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.corenetwork.AppUpdateManager
 import com.maxinesworld.corenetwork.VideoPrefetchManager
 import com.maxinesworld.featurerewards.BadgeLoader
@@ -32,8 +33,7 @@ class ParentDashboardViewModelTest {
     private val rewardDao = mockk<RewardDao>(relaxed = true)
     private val masteryRecordDao = mockk<MasteryRecordDao>(relaxed = true)
     private val progressEventDao = mockk<ProgressEventDao>(relaxed = true)
-    private val lessonCompletionDao = mockk<LessonCompletionDao>(relaxed = true)
-    private val moduleCatalog = mockk<ModuleCatalog>(relaxed = true)
+    private val mediaLibrary = mockk<MediaLibrary>(relaxed = true)
     private val godModeManager = mockk<GodModeManager>(relaxed = true)
     private val badgeLoader = mockk<BadgeLoader>(relaxed = true)
     private val collectedBadgeDao = mockk<CollectedBadgeDao>(relaxed = true)
@@ -46,7 +46,7 @@ class ParentDashboardViewModelTest {
     private val rewardsFlow = MutableStateFlow<List<RewardEntity>>(emptyList())
     private val masteryFlow = MutableStateFlow<List<MasteryRecordEntity>>(emptyList())
     private val progressFlow = MutableStateFlow<List<ProgressEventEntity>>(emptyList())
-    private val completionsFlow = MutableStateFlow<List<LessonCompletionEntity>>(emptyList())
+    private val watchedLedgerFlow = MutableStateFlow<List<VideoWatchLedgerEntity>>(emptyList())
     private val accreditedSecondsFlow = MutableStateFlow(0)
     private val passedMediaIdsFlow = MutableStateFlow<List<String>>(emptyList())
     private val badgeIdsFlow = MutableStateFlow<List<String>>(emptyList())
@@ -61,19 +61,19 @@ class ParentDashboardViewModelTest {
         every { rewardDao.observeByChild(any()) } returns rewardsFlow
         every { masteryRecordDao.observeByChild(any()) } returns masteryFlow
         every { progressEventDao.observeByChild(any()) } returns progressFlow
-        every { lessonCompletionDao.observeRecentByChild(any(), any()) } returns completionsFlow
+        every { videoWatchLedgerDao.observeLedger(any()) } returns watchedLedgerFlow
         every { videoWatchLedgerDao.observeTotalAccreditedSeconds(any()) } returns accreditedSecondsFlow
         every { videoWatchLedgerDao.observePassedMediaIds(any()) } returns passedMediaIdsFlow
         every { collectedBadgeDao.observeBadgeIdsByChild(any()) } returns badgeIdsFlow
         coEvery { godModeManager.isEnabledNow(any()) } returns false
+        coEvery { mediaLibrary.getCatalog() } returns MediaCatalog(catalogVersion = 1, generatedAt = "test", media = emptyList())
 
         viewModel = ParentDashboardViewModel(
             childProfileDao = childProfileDao,
             rewardDao = rewardDao,
             masteryRecordDao = masteryRecordDao,
             progressEventDao = progressEventDao,
-            lessonCompletionDao = lessonCompletionDao,
-            moduleCatalog = moduleCatalog,
+            mediaLibrary = mediaLibrary,
             godModeManager = godModeManager,
             badgeLoader = badgeLoader,
             collectedBadgeDao = collectedBadgeDao,
