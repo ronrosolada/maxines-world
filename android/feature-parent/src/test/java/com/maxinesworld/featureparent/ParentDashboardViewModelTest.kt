@@ -4,7 +4,6 @@ import com.maxinesworld.coredatabase.*
 import com.maxinesworld.coremodel.CollectibleBadge
 import com.maxinesworld.coremodel.MediaCatalog
 import com.maxinesworld.corenetwork.MediaLibrary
-import com.maxinesworld.corenetwork.AppUpdateManager
 import com.maxinesworld.corenetwork.VideoPrefetchManager
 import com.maxinesworld.featurerewards.BadgeLoader
 import io.mockk.coEvery
@@ -39,8 +38,6 @@ class ParentDashboardViewModelTest {
     private val collectedBadgeDao = mockk<CollectedBadgeDao>(relaxed = true)
     private val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>(relaxed = true)
     private val videoPrefetchManager = mockk<VideoPrefetchManager>(relaxed = true)
-    private val appUpdateManager = mockk<AppUpdateManager>(relaxed = true)
-
     /** Hot flows standing in for Room's reactive streams. */
     private val childFlow = MutableStateFlow<ChildProfileEntity?>(null)
     private val rewardsFlow = MutableStateFlow<List<RewardEntity>>(emptyList())
@@ -79,7 +76,6 @@ class ParentDashboardViewModelTest {
             collectedBadgeDao = collectedBadgeDao,
             videoWatchLedgerDao = videoWatchLedgerDao,
             videoPrefetchManager = videoPrefetchManager,
-            appUpdateManager = appUpdateManager,
         )
     }
 

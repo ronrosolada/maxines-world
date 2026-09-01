@@ -30,8 +30,6 @@ import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
 import com.maxinesworld.coredesignsystem.theme.*
 import com.maxinesworld.featurerewards.BadgeLoader
-import com.maxinesworld.corenetwork.AppUpdateManager
-import com.maxinesworld.corenetwork.AppUpdateResult
 import com.maxinesworld.corenetwork.VideoPrefetchManager
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -41,12 +39,6 @@ import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-
-/** LAN / guest-VLAN endpoints serving self-hosted update APKs, tried in order. */
-private val APP_UPDATE_ENDPOINTS = listOf(
-    "http://10.10.10.33/app-release.apk",
-    "http://10.10.20.33/app-release.apk",
-)
 
 /** Number of feed rows shown in Recent Activity. */
 internal const val RECENT_ACTIVITY_LIMIT = 5
@@ -72,9 +64,6 @@ data class ParentDashboardState(
     /** Consecutive-day learning streak in the child's local timezone. */
     val streakDays: Int = 0,
     val godModeEnabled: Boolean = false,
-    val isUpdatingApp: Boolean = false,
-    val updateProgress: Float = 0f,
-    val updateStatusMessage: String? = null,
     val storageUsedMb: Float = 0f,
     val isPreloadingMedia: Boolean = false,
     val prefetchStatusMessage: String? = null,
@@ -148,7 +137,6 @@ class ParentDashboardViewModel @Inject constructor(
     private val collectedBadgeDao: CollectedBadgeDao,
     private val videoWatchLedgerDao: VideoWatchLedgerDao,
     private val videoPrefetchManager: VideoPrefetchManager,
-    private val appUpdateManager: AppUpdateManager,
 ) : ViewModel() {
 
     /**
@@ -158,9 +146,6 @@ class ParentDashboardViewModel @Inject constructor(
      */
     private data class UiExtras(
         val godModeEnabled: Boolean = false,
-        val isUpdatingApp: Boolean = false,
-        val updateProgress: Float = 0f,
-        val updateStatusMessage: String? = null,
         val storageUsedMb: Float = 0f,
         val isPreloadingMedia: Boolean = false,
         val prefetchStatusMessage: String? = null,
@@ -310,9 +295,6 @@ class ParentDashboardViewModel @Inject constructor(
                 today = LocalDate.now(),
             ),
             godModeEnabled = ui.godModeEnabled,
-            isUpdatingApp = ui.isUpdatingApp,
-            updateProgress = ui.updateProgress,
-            updateStatusMessage = ui.updateStatusMessage,
             storageUsedMb = ui.storageUsedMb,
             isPreloadingMedia = ui.isPreloadingMedia,
             prefetchStatusMessage = ui.prefetchStatusMessage,
@@ -390,45 +372,6 @@ class ParentDashboardViewModel @Inject constructor(
         return bytes / (1024f * 1024f)
     }
 
-    /**
-     * Delegates the download/verify pipeline to [AppUpdateManager] and only translates the
-     * outcome into UI state. The screen itself contains no networking or installer logic.
-     */
-    fun downloadAndInstallUpdate() {
-        if (extras.value.isUpdatingApp) return
-        extras.update {
-            it.copy(
-                isUpdatingApp = true,
-                updateProgress = 0f,
-                updateStatusMessage = "Connecting to DreamNAS update server..."
-            )
-        }
-
-        viewModelScope.launch {
-            when (val result = appUpdateManager.downloadVerifiedApk(
-                candidateEndpoints = APP_UPDATE_ENDPOINTS,
-                onStatus = { message -> extras.update { it.copy(updateStatusMessage = message) } },
-                onProgress = { fraction -> extras.update { it.copy(updateProgress = fraction) } },
-            )) {
-                is AppUpdateResult.ReadyToInstall -> {
-                    extras.update {
-                        it.copy(
-                            isUpdatingApp = false,
-                            updateProgress = 1.0f,
-                            updateStatusMessage = "Download complete! Opening package installer...",
-                        )
-                    }
-                    appUpdateManager.install(result.apkFile)
-                }
-                is AppUpdateResult.Rejected -> extras.update {
-                    it.copy(isUpdatingApp = false, updateStatusMessage = result.reason)
-                }
-                is AppUpdateResult.Failed -> extras.update {
-                    it.copy(isUpdatingApp = false, updateStatusMessage = result.reason)
-                }
-            }
-        }
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -481,98 +424,6 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                 FilipinoLanguageLevelCard(state.filipinoProficiency, viewModel::onUpdateProficiency)
                 FilipinoFoundationsProgressCard(state.foundationsProgress)
                 CaregiverPhrasesDeck()
-
-                // App Update Card for LAN & Guest VLAN
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
-                    shape = RoundedCornerShape(18.dp),
-                ) {
-                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(44.dp)
-                                    .clip(RoundedCornerShape(12.dp))
-                                    .background(VillageTeal.copy(alpha = 0.12f)),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Icon(Icons.Default.SystemUpdate, contentDescription = null, tint = VillageTeal)
-                            }
-                            Column(Modifier.weight(1f)) {
-                                Text(
-                                    "App Updates (Local DreamNAS)",
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 16.sp,
-                                    color = Ink
-                                )
-                                val packageInfo = remember(context) {
-                                    runCatching {
-                                        context.packageManager.getPackageInfo(context.packageName, 0)
-                                    }.getOrNull()
-                                }
-                                @Suppress("DEPRECATION")
-                                val installedVersionCode = runCatching {
-                                    context.packageManager.getPackageInfo(context.packageName, 0).versionCode
-                                }.getOrNull()
-                                val installedVersion = packageInfo?.versionName ?: "Unknown"
-                                Text(
-                                    "Installed: v$installedVersion (code ${installedVersionCode ?: "?"}) · Direct update over Wi-Fi",
-                                    fontSize = 13.sp,
-                                    color = Ink.copy(alpha = 0.6f)
-                                )
-                            }
-                        }
-
-                        if (state.isUpdatingApp) {
-                            Spacer(Modifier.height(4.dp))
-                            LinearProgressIndicator(
-                                progress = { state.updateProgress },
-                                modifier = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
-                                color = VillageTeal,
-                                trackColor = VillageTeal.copy(alpha = 0.2f),
-                            )
-                        }
-
-                        if (state.updateStatusMessage != null) {
-                            Text(
-                                state.updateStatusMessage!!,
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Medium,
-                                color = VillageTeal
-                            )
-                        }
-
-                        Button(
-                            onClick = { viewModel.downloadAndInstallUpdate() },
-                            enabled = !state.isUpdatingApp,
-                            colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
-                            shape = RoundedCornerShape(12.dp),
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                if (state.isUpdatingApp) {
-                                    CircularProgressIndicator(
-                                        modifier = Modifier.size(16.dp),
-                                        color = Color.White,
-                                        strokeWidth = 2.dp
-                                    )
-                                }
-                                Text(
-                                    if (state.isUpdatingApp) "Downloading Update..." else "Check & Install Latest Update",
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.White
-                                )
-                            }
-                        }
-                    }
-                }
 
                 // Manual Sticker Awarding Card
                 Card(
