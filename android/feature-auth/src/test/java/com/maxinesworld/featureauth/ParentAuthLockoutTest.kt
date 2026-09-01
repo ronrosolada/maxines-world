@@ -49,6 +49,7 @@ class ParentAuthLockoutTest {
         parentAccountDao = mockk(relaxed = true)
         childProfileDao = mockk(relaxed = true)
         every { authManager.displayName } returns flowOf(null)
+        coEvery { authManager.hasPin() } returns true
         coEvery { authManager.getPinHash() } returns "hash"
         coEvery { authManager.verifyPin(any()) } returns false
         coEvery { authManager.verifyPin("421988") } returns true
@@ -79,15 +80,15 @@ class ParentAuthLockoutTest {
     }
 
     @Test
-    fun `fresh install uses the fixed default PIN and skips PIN setup`() = runTest(dispatcher) {
+    fun `fresh install has no default PIN and routes to first-run PIN setup`() = runTest(dispatcher) {
         coEvery { parentAccountDao.getParent() } returns null
         coEvery { childProfileDao.getByParent("parent") } returns emptyList()
+        coEvery { authManager.hasPin() } returns false
 
         viewModel = createViewModel()
 
-        assertEquals("421988", ParentAuthManager.DEFAULT_PIN)
-        assertTrue(viewModel.state.value.hasPin)
-        assertEquals(AuthScreen.CREATE_PROFILE, viewModel.state.value.currentScreen)
+        assertFalse(viewModel.state.value.hasPin)
+        assertEquals(AuthScreen.PIN_SETUP, viewModel.state.value.currentScreen)
         coVerify {
             parentAccountDao.upsert(match { it.id == "parent" && it.displayName == ParentAuthManager.DEFAULT_PARENT_NAME })
         }
@@ -210,7 +211,7 @@ class ParentAuthLockoutTest {
     }
 
     @Test
-    fun `restoring default PIN clears lockout and preserves child profiles`() = runTest(dispatcher) {
+    fun `resetting PIN clears lockout and returns to setup, preserving child profiles`() = runTest(dispatcher) {
         coEvery { authManager.resetPinOnly() } coAnswers { }
         viewModel = createViewModel()
 
@@ -219,8 +220,8 @@ class ParentAuthLockoutTest {
 
         coVerify(exactly = 1) { authManager.resetPinOnly() }
         val state = viewModel.state.value
-        assertEquals(AuthScreen.PIN_LOGIN, state.currentScreen)
-        assertTrue(state.hasPin)
+        assertEquals(AuthScreen.PIN_SETUP, state.currentScreen)
+        assertFalse(state.hasPin)
         assertEquals(0, state.failedAttempts)
         assertEquals(0L, state.lockedUntilEpochMillis)
         assertEquals(0, state.lockRemainingSeconds)
