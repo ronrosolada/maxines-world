@@ -114,8 +114,8 @@ class VideoLibraryViewModel @Inject constructor(
                 }
             }
 
-            // Background network synchronization (non-blocking and off the UI thread)
-            runCatching { withContext(Dispatchers.IO) { mediaLibrary.refreshCatalog() } }
+            // MediaCatalogClient.fetchRaw already hops to Dispatchers.IO.
+            runCatching { mediaLibrary.refreshCatalog() }
                 .onSuccess { freshCatalog ->
                     acceptCatalog(freshCatalog.media)
                     _state.update { it.copy(isLoading = false, error = null) }
@@ -137,7 +137,7 @@ class VideoLibraryViewModel @Inject constructor(
     fun refresh() {
         viewModelScope.launch {
             _state.update { it.copy(isLoading = rawAssets.isEmpty(), error = null) }
-            runCatching { withContext(Dispatchers.IO) { mediaLibrary.refreshCatalog() } }
+            runCatching { mediaLibrary.refreshCatalog() }
                 .onSuccess { catalog ->
                     acceptCatalog(catalog.media)
                     _state.update { it.copy(isLoading = false) }

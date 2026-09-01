@@ -22,6 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestCoroutineScheduler
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -34,7 +35,7 @@ import org.junit.Test
 @OptIn(ExperimentalCoroutinesApi::class)
 class VideoLibraryRewardPolicyTest {
 
-    private val testDispatcher = StandardTestDispatcher()
+    private val testDispatcher = StandardTestDispatcher(TestCoroutineScheduler())
     private val mediaLibrary = mockk<MediaLibrary>()
     private val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>(relaxed = true)
     private val rewardDao = mockk<RewardDao>(relaxed = true)
