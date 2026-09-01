@@ -71,6 +71,9 @@ jobs:
       - name: Audit media assessment uniqueness and explanations
         run: python3 android/tools/audit_media_assessment_uniqueness.py
 
+      - name: Audit MC length and detail tells
+        run: python3 android/tools/validate_mc_length_tells.py
+
   content-tooling-tests:
     name: Content tooling tests
     runs-on: ubuntu-latest
