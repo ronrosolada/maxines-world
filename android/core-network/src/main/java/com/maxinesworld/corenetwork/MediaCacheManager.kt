@@ -49,7 +49,7 @@ class MediaCacheManager(
     }
 
     private companion object {
-        const val DEFAULT_MEDIA_BASE_URL = "http://10.10.10.33/content/media/"
+        const val DEFAULT_MEDIA_BASE_URL = "https://10.10.10.33/content/media/"
         const val MEDIA_FILE_SUFFIX = ".mp4"
     }
 }
