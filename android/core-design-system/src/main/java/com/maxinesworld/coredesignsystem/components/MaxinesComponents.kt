@@ -276,7 +276,7 @@ fun MaxinesAnswerCard(
 fun MaxinesQuestCard(
     /** Stable subject ID (english, mathematics, ...) for color token. */
     subjectId: String,
-    /** Short quest description (e.g. "Read a story with Mira"). */
+    /** Short quest description (e.g. "Read a story with Milo"). */
     questText: String,
     /** Progress so far (0..total). */
     completed: Int,
