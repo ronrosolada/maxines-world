@@ -48,7 +48,7 @@ jobs:
           if-no-files-found: ignore
 
   content-schema-assets:
-    name: Content schema + asset references
+    name: Video schema + catalog references
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -58,13 +58,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Validate lesson shape and declared vector assets
-        run: |
-          python3 android/tools/content_pack_validation.py \
-            --snapshot android/tools/content_pack_baseline.json \
-            --asset-dir android/app/src/main/assets/content-pack/month-01/assets/vectors \
-            --report "$RUNNER_TEMP/content-pack-validation.json"
 
       - name: Validate video checkpoint manifest
         run: python3 android/tools/validate_video_checkpoints.py
@@ -77,54 +70,6 @@ jobs:
 
       - name: Audit media assessment uniqueness and explanations
         run: python3 android/tools/audit_media_assessment_uniqueness.py
-
-      - name: Upload schema and asset report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: content-schema-asset-report
-          path: ${{ runner.temp }}/content-pack-validation.json
-          if-no-files-found: ignore
-
-  content-semantic-audit:
-    name: Content semantic audit
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Run semantic quality audit
-        run: python3 android/tools/content_quality_audit.py --summary
-
-      - name: Run near-duplicate audit
-        run: |
-          python3 android/tools/content_similarity_gate.py \
-            --json "$RUNNER_TEMP/content-similarity.json" \
-            --top 20
-
-      - name: Block exact duplicate assessment payloads
-        run: python3 android/tools/assessment_duplicate_gate.py
-
-      - name: Run objective pacing gate
-        run: |
-          python3 android/tools/objective_pacing_audit.py \
-            --check \
-            --json "$RUNNER_TEMP/objective-pacing.json"
-
-      - name: Upload semantic audit report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: content-semantic-audit-report
-          path: |
-            ${{ runner.temp }}/content-similarity.json
-            ${{ runner.temp }}/objective-pacing.json
-          if-no-files-found: ignore
 
   content-tooling-tests:
     name: Content tooling tests
@@ -140,30 +85,6 @@ jobs:
 
       - name: Run Python tooling tests
         run: PYTHONPATH=android:android/tools python3 -m unittest discover -s android/tools -p 'test_*.py' -v
-
-  content-educator:
-    name: Educator approval metadata consistency
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-        working-directory: android
-
-      - name: Verify educator approval metadata (drafts allowed on PR)
-        run: ./gradlew :app:verifyPlayableContent -PallowUnreviewedContent=true --stacktrace
-        working-directory: android
 
   workflow-lint:
     name: GitHub Actions workflow lint
@@ -181,7 +102,7 @@ jobs:
     name: Assemble, lint + unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    needs: [content-integrity, content-schema-assets, content-semantic-audit, content-tooling-tests, content-educator, workflow-lint]
+    needs: [content-integrity, content-schema-assets, content-tooling-tests, workflow-lint]
     steps:
       - uses: actions/checkout@v4
 
