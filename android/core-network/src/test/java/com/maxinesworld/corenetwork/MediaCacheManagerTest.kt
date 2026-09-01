@@ -42,10 +42,10 @@ class MediaCacheManagerTest {
         val asset = asset("remote-video", "remote".toByteArray())
         val manager = MediaCacheManager(storage, maxStorageBytes = 100)
 
-        val result = manager.resolve(asset, isOnline = true, mediaBaseUrl = "http://10.10.10.33/content/media/")
+        val result = manager.resolve(asset, isOnline = true, mediaBaseUrl = "https://10.10.10.33/content/media/")
 
         assertEquals(
-            MediaCacheResolution.Remote("http://10.10.10.33/content/media/video.mp4"),
+            MediaCacheResolution.Remote("https://10.10.10.33/content/media/video.mp4"),
             result,
         )
     }

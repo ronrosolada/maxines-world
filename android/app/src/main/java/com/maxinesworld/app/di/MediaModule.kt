@@ -20,7 +20,7 @@ import javax.inject.Singleton
 object MediaModule {
     // LAN-only DreamNAS Caddy endpoint. Keep the app's default lesson path
     // bundled; this endpoint serves optional media only.
-    private const val MEDIA_BASE_URL = "http://10.10.10.33"
+    private const val MEDIA_BASE_URL = "https://10.10.10.33"
     private const val MEDIA_CATALOG_URL = "$MEDIA_BASE_URL/media/catalog.json"
 
     @Provides

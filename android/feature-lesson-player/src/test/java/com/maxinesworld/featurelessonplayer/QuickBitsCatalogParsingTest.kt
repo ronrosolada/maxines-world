@@ -36,8 +36,8 @@ class QuickBitsCatalogParsingTest {
               "sizeBytes": 10000000,
               "sizeMb": 9.54,
               "resolution": "854x480",
-              "videoUrl": "http://10.10.10.33/quickbits/qb_animals_5yHeg5hnq4Q.mp4",
-              "thumbnailUrl": "http://10.10.10.33/quickbits/qb_animals_5yHeg5hnq4Q.jpg"
+              "videoUrl": "https://10.10.10.33/quickbits/qb_animals_5yHeg5hnq4Q.mp4",
+              "thumbnailUrl": "https://10.10.10.33/quickbits/qb_animals_5yHeg5hnq4Q.jpg"
             },
             {
               "id": "qb_space_0MzWiKjSr9I",
@@ -49,8 +49,8 @@ class QuickBitsCatalogParsingTest {
               "sizeBytes": 15000000,
               "sizeMb": 14.30,
               "resolution": "854x480",
-              "videoUrl": "http://10.10.10.33/quickbits/qb_space_0MzWiKjSr9I.mp4",
-              "thumbnailUrl": "http://10.10.10.33/quickbits/qb_space_0MzWiKjSr9I.jpg"
+              "videoUrl": "https://10.10.10.33/quickbits/qb_space_0MzWiKjSr9I.mp4",
+              "thumbnailUrl": "https://10.10.10.33/quickbits/qb_space_0MzWiKjSr9I.jpg"
             }
           ]
         }

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <!-- Optional personal-use media is served by DreamNAS on the trusted LAN.
-         All other cleartext traffic remains blocked. Replace this with HTTPS
-         before exposing the endpoint outside the home network. -->
-    <domain-config cleartextTrafficPermitted="true">
+    <!-- All network traffic must be HTTPS. Optional personal-use media is served
+         by the home media server (e.g. Caddy) over TLS on the trusted LAN;
+         cleartext HTTP is not permitted. Homelab CA is bundled as a trust anchor. -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/homelab_ca" />
+        </trust-anchors>
+    </base-config>
+
+    <domain-config>
         <domain includeSubdomains="false">10.10.10.33</domain>
         <domain includeSubdomains="false">10.10.20.33</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/homelab_ca" />
+        </trust-anchors>
     </domain-config>
 </network-security-config>

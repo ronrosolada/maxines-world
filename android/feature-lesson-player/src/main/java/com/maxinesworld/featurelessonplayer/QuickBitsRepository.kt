@@ -74,7 +74,7 @@ class QuickBitsRepository @Inject constructor(
         var catalog: QuickBitsCatalog? = null
         try {
             val request = Request.Builder()
-                .url("http://10.10.10.33/quickbits/quickbits_catalog.json")
+                .url("https://10.10.10.33/quickbits/quickbits_catalog.json")
                 .build()
             okHttpClient.newCall(request).execute().use { response ->
                 if (response.isSuccessful) {

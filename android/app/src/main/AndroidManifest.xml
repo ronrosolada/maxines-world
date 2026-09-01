@@ -4,7 +4,9 @@
     <!-- INTERNET is used only for optional, LAN-hosted media downloads. Core
          lessons remain bundled and playable without a network. -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- No REQUEST_INSTALL_PACKAGES: the app never self-installs APKs. Updates
+         are delivered out-of-band (e.g. adb/manual install) rather than from a
+         LAN host, so a child device holds no package-install privilege. -->
     <!-- No USE_BIOMETRIC: biometric auth is not implemented (audit #13);
          re-add the permission together with BiometricPrompt when shipped. -->
 
@@ -29,16 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
 
     </application>
 

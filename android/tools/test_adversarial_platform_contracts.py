@@ -14,9 +14,17 @@ class AdversarialPlatformContractsTest(unittest.TestCase):
         source = (ANDROID / "app/src/main/java/com/maxinesworld/app/MiniGameWebScreen.kt").read_text()
         self.assertIn("settings.blockNetworkLoads = true", source)
 
-    def test_update_checksum_token_requires_exact_sha256_shape(self):
-        source = (ANDROID / "core-network/src/main/java/com/maxinesworld/corenetwork/AppUpdateManager.kt").read_text()
-        self.assertIn("expectedToken.matches(SHA256_PATTERN)", source)
+    def test_network_security_config_forbids_cleartext(self):
+        source = (ANDROID / "app/src/main/res/xml/network_security_config.xml").read_text()
+        self.assertIn('cleartextTrafficPermitted="false"', source)
+        self.assertNotIn('cleartextTrafficPermitted="true"', source)
+
+    def test_app_declares_no_package_install_permission(self):
+        manifest = (ANDROID / "app/src/main/AndroidManifest.xml").read_text()
+        self.assertNotIn(
+            'android:name="android.permission.REQUEST_INSTALL_PACKAGES"',
+            manifest,
+        )
 
 
 if __name__ == "__main__":
