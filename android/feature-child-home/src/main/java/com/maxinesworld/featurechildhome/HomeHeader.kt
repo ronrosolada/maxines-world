@@ -187,7 +187,10 @@ internal fun LearningStreakCard(
     Surface(
         modifier = modifier
             .fillMaxWidth()
-            .heightIn(min = 64.dp, max = 72.dp)
+            // Two lines of child-facing copy (title + meaning) must stay
+            // readable on the CI 320dp emulator and small phones. A 72.dp
+            // max height clipped the explanation after wrap.
+            .heightIn(min = 64.dp)
             .graphicsLayer(scaleX = cardScale.value, scaleY = cardScale.value)
             .testTag(PlayroomHomeTestTags.Streak)
             .clickable(

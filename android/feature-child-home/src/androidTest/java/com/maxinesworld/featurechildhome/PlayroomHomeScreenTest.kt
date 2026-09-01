@@ -25,6 +25,8 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.SemanticsProperties
@@ -33,7 +35,6 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import com.maxinesworld.coredesignsystem.theme.LocalAnimationsDisabled
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 
@@ -112,6 +113,15 @@ class PlayroomHomeScreenTest {
         composeRule.onNode(hasScrollAction()).performScrollToNode(hasText(text))
     }
 
+    /**
+     * Subject cards merge descendants and live below Today’s mission, the
+     * streak, and the arena/Quick Bits cards. Scroll the tagged node itself
+     * so assertions target the clickable card, not a merged inner label.
+     */
+    private fun scrollToTag(tag: String) {
+        composeRule.onNodeWithTag(tag).performScrollTo()
+    }
+
     @Test
     fun loadingStateExplainsWhatMiloIsDoing() {
         setHome(PlayroomHomeUiState.Loading)
@@ -130,8 +140,11 @@ class PlayroomHomeScreenTest {
     @Test
     fun gmrcIsDisplayedAndEnabledFromFirstSession() {
         setHome(stateFor())
-        scrollTo("GMRC")
-        composeRule.onNodeWithText("GMRC").assertIsDisplayed().assertIsEnabled()
+        scrollToTag(PlayroomHomeTestTags.subject("gmrc"))
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.subject("gmrc"))
+            .assertIsDisplayed()
+            .assertIsEnabled()
+        composeRule.onNodeWithText("GMRC", useUnmergedTree = true).assertIsDisplayed()
     }
 
     @Test
@@ -148,12 +161,12 @@ class PlayroomHomeScreenTest {
         // The grid is a plain Column: every card exists in the tree even when
         // off-screen, so existence proves all six render; scroll to verify the
         // bottom of the grid is actually reachable and displayed.
-        scrollTo("GMRC")
-        composeRule.onNodeWithText("GMRC").assertIsDisplayed()
+        scrollToTag(PlayroomHomeTestTags.subject("gmrc"))
+        composeRule.onNodeWithText("GMRC", useUnmergedTree = true).assertIsDisplayed()
         listOf("Mathematics", "English", "Science", "Filipino", "Makabansa", "GMRC")
-            .forEach { composeRule.onNodeWithText(it).assertExists() }
+            .forEach { composeRule.onNodeWithText(it, useUnmergedTree = true).assertExists() }
 
-        scrollTo("Mathematics")
+        scrollToTag(PlayroomHomeTestTags.subject("mathematics"))
         val lockedCard = composeRule.onNodeWithTag(PlayroomHomeTestTags.subject("mathematics"))
         lockedCard.assertIsNotEnabled()
             .assert(
@@ -195,19 +208,30 @@ class PlayroomHomeScreenTest {
         val width = mutableStateOf(360.dp)
         val fontScale = mutableFloatStateOf(1f)
         composeRule.setContent {
-            CompositionLocalProvider(
-                LocalDensity provides Density(density = 1f, fontScale = fontScale.floatValue),
-            ) {
-                Box(Modifier.requiredSize(width = width.value, height = 720.dp)) {
-                    PlayroomHomeScreen(
-                        state = stateFor(),
-                        onSubjectClick = {},
-                        onQuestAction = {},
-                        onQuestTargetClick = {},
-                        onHomeClick = {},
-                        onCollectionClick = {},
-                        onParentsClick = {},
-                    )
+            // CI's connected-test AVD is a generic 320x640 skin. A host taller
+            // or wider than that window clips the pinned Parents tab and the
+            // trailing subject column, so cap to the real viewport. Larger
+            // emulators still exercise the 840/1100 width classes.
+            BoxWithConstraints(Modifier.fillMaxSize()) {
+                CompositionLocalProvider(
+                    LocalDensity provides Density(density = 1f, fontScale = fontScale.floatValue),
+                ) {
+                    Box(
+                        Modifier.requiredSize(
+                            width = width.value.coerceAtMost(maxWidth),
+                            height = 720.dp.coerceAtMost(maxHeight),
+                        ),
+                    ) {
+                        PlayroomHomeScreen(
+                            state = stateFor(),
+                            onSubjectClick = {},
+                            onQuestAction = {},
+                            onQuestTargetClick = {},
+                            onHomeClick = {},
+                            onCollectionClick = {},
+                            onParentsClick = {},
+                        )
+                    }
                 }
             }
         }
@@ -463,12 +487,13 @@ class PlayroomHomeScreenTest {
 
     @Test
     fun gmrcClickNavigates() {
-        var clicks = 0
-        setHome(stateFor(), onSubjectClick = { clicks++ })
-        scrollTo("GMRC")
-        composeRule.onNodeWithText("GMRC").performClick()
-        composeRule.waitForIdle()
-        assertTrue(clicks > 0)
+        var openedSubject: String? = null
+        setHome(stateFor(), onSubjectClick = { openedSubject = it })
+        scrollToTag(PlayroomHomeTestTags.subject("gmrc"))
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.subject("gmrc"))
+            .assertIsDisplayed()
+            .performClick()
+        composeRule.runOnIdle { assertEquals("gmrc", openedSubject) }
     }
 
     @Test
@@ -481,10 +506,12 @@ class PlayroomHomeScreenTest {
     fun learningStreakZeroStateExplainsWhatToDo() {
         setHome(stateFor(streakDays = 0))
 
+        scrollToTag(PlayroomHomeTestTags.Streak)
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak)
             .assertIsDisplayed()
             .assertHasClickAction()
-        composeRule.onNodeWithText("Start your learning streak today").assertIsDisplayed()
+        composeRule.onNodeWithText("Start your learning streak today", useUnmergedTree = true)
+            .assertIsDisplayed()
         composeRule.onNodeWithContentDescription(
             "No learning days yet. Start your learning streak today. Each day you learn counts toward your learning days.",
             useUnmergedTree = true,
@@ -495,11 +522,13 @@ class PlayroomHomeScreenTest {
     fun learningStreakPositiveStateShowsNumberAndMeaning() {
         setHome(stateFor(streakDays = 7))
 
+        scrollToTag(PlayroomHomeTestTags.Streak)
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak)
             .assertIsDisplayed()
             .assertHasClickAction()
-        composeRule.onNodeWithText("7 days learning").assertIsDisplayed()
-        composeRule.onNodeWithText("Each day you learn counts toward your learning days.").assertIsDisplayed()
+        composeRule.onNodeWithText("7 days learning", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithText("Each day you learn counts toward your learning days.", useUnmergedTree = true)
+            .assertIsDisplayed()
         composeRule.onNodeWithContentDescription(
             "7 days learning. Each day you learn counts toward your learning days.",
             useUnmergedTree = true,
@@ -511,7 +540,8 @@ class PlayroomHomeScreenTest {
         var parentClicks = 0
         setHome(stateFor(streakDays = 7), onParentsClick = { parentClicks++ })
 
-        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).performClick()
+        scrollToTag(PlayroomHomeTestTags.Streak)
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).assertIsDisplayed().performClick()
         composeRule.onNodeWithText("Your learning days").assertIsDisplayed()
         composeRule.onNodeWithText("Got it").performClick()
         composeRule.runOnIdle { assertEquals(0, parentClicks) }
@@ -521,7 +551,8 @@ class PlayroomHomeScreenTest {
     fun learningStreakDialogUsesSingularCopyForOneDay() {
         setHome(stateFor(streakDays = 1))
 
-        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).performClick()
+        scrollToTag(PlayroomHomeTestTags.Streak)
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).assertIsDisplayed().performClick()
         composeRule.onNodeWithText("You have learned on 1 day in a row. Learning today keeps your learning days going.")
             .assertIsDisplayed()
     }
@@ -542,7 +573,8 @@ class PlayroomHomeScreenTest {
             }
         }
 
-        composeRule.onNodeWithText("7 days learning").assertIsDisplayed()
+        scrollToTag(PlayroomHomeTestTags.Streak)
+        composeRule.onNodeWithText("7 days learning", useUnmergedTree = true).assertIsDisplayed()
         composeRule.onNodeWithTag(PlayroomHomeTestTags.Streak).assertHasClickAction()
     }
 }
