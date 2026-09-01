@@ -48,16 +48,16 @@ Arena coverage included every `android/app/src/main/assets/assessment-packs/*.js
 
 **Recommendation:** localize Arena chrome and Milo dialogue from the active pack language, including TTS prefixes and fallback hints. Deferred because this requires a flow-level localization decision and tests, not a content-value correction.
 
-### Medium — M1: Science question had three defensible “light behavior” answers (fixed)
+### Medium — M1: Science question had three defensible “light behavior” answers (no longer applicable)
 
-**Evidence before fix**
-
-- `android/app/src/main/assets/content-pack/month-01/lessons/science-g3-q4-w09-d01.json`, item `science-g3-q4-w09-d01-q04`: `"Which example shows light behavior?"`
-- Options included `"A mirror reflects light"`, keyed `"A rainbow appears when light bends"`, and `"A window lets light through"`.
-
-All three are light behaviors, so the keyed answer was not unique.
-
-**Fix:** changed only the prompt to `"Which example shows light bending into colors?"`; the existing keyed rainbow answer is now unique. IDs, options, key, and schema are unchanged.
+This finding described a Science item (`"Which example shows light behavior?"`)
+whose three options were all defensible light behaviors, so the keyed answer was
+not unique. The item lived in the retired hand-authored content corpus, which
+has since been removed from the app entirely. The finding is no longer
+applicable; the active surfaces are the video library and the Assessment Arena,
+whose assessments are validated for unique keying by
+`android/tools/audit_media_assessment_uniqueness.py` and
+`android/tools/validate_arena_packs.py`.
 
 ### Medium — M2: sampled lesson difficulty can jump from recognition to abstract process ordering (deferred)
 

@@ -99,14 +99,14 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
 
 **Decision:** The app works fully offline.
 
-- **Content: bundled-only (decided 2026-08-01).** Lessons ship inside the APK
-  (`assets/content-pack/`); there is no content server, no package downloads,
-  no content API. Content is authored in `ronrosolada/maxines-world-content`
-  and converted into the playable pack at release time.
-- **Progress sync: not part of the release.** Lesson completion, mastery,
-  rewards, and wildlife expedition state remain on-device. There is no
-  WorkManager upload path, runtime content download, telemetry endpoint, or
-  configured server.
+- **Content: bundled Assessment Arena + optional LAN video.** The Assessment
+  Arena packs and media-assessment manifests ship inside the APK
+  (`assets/assessment-packs/`, `assets/content-pack/`); there is no content
+  server, no package downloads, and no content API. Video media is optional and
+  fetched from the trusted home LAN when configured.
+- **Progress sync: not part of the release.** Completion, mastery, rewards, and
+  wildlife expedition state remain on-device. There is no WorkManager upload
+  path, runtime content download, telemetry endpoint, or configured server.
 
 **Mechanism:**
 1. Lessons are bundled in the APK, installed, never downloaded
@@ -122,68 +122,24 @@ DailyQuest (child_id, date, subject_rotations, completed_lessons, energy_earned)
 
 ---
 
-## ADR-005: Versioned External JSON Lessons
+## ADR-005: Bundled JSON Content Manifests
 
-**Status: SUPERSEDED by ADR-004 (2026-08-07).** Lessons ship bundled inside the
-APK under `android/app/src/main/assets/content-pack/month-01/lessons/`; there
-is no download path, no `filesDir/content/` runtime tree, and no content
-server. The `content/ph-matatag/` fallback tree this ADR describes was removed
-from the APK on 2026-08-07 (external review C3). The single loader is
-`ContentLessonLoader`; it rejects any lesson whose `releaseStatus` is not
-`RELEASED` (spec CH-02).
+**Status: Active.** The app is video-first. Bundled JSON manifests drive the
+offline surfaces (Assessment Arena packs, video checkpoints, media assessments,
+and the skill graph); there is no runtime content server, download path, or
+`filesDir/content/` tree.
 
-**Decision (original, kept for the record):** All curriculum structure, lesson definitions, questions, and activity parameters live in versioned JSON files outside the APK.
+**Bundled manifests:**
+- `assets/assessment-packs/` — Assessment Arena quiz packs (offline-first).
+- `assets/content-pack/media-assessments.json` — post-watch video memory checks.
+- Video checkpoint and catalog manifests — validated by the Python tooling in
+  `android/tools/` (`validate_video_checkpoints.py`, `validate_catalog_parity.py`,
+  `validate_skill_graph.py`, `audit_media_assessment_uniqueness.py`).
 
-**Package structure:**
-```
-content/
-└── ph-matatag/
-    └── grade-3/
-        ├── manifest.json          # All subjects, modules, versions, checksums
-        ├── english/
-        │   ├── module-01/
-        │   │   ├── lesson-01.json
-        │   │   └── assets/        # Images, audio (narration)
-        │   └── module-02/...
-        ├── filipino/...
-        ├── mathematics/...
-        ├── science/...
-        └── philippine-history/...
-```
-
-**Lesson JSON schema (simplified):**
-```json
-{
-  "id": "eng-g3-m01-l01",
-  "schemaVersion": 1,
-  "subject": "english",
-  "title": "The Cats Who Saved the Garden",
-  "objective": "Identify main idea and supporting details in a story.",
-  "guideCharacter": "mira",
-  "estimatedMinutes": 10,
-  "steps": [
-    {
-      "type": "animated_explanation",
-      "narrationText": "Mira reads a story about cats saving a garden...",
-      "narrationAudio": "assets/narration/l01-intro.mp3",
-      "imageAssets": ["assets/illustrations/l01-scene1.png"]
-    },
-    {
-      "type": "multiple_choice",
-      "question": "What is the main idea of the story?",
-      "options": ["Cats love to sleep", "Cats worked together to save the garden", "Gardens need water"],
-      "correctIndex": 1,
-      "feedback": { "correct": "Great! The cats worked as a team!", "incorrect": "Let's think again..." }
-    }
-  ],
-  "assessment": { "passThreshold": 0.8, "minQuestions": 5 }
-}
-```
-
-**Loading mechanism:**
-- `core-content` module provides `LessonLoader` which reads from `assets/content/` (bundled fallback) or `context.filesDir/content/` (downloaded)
-- Checksum verification before activating any downloaded package
-- Previous valid package preserved as rollback
+**Loading and validation:**
+- Manifests ship inside the APK and are parsed at runtime; malformed payloads
+  fail closed rather than rendering.
+- Structural validators run in CI against the bundled manifests before assembly.
 
 ---
 
