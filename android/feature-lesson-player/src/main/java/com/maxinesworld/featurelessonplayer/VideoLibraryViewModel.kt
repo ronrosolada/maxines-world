@@ -3,6 +3,7 @@ package com.maxinesworld.featurelessonplayer
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.maxinesworld.coremodel.ChildFacingMediaPolicy
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.coredatabase.CollectedBadgeDao
@@ -100,8 +101,7 @@ class VideoLibraryViewModel @Inject constructor(
         // Fast synchronous attempt from in-memory cache
         val fastCache = runCatching { mediaLibrary.getCachedCatalog() }.getOrNull()
         if (fastCache != null) {
-            rawAssets = fastCache.media
-            reorganizeItems(_state.value.passedMediaIds)
+            acceptCatalog(fastCache.media)
             _state.update { it.copy(isLoading = false) }
         }
 
@@ -109,17 +109,15 @@ class VideoLibraryViewModel @Inject constructor(
             if (rawAssets.isEmpty()) {
                 val cached = runCatching { mediaLibrary.getCatalog() }.getOrNull()
                 if (cached != null) {
-                    rawAssets = cached.media
-                    reorganizeItems(_state.value.passedMediaIds)
+                    acceptCatalog(cached.media)
                     _state.update { it.copy(isLoading = false) }
                 }
             }
 
-            // Background network synchronization (non-blocking and off the UI thread)
-            runCatching { withContext(Dispatchers.IO) { mediaLibrary.refreshCatalog() } }
+            // MediaCatalogClient.fetchRaw already hops to Dispatchers.IO.
+            runCatching { mediaLibrary.refreshCatalog() }
                 .onSuccess { freshCatalog ->
-                    rawAssets = freshCatalog.media
-                    reorganizeItems(_state.value.passedMediaIds)
+                    acceptCatalog(freshCatalog.media)
                     _state.update { it.copy(isLoading = false, error = null) }
                 }
                 .onFailure { error ->
@@ -139,10 +137,9 @@ class VideoLibraryViewModel @Inject constructor(
     fun refresh() {
         viewModelScope.launch {
             _state.update { it.copy(isLoading = rawAssets.isEmpty(), error = null) }
-            runCatching { withContext(Dispatchers.IO) { mediaLibrary.refreshCatalog() } }
+            runCatching { mediaLibrary.refreshCatalog() }
                 .onSuccess { catalog ->
-                    rawAssets = catalog.media
-                    reorganizeItems(_state.value.passedMediaIds)
+                    acceptCatalog(catalog.media)
                     _state.update { it.copy(isLoading = false) }
                 }
                 .onFailure { error ->
@@ -156,6 +153,16 @@ class VideoLibraryViewModel @Inject constructor(
                     }
                 }
         }
+    }
+
+    /**
+     * Child surfaces only see Grade 3 RELEASED videos. Preview and other-grade
+     * catalog rows stay on disk for future review and must not appear as core
+     * curriculum or participate in the subject sequence lock.
+     */
+    private fun acceptCatalog(media: List<MediaAsset>) {
+        rawAssets = ChildFacingMediaPolicy.childFacing(media)
+        reorganizeItems(_state.value.passedMediaIds)
     }
 
     private fun reorganizeItems(passedSet: Set<String>) {

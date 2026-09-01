@@ -291,8 +291,8 @@ fun MiniGameLibraryScreen(
                     }
                     item(span = { GridItemSpan(maxLineSpan) }) {
                         MenuSectionHeader(
-                            title = "Puzzle & classic games",
-                            subtitle = "${MiniGameCatalog.games.size} more games, bundled for offline play",
+                            title = "More quick games",
+                            subtitle = "Simple classics for an 8-year-old break",
                         )
                     }
                     items(
@@ -461,7 +461,7 @@ private fun AttributionCard() {
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                "${BuiltInMiniGames.size + MiniGameCatalog.games.size} games are bundled locally. No account, analytics, or network access is used.",
+                "${BuiltInMiniGames.size + MiniGameShelf.shelfOrder(MiniGameCatalog.games).size} games are bundled for this reward break. No account, analytics, or network access is used.",
                 style = MaterialTheme.typography.bodySmall,
                 color = Ink.copy(alpha = 0.75f),
             )

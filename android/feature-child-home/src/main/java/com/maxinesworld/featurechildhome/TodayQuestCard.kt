@@ -225,13 +225,13 @@ internal fun TodayQuestCard(
                             contentDescription = if (quest.godModeEnabled) {
                                 "Parent mode: Playground and all rewards unlocked"
                             } else if (quest.sanctuaryComplete) {
-                                "Reward: five minute play break; Milo's home is complete"
+                                "Reward: one five minute play break; Milo's home is complete"
                             } else if (quest.isComplete) {
-                                "Reward earned: sanctuary piece and five minute play break"
+                                "Reward earned: sanctuary piece and one five minute play break"
                             } else if (quest.task == QuestTaskCopy.Unavailable) {
                                 "Video mission unavailable until the video catalog is ready"
                             } else {
-                                "Quest reward: one sanctuary piece and five minute play break"
+                                "Quest reward: one sanctuary piece and one five minute play break"
                             }
                         },
                     color = if (quest.godModeEnabled || quest.isComplete) PlaySunshine.copy(alpha = 0.28f) else PlayTeal.copy(alpha = 0.08f),

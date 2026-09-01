@@ -15,18 +15,21 @@ The current personal-use preview catalog is documented in full at
 - Subjects: Filipino 100, Makabansa 51, Mathematics 24, English 22, GMRC 20, Science 20
 - Grades: Grade 1 29, Grade 2 53, Grade 3 95, Grade 4 60
 - Media: H.264/AAC MP4, downloaded on demand from the trusted home LAN
-- Media endpoint: `http://10.10.10.33/media/catalog.json`
+- Media endpoint: `https://10.10.10.33/media/catalog.json`
 - Media root on DreamNAS: `/mnt/user/appdata/maxines-world-content/server/content/media/`
 - App storage: `filesDir/maxines-media/`
 - Catalog version: `1`
-- Catalog status: `PREVIEW`
-- License status: `PERSONAL_USE`
+- Child-facing catalog filter: Grade 3 and `releaseStatus=RELEASED` only
+  (`ChildFacingMediaPolicy`). Grade 1/2/4 and `PREVIEW` rows remain in the
+  LAN catalog for later review and are not shown as core curriculum.
+- Catalog status: Grade 3 rows are `RELEASED`; other grades remain `PREVIEW`
+- License status: `PERSONAL_USE` (household LAN-only; not a public license)
 - Assessment policy: five subject-specific multiple-choice items per video; 4/5 required; `claimsMastery=false`
 
-The endpoint is LAN-only and currently uses HTTP. The Android network security
-configuration permits cleartext traffic only to `10.10.10.33`; do not expose this
-endpoint outside the home network. Use an HTTPS Caddy route before any broader
-distribution.
+The endpoint is LAN-only. Videos remain `PERSONAL_USE` household media; do
+not expose this endpoint outside the home network or rewrite license metadata
+to imply public-distribution rights. Use an HTTPS Caddy route (see PR #107)
+before any broader distribution.
 
 ## Catalog contract
 

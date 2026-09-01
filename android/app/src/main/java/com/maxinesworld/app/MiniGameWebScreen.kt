@@ -94,7 +94,7 @@ fun MiniGameWebScreen(
     onExit: (MiniGameResult) -> Unit,
     onBack: () -> Unit,
 ) {
-    val game = remember(gameSlug) { MiniGameCatalog.find(gameSlug) }
+    val game = remember(gameSlug) { MiniGameCatalog.find(gameSlug)?.takeIf { MiniGameShelf.isChildFacing(gameSlug) } }
     if (game == null) {
         MiniGameUnavailable(message = "This game is not available offline.", onBack = onBack)
         return

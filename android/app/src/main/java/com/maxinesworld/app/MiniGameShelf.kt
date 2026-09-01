@@ -3,10 +3,10 @@ package com.maxinesworld.app
 /**
  * Kid-first shelf curation for the reward-break mini-game library.
  *
- * The full 29-game catalog stays available for offline play, but the shelf
- * shows the games that are most likely to delight an 8-year-old first, and
- * keeps language-heavy or strategy-heavy classics behind the fold so the
- * default view never looks like an adult puzzle collection.
+ * The full catalog remains bundled for offline assets, but the child shelf is
+ * an allowlist of games that fit an 8-year-old Grade 3 reward break. Language-
+ * heavy and adult strategy games stay off the shelf and cannot be opened
+ * through the child route.
  */
 object MiniGameShelf {
 
@@ -26,43 +26,42 @@ object MiniGameShelf {
         "color-block",
     )
 
-    /** Slugs that are heavy on text or adult strategy; shown last. */
-    internal val languageHeavyLastOrder: List<String> = listOf(
-        "wordle",
+    /** Extra simple classics that still fit an 8-year-old break. */
+    internal val additionalChildGames: List<String> = listOf(
+        "tictactoe",
+        "connect-four",
+        "sliding-puzzle",
         "word-search",
+        "tetris",
+        "pong",
+        "2048",
+        "onet-connect",
+    )
+
+    /** Adult strategy, card, dice, and hard word games hidden from children. */
+    internal val hiddenFromChildShelf: Set<String> = setOf(
+        "wordle",
+        "sudoku",
         "solitaire",
         "freecell",
-        "sudoku",
         "checkers",
         "reversi",
         "mancala",
-        "domino",
         "yahtzee",
-        "connect-four",
-        "tictactoe",
-        "pong",
-        "tetris",
-        "sliding-puzzle",
-        "onet-connect",
-        "2048",
+        "domino",
     )
 
+    internal val childAllowlist: List<String> = kidFriendlyFirstOrder + additionalChildGames
+
+    fun isChildFacing(slug: String): Boolean = slug in childAllowlist
+
     /**
-     * Returns the full catalog ordered for the child shelf: kid-friendly
-     * games first (in a fixed order), then the remaining classics in their
-     * original catalog order. Every catalog game is present exactly once.
+     * Returns only allowlisted games, kid-friendly first, then remaining
+     * allowlisted titles in the fixed extra order. Hidden games never appear.
      */
     fun shelfOrder(games: List<EmbeddedMiniGame>): List<EmbeddedMiniGame> {
         val bySlug = games.associateBy { it.slug }
-        val ordered = buildList {
-            kidFriendlyFirstOrder.forEach { slug ->
-                bySlug[slug]?.let(::add)
-            }
-            games.forEach { game ->
-                if (game.slug !in kidFriendlyFirstOrder) add(game)
-            }
-        }
-        return ordered
+        return childAllowlist.mapNotNull { slug -> bySlug[slug] }
     }
 
     /** The first shelf items a child sees; used by the library header copy. */

@@ -605,6 +605,11 @@ fun ParentDashboardScreen(childId: String, onBack: () -> Unit, viewModel: Parent
                                     fontSize = 14.sp,
                                     color = Ink.copy(alpha = 0.6f),
                                 )
+                                Text(
+                                    "Prefetch stores Grade 3 released lessons only. Videos are personal-use and stay on the home network.",
+                                    fontSize = 12.sp,
+                                    color = Ink.copy(alpha = 0.55f),
+                                )
                             }
                             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                                 Button(

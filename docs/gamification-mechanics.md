@@ -17,10 +17,10 @@ Learning remains the purpose of the app. Rewards never gate curriculum access, p
 | `COIN` | First distinct lesson completion and valid mini-game result | Yes | Sanctuary token used only for cosmetic workshop items |
 | `SANCTUARY_PIECE` | Daily Quest completion at 3/3 | No | A permanent piece that grows Milo's Wildlife Sanctuary |
 | Wildlife sticker | Weekly expedition | No | Collection item plus a factual animal card |
-| Reward-break entitlement | Daily Quest completion at 3/3 | One 5-min window | A bounded 5-minute play session, re-armed while the day-pass holds |
-| Playground day-pass | Daily Quest completion at 3/3 | One per child/day | Re-enterable playground unlock for the rest of the local day |
+| Reward-break entitlement | Daily Quest completion at 3/3 | One 5-min window | One bounded 5-minute play session; remaining time can resume until it is consumed or expires |
+| Playground unlock receipt | Daily Quest completion at 3/3 | One per child/day | Ledger that today's quest completed; it does not re-arm extra sessions |
 
-The database retains `COIN` as the compatibility name for the existing balance. Child-facing copy calls it `Tokens` or `sanctuary tokens`. The playground day-pass lives in `playground_unlock_receipts {id="$childId:$dayKey", childId, dayKey, sourceQuestSetHash, unlockedAt}` with `insertIgnoring` (first-write-wins) and `dayKey = LocalDate.now(ZoneId.systemDefault()).toString()` midnight expiry.
+The database retains `COIN` as the compatibility name for the existing balance. Child-facing copy calls it `Tokens` or `sanctuary tokens`. The unlock receipt lives in `playground_unlock_receipts {id="$childId:$dayKey", childId, dayKey, sourceQuestSetHash, unlockedAt}` with `insertIgnoring` (first-write-wins). The playable window is the `reward_break_entitlements` row for that child/day.
 
 ## Lesson policy
 
@@ -49,8 +49,8 @@ The reward is deliberately not a spendable balance. It gives the child immediate
 The current Daily Quest has three assigned lesson targets. A target is recorded when its lesson completion is committed. At 3/3, one transaction creates:
 
 - one `SANCTUARY_PIECE` grant;
-- one `CREATED` reward-break entitlement (5-minute window);
-- one `playground_unlock_receipts` day-pass (`"$childId:$dayKey"` → rest of local day, re-enterable);
+- one `CREATED` reward-break entitlement (one 5-minute window);
+- one `playground_unlock_receipts` row recording that today's quest completed;
 - the corresponding idempotent Daily Quest completion state.
 
 The source keys are deterministic:
@@ -61,11 +61,11 @@ reward-break:{childId}:{dayKey}
 playground-unlock:{childId}:{dayKey}   // receipt id "$childId:$dayKey"
 ```
 
-Completing only 1/3 or 2/3 must not create the Daily Quest bonus, reward break, or day-pass. Reconciliation from the child home can safely repair an interrupted completion.
+Completing only 1/3 or 2/3 must not create the Daily Quest bonus or reward break. Reconciliation from the child home can safely repair an interrupted completion.
 
-## Playground day-pass
+## One 5-minute play break
 
-Once 3/3 is reached, the playground is **re-enterable for the rest of the local calendar day**. Every hub entry re-arms the 5-minute session via `RewardBreakDao.reactivateForDayPass(id, childId, now, 5 min)` (atomic `ACTIVE` + `startedAt=now` + `remaining=5 min` + clear `consumedAt`). `RewardBreakViewModel.consume()` keeps the entitlement `ACTIVE` while the day-pass holds; `saveResult()` bypasses the `ACTIVE`-window check while the day-pass holds and relies on `idempotencyKey` duplicate suppression to prevent farming. `PlayroomHomeViewModel` observes `playground_unlock_receipts` via Flow and flips the quest card to `Open Playground` when `playgroundUnlocked` is true. Midnight (`LocalDate.now(ZoneId.systemDefault())`) expires the pass.
+Once 3/3 is reached, the child may open the playground for **one 5-minute session**. The entitlement starts when a game is chosen, can resume with remaining time if the child leaves early, and becomes unusable after `consume()` or expiry. `RewardBreakViewModel` does not re-arm a fresh 5 minutes. `PlayroomHomeViewModel` observes the entitlement and shows `Open Playground` only while `RewardBreakPolicy.canUse` is true; after the break is consumed the card returns to `Open Sanctuary`. God mode still opens the playground without an entitlement.
 
 ## Sanctuary
 
@@ -85,7 +85,9 @@ A valid, in-window mini-game result is persisted once by idempotency key. In the
 - `pawTokensEarned` becomes a `COIN` grant with a stable source key;
 - `collectibleId` becomes an idempotent inventory item.
 
-A duplicate result cannot create duplicate tokens or collectibles. While the playground day-pass holds (until midnight local), `RewardBreakViewModel.saveResult()` accepts results via the same idempotency gate without requiring a still-`ACTIVE` 5-minute window, and `consume()` does not set `CONSUMED` — keeping the playground re-enterable.
+A duplicate result cannot create duplicate tokens or collectibles. Mini-game results must fall inside the active 5-minute window (`RewardBreakPolicy.isValidResultWindow`). After the entitlement is consumed, the playground cannot be re-entered until the next day's Daily Quest.
+
+The child shelf is an 8-year-old allowlist (`MiniGameShelf`). Wordle, Sudoku, Solitaire, FreeCell, Checkers, Reversi, Mancala, Yahtzee, and Domino stay bundled but are hidden from the child route.
 
 ## Verification invariants
 
@@ -97,8 +99,9 @@ Tests should continue to cover:
 - lesson replay idempotency;
 - Daily Quest behavior at 1/3, 2/3, and 3/3;
 - reward-break creation only at 3/3;
-- playground day-pass creation only at 3/3 and re-enterability until midnight;
-- mini-game result idempotency (including day-pass path);
+- one 5-minute playground session with no re-arm after consume or expiry;
+- mini-game result idempotency inside the active window;
+- child mini-game allowlist (Wordle/Sudoku/Solitaire/Yahtzee hidden);
 - sanctuary progress and reward preview visibility;
 - offline/restart safety;
 - TalkBack labels, large text, and reduced-motion behavior.

@@ -204,13 +204,13 @@ private fun VideoLibraryContent(
                                 ) {
                                     Column(Modifier.weight(1f)) {
                                         Text(
-                                            "Curriculum Video Lessons",
+                                            "Grade 3 Video Lessons",
                                             fontWeight = FontWeight.ExtraBold,
                                             fontSize = 20.sp,
                                             color = Ink,
                                         )
                                         Text(
-                                            "${state.allItems.size} educational video lessons with quizzes",
+                                            "${state.allItems.size} Grade 3 lessons with quizzes",
                                             fontSize = 13.sp,
                                             color = Ink.copy(alpha = 0.6f)
                                         )

@@ -112,7 +112,7 @@ class TodayQuestCardTest {
         ).assertHasClickAction().performClick()
 
         composeRule.runOnIdle { assertEquals(listOf(QuestAction.ViewReward), actions) }
-        composeRule.onNodeWithText("Reward earned: a sanctuary piece + 5-minute play break").assertIsDisplayed()
+        composeRule.onNodeWithText("Reward earned: a sanctuary piece + one 5-minute play break").assertIsDisplayed()
     }
 
     @Test

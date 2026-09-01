@@ -1,6 +1,7 @@
 package com.maxinesworld.featurechildhome
 
 import androidx.annotation.DrawableRes
+import com.maxinesworld.coremodel.ChildFacingMediaPolicy
 import com.maxinesworld.coremodel.MediaAsset
 
 /**
@@ -48,7 +49,10 @@ internal fun videoProgressForSubject(
     passedMediaIds: Set<String>,
 ): Pair<Int, Int>? {
     if (assets == null) return null
-    val subjectAssets = assets.filter { it.subjectId.equals(subjectId, ignoreCase = true) }
+    val subjectAssets = assets.filter { asset ->
+        asset.subjectId.equals(subjectId, ignoreCase = true) &&
+            ChildFacingMediaPolicy.isChildFacingCurriculum(asset)
+    }
     return subjectAssets.count { it.mediaId in passedMediaIds } to subjectAssets.size
 }
 

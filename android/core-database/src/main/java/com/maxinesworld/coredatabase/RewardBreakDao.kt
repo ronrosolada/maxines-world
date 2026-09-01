@@ -1,6 +1,7 @@
 package com.maxinesworld.coredatabase
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RewardBreakDao {
@@ -12,6 +13,9 @@ interface RewardBreakDao {
 
     @Query("SELECT * FROM reward_break_entitlements WHERE dailyQuestCompletionId = :dqId")
     suspend fun getByQuestCompletion(dqId: String): RewardBreakEntitlementEntity?
+
+    @Query("SELECT * FROM reward_break_entitlements WHERE dailyQuestCompletionId = :dqId")
+    fun observeByQuestCompletion(dqId: String): Flow<RewardBreakEntitlementEntity?>
 
     /** First-write-wins: a retry must not reset an already active/consumed break. */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -35,21 +39,6 @@ interface RewardBreakDao {
 
     @Query("UPDATE reward_break_entitlements SET remainingMillis = :remaining, state = :state WHERE id = :id AND childId = :childId")
     suspend fun updateRemaining(id: String, childId: String, remaining: Long, state: String): Int
-
-    @Query("""
-        UPDATE reward_break_entitlements
-        SET state = 'ACTIVE',
-            startedAtEpochMillis = :startedAtEpochMillis,
-            remainingMillis = :remaining,
-            consumedAtEpochMillis = NULL
-        WHERE id = :id AND childId = :childId
-    """)
-    suspend fun reactivateForDayPass(
-        id: String,
-        childId: String,
-        startedAtEpochMillis: Long,
-        remaining: Long
-    ): Int
 }
 
 @Dao

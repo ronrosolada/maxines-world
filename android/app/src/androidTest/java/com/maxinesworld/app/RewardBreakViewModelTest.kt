@@ -33,7 +33,6 @@ class RewardBreakViewModelTest {
         godModeManager.setEnabled("child-1", false)
         viewModel = RewardBreakViewModel(
             rewardBreakDao = database.rewardBreakDao(),
-            playgroundUnlockReceiptDao = database.playgroundUnlockReceiptDao(),
             miniGameResultDao = database.miniGameResultDao(),
             rewardDao = database.rewardDao(),
             inventoryDao = database.inventoryDao(),
@@ -95,5 +94,19 @@ class RewardBreakViewModelTest {
         val state = viewModel.state.value as RewardBreakUiState.Ready
         assertTrue(state.started)
         assertEquals(0, database.rewardBreakDao().getById("missing-break")?.remainingMillis ?: 0)
+    }
+
+    @Test
+    fun consumedBreakCannotBeStartedAgain() = runBlocking {
+        viewModel.consume("child-1", "break-1")
+
+        val remaining = viewModel.begin("child-1", "break-1")
+
+        assertEquals(null, remaining)
+        assertTrue(viewModel.state.value is RewardBreakUiState.Unavailable)
+        assertEquals(
+            RewardBreakPolicy.CONSUMED,
+            database.rewardBreakDao().getById("break-1")?.state,
+        )
     }
 }
