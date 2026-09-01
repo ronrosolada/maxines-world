@@ -26,7 +26,6 @@ import androidx.navigation.navArgument
 import com.maxinesworld.coredatabase.ChildProfileDao
 import com.maxinesworld.coredatabase.GodModeManager
 import com.maxinesworld.coredatabase.ParentAccountDao
-import com.maxinesworld.featureauth.ParentAuthManager
 import com.maxinesworld.featureauth.ParentAuthScreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -108,9 +107,7 @@ fun MaxinesNavGraph(navController: NavHostController) {
     LaunchedEffect(Unit) {
         val parentDao = entryPoint.parentAccountDao()
         val childDao = entryPoint.childProfileDao()
-        val authManager = entryPoint.authManager()
 
-        authManager.getPinHash()
         val parent = parentDao.getParent()
         val children = parent?.let { childDao.getByParent(it.id) } ?: emptyList()
         startDest = if (children.isNotEmpty()) {
@@ -371,7 +368,14 @@ fun MaxinesNavGraph(navController: NavHostController) {
                         popUpTo(Routes.PARENT_GATE) { inclusive = true }
                     }
                 },
-                onBack = { navController.popBackStack() }
+                onBack = { navController.popBackStack() },
+                onPinReset = {
+                    // PIN was cleared; send the parent to first-run setup to
+                    // create a new PIN before re-entering the parent area.
+                    navController.navigate(Routes.PARENT_AUTH) {
+                        popUpTo(Routes.CHILD_HOME) { inclusive = true }
+                    }
+                },
             )
         }
 

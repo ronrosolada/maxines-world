@@ -94,7 +94,6 @@ class ParentGateViewModel @Inject constructor(
         verificationInFlight = true
         viewModelScope.launch {
             try {
-                authManager.getPinHash()
                 val input = _state.value.pinInput
                 val now = System.currentTimeMillis()
 
@@ -230,6 +229,7 @@ internal fun parentGateRemainingSeconds(lockedUntilEpochMillis: Long, nowEpochMi
 fun ParentGateScreen(
     onAuthenticated: () -> Unit,
     onBack: () -> Unit,
+    onPinReset: () -> Unit,
     viewModel: ParentGateViewModel = androidx.hilt.navigation.compose.hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -337,7 +337,7 @@ fun ParentGateScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp)
-                    .semantics { contentDescription = "Forgot PIN or restore default using parent math challenge" },
+                    .semantics { contentDescription = "Forgot PIN? Reset it using a parent math challenge" },
                 shape = RoundedCornerShape(12.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = if (locked) Teal40 else SurfaceContainer, contentColor = if (locked) White else Teal40)
             ) {
@@ -358,12 +358,12 @@ fun ParentGateScreen(
         AlertDialog(
             onDismissRequest = { showResetDialog = false },
             title = {
-                Text("Restore Default Parent PIN", fontWeight = FontWeight.Bold)
+                Text("Reset Parent PIN", fontWeight = FontWeight.Bold)
             },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     Text(
-                        "To restore the default parent PIN without losing Maxine's learning progress and stickers, please answer the parent verification question:",
+                        "To reset your PIN without losing Maxine's learning progress and stickers, please answer the parent verification question. You'll set a new PIN next.",
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Surface(
@@ -402,7 +402,7 @@ fun ParentGateScreen(
                         if (challenge.verify(answerInput)) {
                             showResetDialog = false
                             viewModel.onResetPin {
-                                onBack()
+                                onPinReset()
                             }
                         } else {
                             errorText = "Incorrect answer. Please try again."
@@ -410,7 +410,7 @@ fun ParentGateScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Teal40)
                 ) {
-                    Text("Verify & Restore PIN")
+                    Text("Verify & Reset PIN")
                 }
             },
             dismissButton = {

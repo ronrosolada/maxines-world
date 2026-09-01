@@ -57,7 +57,6 @@ class ParentAuthViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            authManager.getPinHash()
             var parent = parentAccountDao.getParent()
             if (parent == null) {
                 val name = authManager.displayName.first()
@@ -85,13 +84,15 @@ class ParentAuthViewModel @Inject constructor(
             }
 
             authManager.displayName.collect { name ->
+                val pinSet = authManager.hasPin()
                 _state.update {
                     it.copy(
                         isLoading = false,
-                        hasPin = true,
+                        hasPin = pinSet,
                         displayName = name ?: parent?.displayName ?: ParentAuthManager.DEFAULT_PARENT_NAME,
                         childProfiles = children,
                         currentScreen = when {
+                            !pinSet -> AuthScreen.PIN_SETUP
                             children.isEmpty() -> AuthScreen.CREATE_PROFILE
                             else -> AuthScreen.PIN_LOGIN
                         }
@@ -125,7 +126,6 @@ class ParentAuthViewModel @Inject constructor(
         verificationInFlight = true
         viewModelScope.launch {
             try {
-                authManager.getPinHash()
                 val input = _state.value.pinInput
                 val now = System.currentTimeMillis()
                 val lockedUntil = authManager.getLockedUntilEpochMillis()
@@ -261,14 +261,13 @@ class ParentAuthViewModel @Inject constructor(
             authManager.resetPinOnly()
             _state.update {
                 it.copy(
-                    hasPin = true,
+                    hasPin = false,
                     pinInput = "",
                     pinError = null,
                     failedAttempts = 0,
                     lockedUntilEpochMillis = 0L,
                     lockRemainingSeconds = 0,
-                    currentScreen = if (it.childProfiles.isEmpty()) AuthScreen.CREATE_PROFILE
-                    else AuthScreen.PIN_LOGIN
+                    currentScreen = AuthScreen.PIN_SETUP,
                 )
             }
         }
