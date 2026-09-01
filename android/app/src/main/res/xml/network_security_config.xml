@@ -2,17 +2,20 @@
 <network-security-config>
     <!-- All network traffic must be HTTPS. Optional personal-use media is served
          by the home media server (e.g. Caddy) over TLS on the trusted LAN;
-         cleartext HTTP is not permitted. If the media server presents an
-         internal/private CA rather than a publicly trusted certificate, add it
-         as a trust anchor here, e.g.:
-             <domain-config>
-                 <domain includeSubdomains="true">10.10.10.33</domain>
-                 <trust-anchors><certificates src="@raw/homelab_ca"/></trust-anchors>
-             </domain-config>
-    -->
+         cleartext HTTP is not permitted. Homelab CA is bundled as a trust anchor. -->
     <base-config cleartextTrafficPermitted="false">
         <trust-anchors>
             <certificates src="system" />
+            <certificates src="@raw/homelab_ca" />
         </trust-anchors>
     </base-config>
+
+    <domain-config>
+        <domain includeSubdomains="false">10.10.10.33</domain>
+        <domain includeSubdomains="false">10.10.20.33</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/homelab_ca" />
+        </trust-anchors>
+    </domain-config>
 </network-security-config>
