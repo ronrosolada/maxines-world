@@ -50,7 +50,9 @@ secret belongs in git.
   available as direct navigation.
 - Milo's sanctuary renders as a living meadow scene with deterministic piece
   placement (`SanctuaryScene.kt`, pure tested model).
-- Character guides show real artwork (Milo, Mira, Niko, Lakan, Duke).
+- Milo the cat is the single child-facing companion guide across every subject
+  and reward surface (real artwork). The wider character cast from early design
+  (Mira, Niko, Lakan, Duke, etc.) is not implemented and ships no artwork.
 - Progress, stars, coins, wildlife stickers, and reward-break entitlements are
   persisted locally and use idempotent reward keys.
 

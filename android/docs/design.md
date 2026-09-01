@@ -26,12 +26,19 @@ When sections conflict, the following precedence applies:
 
 | Stable ID | Curriculum Label | Village Location | Guide | Primary Token | Released |
 |---|---|---|---|---|---|
-| `english` | English | Story Tree | Mira | `subject_english` | Yes |
-| `filipino` | Filipino | Bahay ng Kuwento | Mira | `subject_filipino` | Yes |
+| `english` | English | Story Tree | Milo | `subject_english` | Yes |
+| `filipino` | Filipino | Bahay ng Kuwento | Milo | `subject_filipino` | Yes |
 | `mathematics` | Mathematics | Number Market | Milo | `subject_mathematics` | Yes |
-| `science` | Science | Discovery Lab | Niko | `subject_science` | Yes |
-| `makabansa` | Makabansa | Heritage Harbor | Lakan | `subject_makabansa` | Yes |
-| `gmrc` | GMRC | Kindness Corner | Duke | `subject_gmrc` | Content pending |
+| `science` | Science | Discovery Lab | Milo | `subject_science` | Yes |
+| `makabansa` | Makabansa | Heritage Harbor | Milo | `subject_makabansa` | Yes |
+| `gmrc` | GMRC | Kindness Corner | Milo | `subject_gmrc` | Content pending |
+
+> **Implementation status (guides):** Milo is the single implemented,
+> child-facing companion across every subject and reward surface. The
+> multi-guide cast below (Mira, Niko, Lakan, Duke, and the extended bible in
+> §5) is an early design concept that is **not implemented** and has no
+> production artwork; treat it as aspirational until a guide is actually
+> shipped with art and wiring.
 
 Rules:
 - `history`, `philippine-history`, and `araling-panlipunan` are legacy aliases. Map them to the canonical ID in ONE domain layer.
@@ -192,6 +199,13 @@ Requirements:
 
 ## 5. Character System
 
+> **Implementation status:** Only **Milo** (orange tabby) is implemented as the
+> child-facing guide, and he appears across all subjects, the Assessment Arena
+> clues ("Milo's learning clue"), the sanctuary, the daily quest mascot, and the
+> native reward games. Every other character in this section is unshipped design
+> concept art with no production assets. Do not describe them as present in the
+> app; author copy and UI against Milo only until another guide is shipped.
+
 ### Primary cast
 
 | Character | Appearance | Design role |
@@ -267,8 +281,8 @@ Incorrect response:
 
 > **Milestone note (CH-07, tracked):** the density targets describe the
 > full-illustration village pass. The shipped home is the card-based
-> Playroom: the subject guides (Mira, Milo, Niko, Lakan, Duke) appear as
-> subject illustrations and the quest/sanctuary mascot, not as 8–14
+> Playroom: Milo is the single companion guide across subjects and appears as
+> the quest/sanctuary mascot; subject cards use subject illustrations, not as 8–14
 > standing village animals. The layered village scenery that satisfies
 > this table is scheduled as a later CH-07 phase-model milestone. The
 > child-facing principle "animals must
@@ -283,14 +297,14 @@ Keep only one animated focal character during reading or problem-solving.
 ### English: Story Tree
 
 * Primary color: story purple
-* Guide: Mira
+* Guide: Milo
 * Visual motifs: books, lanterns, treehouses, paper, speech bubbles
 * Main interaction tone: storytelling and investigation
 
 ### Filipino: Bahay ng Kuwento
 
 * Primary color: warm coral
-* Guide: Mira
+* Guide: Milo
 * Visual motifs: bahay-inspired reading house, woven patterns, story cards, speech ribbons
 * Main interaction tone: communication, storytelling, and cultural familiarity
 
@@ -306,14 +320,14 @@ Avoid using sacred, ceremonial, or culturally specific motifs as generic decorat
 ### Science: Discovery Lab
 
 * Primary color: leaf green
-* Guide: Niko
+* Guide: Milo
 * Visual motifs: plants, magnifiers, notebooks, safe laboratory tools, habitats
 * Main interaction tone: prediction, observation, testing, and explanation
 
 ### Philippine History: Heritage Harbor
 
 * Primary color: heritage gold
-* Guide: Lakan
+* Guide: Milo
 * Visual motifs: maps, timelines, community albums, landmarks, boats, archival objects
 * Main interaction tone: discovery, comparison, storytelling, and preservation
 
@@ -930,7 +944,7 @@ Both are open-license and android-shippable. Neither is on the house avoid-list.
 * **Tactile buttons:** every primary control uses a chunky bottom-shadow (`box-shadow: 0 5–6px 0 <darker tint>`) so it reads as physically pressable — the child-facing “bounce” affordance. Maps to `MaxinesPrimaryButton` pressed/disabled states.
 * **Learning-first hierarchy:** the objective banner and question (e.g. “4 groups of 3 = ?”) are the largest elements on the lesson screens; guide characters and scenery never sit above them.
 * **Color + icon + label, never color alone:** correct = green tile **plus** a check badge; locations carry ✓ / 🔒 glyphs and text; skill status on the parent side reads “2 to review”, not just a red bar. Satisfies §7 and §19.
-* **One focal companion per activity:** a single native guide bubble (“Niko says…”, “Milo says…”) carries the hint voice; the rest of the animals stay in the ambient art. Honors the animal-density table in §5.
+* **One focal companion per activity:** a single native guide bubble (“Milo says…”) carries the hint voice; the rest of the animals stay in the ambient art. Honors the animal-density table in §5.
 * **Step progress dots** on lesson headers (done ✓ / current / upcoming) give an 8-year-old a clear, countable sense of “how far to the reward.”
 * **Reward moment** is short, celebratory, and skippable (Village / Next buttons) and shows exactly what was earned: stars, paw coins, and one named badge — no randomized or paid rewards (§14 safeguards).
 * **Restrained parent surface:** teal navigation rail, flat white cards, labeled bar chart with a plain-language summary line (“Sat was her best day”), active-learning-time separated from screen-time. Follows §18.
@@ -944,7 +958,7 @@ Both are open-license and android-shippable. Neither is on the house avoid-list.
 | `MaxinesSubjectDestination` | Village Home + World Map location pins (unlocked / current / locked states) |
 | `MaxinesProgressBar` | Level XP, subject progress, screen-time |
 | `MaxinesAnswerCard` | Math answer tiles, English detail cards (default / selected / correct) |
-| `MaxinesGuideBubble` | Niko / Milo / Mira hint bubbles |
+| `MaxinesGuideBubble` | Milo hint bubbles (single companion) |
 | `MaxinesHintButton`, `MaxinesAudioButton` | Lesson headers |
 | `MaxinesRewardChip` | Reward Moment stars / coins / badge |
 | `MaxinesParentMetricCard`, `MaxinesSkillStatusChip` | Parent Dashboard |
