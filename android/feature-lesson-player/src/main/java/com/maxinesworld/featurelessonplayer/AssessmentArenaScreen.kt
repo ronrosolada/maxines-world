@@ -564,6 +564,7 @@ private fun ActiveQuizView(
     modifier: Modifier = Modifier,
 ) {
     val currentItem = quiz.items.getOrNull(quiz.currentIndex)
+    val displayedOptions = quiz.displayedOptions
     val copy = arenaCopy(quiz.packId)
     var showExitDialog by remember { mutableStateOf(false) }
 
@@ -669,7 +670,13 @@ private fun ActiveQuizView(
                     color = VillageTeal.copy(alpha = 0.12f),
                     modifier = Modifier.clickable {
                         if (currentItem != null) {
-                            val fullSpeechText = "${currentItem.prompt}. Option A: ${currentItem.options.getOrNull(0)?.text.orEmpty()}. Option B: ${currentItem.options.getOrNull(1)?.text.orEmpty()}. Option C: ${currentItem.options.getOrNull(2)?.text.orEmpty()}. Option D: ${currentItem.options.getOrNull(3)?.text.orEmpty()}."
+                            val fullSpeechText = buildString {
+                                append(currentItem.prompt)
+                                displayedOptions.forEachIndexed { index, option ->
+                                    append(". Option ${mcSlotLabel(index)}: ${option.text}")
+                                }
+                                append(".")
+                            }
                             ttsPlayer.speak(fullSpeechText, copy.ttsLanguage)
                         }
                     }
@@ -826,17 +833,18 @@ private fun ActiveQuizView(
             Spacer(Modifier.height(16.dp))
 
             // Options Layout (2-Column Grid on Tablet/Wide, 1-Column on Phone)
-            val chunkedOptions = currentItem.options.chunked(2)
+            val chunkedOptions = displayedOptions.mapIndexed { index, option -> index to option }.chunked(2)
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 chunkedOptions.forEach { rowOptions ->
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        rowOptions.forEach { option ->
+                        rowOptions.forEach { (index, option) ->
                             val isSelected = quiz.selectedOptionId == option.id
                             val isSubmitted = quiz.isAnswerSubmitted
                             val isCorrectOption = option.id in currentItem.correctOptionIds
+                            val slotLabel = mcSlotLabel(index)
 
                             val containerColor = when {
                                 isSubmitted && isCorrectOption -> SuccessGreen.copy(alpha = 0.15f)
@@ -890,7 +898,7 @@ private fun ActiveQuizView(
                                         contentAlignment = Alignment.Center,
                                     ) {
                                         Text(
-                                            option.id.uppercase(),
+                                            slotLabel,
                                             fontWeight = FontWeight.ExtraBold,
                                             fontSize = 14.sp,
                                             color = if (isSelected) White else DeepNight,

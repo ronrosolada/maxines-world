@@ -9,6 +9,7 @@ import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coremodel.AssessmentPack
 import com.maxinesworld.coremodel.AssessmentPackMetadata
 import com.maxinesworld.coremodel.AssessmentQuestionItem
+import com.maxinesworld.coremodel.AssessmentQuestionOption
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,6 +18,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.UUID
 import javax.inject.Inject
+import kotlin.random.Random
 
 data class AssessmentArenaUiState(
     val isLoading: Boolean = true,
@@ -44,6 +46,8 @@ data class ActiveAssessmentQuizState(
     val isPassed: Boolean = false,
     val earnedStars: Int = 0,
     val earnedTokens: Int = 0,
+    /** Per-attempt display order for the current item. Authored JSON order stays on [items]. */
+    val displayedOptions: List<AssessmentQuestionOption> = emptyList(),
 )
 
 @HiltViewModel
@@ -55,6 +59,9 @@ class AssessmentArenaViewModel @Inject constructor(
 
     val childId: String = savedStateHandle["childId"] ?: "default_child"
     private val initialSubject: String = savedStateHandle.get<String>("subject")?.takeIf { it.isNotBlank() } ?: "mathematics"
+
+    /** Overridable in JVM tests so two presentations can be shown to differ. */
+    internal var optionRandom: Random = Random.Default
 
     private val _state = MutableStateFlow(
         AssessmentArenaUiState(selectedSubjectId = initialSubject)
@@ -106,16 +113,18 @@ class AssessmentArenaViewModel @Inject constructor(
             _state.update { it.copy(isLoading = true) }
             val pack = assessmentRepository.getPack(packId)
             if (pack != null && pack.items.isNotEmpty()) {
-                val quiz = ActiveAssessmentQuizState(
-                    packId = pack.id,
-                    items = pack.items,
-                    currentIndex = 0,
-                    selectedOptionId = null,
-                    isAnswerSubmitted = false,
-                    isCorrect = false,
-                    correctCount = 0,
-                    isFinished = false,
-                    isPassed = false,
+                val quiz = presentArenaItem(
+                    ActiveAssessmentQuizState(
+                        packId = pack.id,
+                        items = pack.items,
+                        currentIndex = 0,
+                        selectedOptionId = null,
+                        isAnswerSubmitted = false,
+                        isCorrect = false,
+                        correctCount = 0,
+                        isFinished = false,
+                        isPassed = false,
+                    ),
                 )
                 _state.update {
                     it.copy(
@@ -150,7 +159,11 @@ class AssessmentArenaViewModel @Inject constructor(
         val quiz = _state.value.activeQuiz ?: return
         if (quiz.selectedOptionId == null || quiz.isAnswerSubmitted) return
         val currentItem = quiz.items.getOrNull(quiz.currentIndex) ?: return
-        val isCorrect = quiz.selectedOptionId in currentItem.correctOptionIds
+        val isCorrect = isKeyedMcChoiceCorrect(
+            selectedOptionId = quiz.selectedOptionId,
+            presentedOptionIds = quiz.displayedOptions.map { it.id },
+            correctOptionIds = currentItem.correctOptionIds,
+        )
         val newCorrectCount = if (isCorrect) quiz.correctCount + 1 else quiz.correctCount
 
         _state.update {
@@ -172,12 +185,15 @@ class AssessmentArenaViewModel @Inject constructor(
         if (nextIndex < quiz.items.size) {
             _state.update {
                 it.copy(
-                    activeQuiz = quiz.copy(
-                        currentIndex = nextIndex,
-                        selectedOptionId = null,
-                        isAnswerSubmitted = false,
-                        isCorrect = false,
-                    )
+                    activeQuiz = presentArenaItem(
+                        quiz.copy(
+                            currentIndex = nextIndex,
+                            selectedOptionId = null,
+                            isAnswerSubmitted = false,
+                            isCorrect = false,
+                            isHintVisible = false,
+                        ),
+                    ),
                 )
             }
         } else {
@@ -254,5 +270,14 @@ class AssessmentArenaViewModel @Inject constructor(
     fun restartQuiz() {
         val packId = _state.value.activeQuiz?.packId ?: return
         startQuiz(packId)
+    }
+
+    private fun presentArenaItem(quiz: ActiveAssessmentQuizState): ActiveAssessmentQuizState {
+        val item = quiz.items.getOrNull(quiz.currentIndex)
+        return quiz.copy(
+            displayedOptions = if (item == null) emptyList() else shuffleMcOptions(item.options, optionRandom),
+            selectedOptionId = null,
+            isAnswerSubmitted = false,
+        )
     }
 }

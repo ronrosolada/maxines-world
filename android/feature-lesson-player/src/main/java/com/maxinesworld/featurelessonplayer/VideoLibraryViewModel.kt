@@ -336,7 +336,13 @@ class VideoLibraryViewModel @Inject constructor(
         if (_state.value.allItems.firstOrNull { it.asset.mediaId == mediaId }?.isLocked == true) return
         val isAlreadyPassed = mediaId in _state.value.passedMediaIds
         _state.update {
-            it.copy(assessmentQuiz = MediaAssessmentQuizState(mediaId = mediaId, isReplay = isAlreadyPassed))
+            it.copy(
+                assessmentQuiz = beginMediaAssessmentQuiz(
+                    mediaId = mediaId,
+                    assessment = assessment,
+                    isReplay = isAlreadyPassed,
+                ),
+            )
         }
     }
 
@@ -499,7 +505,9 @@ class VideoLibraryViewModel @Inject constructor(
 
     fun restartAssessment() {
         val quiz = _state.value.assessmentQuiz ?: return
-        _state.update { it.copy(assessmentQuiz = restartQuiz(quiz)) }
+        val asset = _state.value.allItems.firstOrNull { it.asset.mediaId == quiz.mediaId }?.asset ?: return
+        val assessment = asset.assessment ?: return
+        _state.update { it.copy(assessmentQuiz = restartQuiz(quiz, assessment)) }
     }
 
     fun closeAssessment() {

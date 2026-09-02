@@ -463,11 +463,12 @@ private fun MediaAssessmentQuizCard(
                         color = Ink,
                     )
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        currentItem.options.forEach { option ->
+                        quiz.displayedOptions.forEachIndexed { index, option ->
                             val isSelected = quiz.selectedOptionId == option.id
                             val isChecked = quiz.submitted
                             val isCorrectOption = option.id in currentItem.correctOptionIds
                             val isChosenWrong = isChecked && isSelected && !isCorrectOption
+                            val slotLabel = mcSlotLabel(index)
 
                             val containerColor = when {
                                 isChecked && isCorrectOption -> VillageTeal.copy(alpha = 0.15f)
@@ -503,7 +504,7 @@ private fun MediaAssessmentQuizCard(
                                         contentAlignment = Alignment.Center,
                                     ) {
                                         Text(
-                                            option.id.uppercase(),
+                                            slotLabel,
                                             fontWeight = FontWeight.Bold,
                                             fontSize = 13.sp,
                                             color = if (isSelected) Color.White else Ink,
@@ -522,7 +523,11 @@ private fun MediaAssessmentQuizCard(
                     }
 
                     if (quiz.submitted) {
-                        val isCorrect = quiz.selectedOptionId in currentItem.correctOptionIds
+                        val isCorrect = isKeyedMcChoiceCorrect(
+                            selectedOptionId = quiz.selectedOptionId,
+                            presentedOptionIds = quiz.displayedOptions.map { it.id },
+                            correctOptionIds = currentItem.correctOptionIds,
+                        )
                         Surface(
                             shape = RoundedCornerShape(10.dp),
                             color = if (isCorrect) VillageTeal.copy(alpha = 0.12f) else Color(0xFFFFF3E0),
