@@ -52,6 +52,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -86,6 +87,7 @@ fun VideoLibraryScreen(
         onNextAssessmentQuestion = viewModel::nextAssessmentQuestion,
         onCloseAssessment = viewModel::closeAssessment,
         onRestartAssessment = viewModel::restartAssessment,
+        onWatchAgain = viewModel::rewatchAfterFailedAssessment,
         onRetry = viewModel::refresh,
         onBack = onBack,
     )
@@ -106,6 +108,7 @@ private fun VideoLibraryContent(
     onNextAssessmentQuestion: () -> Unit,
     onCloseAssessment: () -> Unit,
     onRestartAssessment: () -> Unit,
+    onWatchAgain: () -> Unit,
     onRetry: () -> Unit,
     onBack: () -> Unit,
 ) {
@@ -173,9 +176,10 @@ private fun VideoLibraryContent(
                 else -> {
                     val playing = state.allItems.firstOrNull { it.asset.mediaId == state.playingMediaId }
                     val assessment = state.assessmentQuiz
-                    val assessmentAsset = assessment?.let { quiz ->
-                        state.allItems.firstOrNull { it.asset.mediaId == quiz.mediaId }?.asset
+                    val assessmentItem = assessment?.let { quiz ->
+                        state.allItems.firstOrNull { it.asset.mediaId == quiz.mediaId }
                     }
+                    val assessmentAsset = assessmentItem?.asset
                     val currentAssessment = assessmentAsset?.assessment
                     val listState = rememberLazyListState()
                     LaunchedEffect(playing?.asset?.mediaId) {
@@ -287,16 +291,18 @@ private fun VideoLibraryContent(
                                 }
                             }
                         }
-                        if (assessment != null && currentAssessment != null) {
+                        if (assessment != null && assessmentItem != null && currentAssessment != null) {
                             item(key = "assessment-${assessment.mediaId}") {
                                 MediaAssessmentQuizCard(
                                     quiz = assessment,
                                     assessment = currentAssessment,
-                                    mediaTitle = assessmentAsset.title,
+                                    mediaTitle = assessmentItem.asset.title,
+                                    lessonPassed = assessmentItem.isPassed,
                                     onSelectOption = onSelectAssessmentOption,
                                     onCheckAnswer = onCheckAssessmentAnswer,
                                     onNextQuestion = onNextAssessmentQuestion,
                                     onRestart = onRestartAssessment,
+                                    onWatchAgain = onWatchAgain,
                                     onClose = onCloseAssessment,
                                     modifier = Modifier.fillMaxWidth(),
                                 )
@@ -366,15 +372,22 @@ private fun VideoLibraryContent(
     }
 }
 
+internal object VideoLibraryTestTags {
+    const val WatchAgainButton = "video-library-watch-again"
+    const val TryQuizAgainButton = "video-library-try-quiz-again"
+}
+
 @Composable
-private fun MediaAssessmentQuizCard(
+internal fun MediaAssessmentQuizCard(
     quiz: MediaAssessmentQuizState,
     assessment: com.maxinesworld.coremodel.MediaAssessment,
     mediaTitle: String,
+    lessonPassed: Boolean = false,
     onSelectOption: (String) -> Unit,
     onCheckAnswer: () -> Unit,
     onNextQuestion: () -> Unit,
     onRestart: () -> Unit,
+    onWatchAgain: () -> Unit,
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -434,16 +447,36 @@ private fun MediaAssessmentQuizCard(
                         }
                     }
                     Spacer(Modifier.height(4.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                        Button(
-                            onClick = onRestart,
-                            colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
-                            shape = RoundedCornerShape(12.dp)
-                        ) {
-                            Text("Try Again", color = Color.White, fontWeight = FontWeight.Bold)
+                    if (passed) {
+                        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                            Button(
+                                onClick = onRestart,
+                                colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
+                                shape = RoundedCornerShape(12.dp)
+                            ) {
+                                Text("Try Again", color = Color.White, fontWeight = FontWeight.Bold)
+                            }
+                            TextButton(onClick = onClose) {
+                                Text("Done", color = Ink, fontWeight = FontWeight.Bold)
+                            }
                         }
-                        TextButton(onClick = onClose) {
-                            Text("Done", color = Ink, fontWeight = FontWeight.Bold)
+                    } else {
+                        val watchAgainLabel = if (lessonPassed) "Rewatch" else "Watch again"
+                        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                            Button(
+                                onClick = onWatchAgain,
+                                colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
+                                shape = RoundedCornerShape(12.dp),
+                                modifier = Modifier.testTag(VideoLibraryTestTags.WatchAgainButton),
+                            ) {
+                                Text(watchAgainLabel, color = Color.White, fontWeight = FontWeight.Bold)
+                            }
+                            TextButton(
+                                onClick = onRestart,
+                                modifier = Modifier.testTag(VideoLibraryTestTags.TryQuizAgainButton),
+                            ) {
+                                Text("Try quiz again", color = Ink, fontWeight = FontWeight.Bold)
+                            }
                         }
                     }
                 }
