@@ -46,6 +46,8 @@ data class ActiveAssessmentQuizState(
     val isPassed: Boolean = false,
     val earnedStars: Int = 0,
     val earnedTokens: Int = 0,
+    /** Study-only review of Milo's clues after a failed attempt. Not a scored quiz. */
+    val isReviewingClues: Boolean = false,
     /** Per-attempt display order for the current item. Authored JSON order stays on [items]. */
     val displayedOptions: List<AssessmentQuestionOption> = emptyList(),
 )
@@ -142,6 +144,7 @@ class AssessmentArenaViewModel @Inject constructor(
     
     fun toggleHint() {
         val quiz = _state.value.activeQuiz ?: return
+        if (quiz.isFinished || quiz.isReviewingClues) return
         _state.update {
             it.copy(activeQuiz = quiz.copy(isHintVisible = !quiz.isHintVisible))
         }
@@ -149,7 +152,7 @@ class AssessmentArenaViewModel @Inject constructor(
 
     fun selectOption(optionId: String) {
         val quiz = _state.value.activeQuiz ?: return
-        if (quiz.isAnswerSubmitted) return
+        if (quiz.isAnswerSubmitted || quiz.isFinished || quiz.isReviewingClues) return
         _state.update {
             it.copy(activeQuiz = quiz.copy(selectedOptionId = optionId))
         }
@@ -157,6 +160,7 @@ class AssessmentArenaViewModel @Inject constructor(
 
     fun submitAnswer() {
         val quiz = _state.value.activeQuiz ?: return
+        if (quiz.isFinished || quiz.isReviewingClues) return
         if (quiz.selectedOptionId == null || quiz.isAnswerSubmitted) return
         val currentItem = quiz.items.getOrNull(quiz.currentIndex) ?: return
         val isCorrect = isKeyedMcChoiceCorrect(
@@ -179,7 +183,7 @@ class AssessmentArenaViewModel @Inject constructor(
 
     fun nextQuestion() {
         val quiz = _state.value.activeQuiz ?: return
-        if (!quiz.isAnswerSubmitted) return
+        if (!quiz.isAnswerSubmitted || quiz.isFinished || quiz.isReviewingClues) return
 
         val nextIndex = quiz.currentIndex + 1
         if (nextIndex < quiz.items.size) {
@@ -270,6 +274,19 @@ class AssessmentArenaViewModel @Inject constructor(
     fun restartQuiz() {
         val packId = _state.value.activeQuiz?.packId ?: return
         startQuiz(packId)
+    }
+
+    /** Open Milo's clues for the just-finished items. Does not start a scored attempt. */
+    fun reviewClues() {
+        val quiz = _state.value.activeQuiz ?: return
+        if (!quiz.isFinished || quiz.isPassed) return
+        _state.update { it.copy(activeQuiz = quiz.copy(isReviewingClues = true)) }
+    }
+
+    fun exitClueReview() {
+        val quiz = _state.value.activeQuiz ?: return
+        if (!quiz.isReviewingClues) return
+        _state.update { it.copy(activeQuiz = quiz.copy(isReviewingClues = false)) }
     }
 
     private fun presentArenaItem(quiz: ActiveAssessmentQuizState): ActiveAssessmentQuizState {

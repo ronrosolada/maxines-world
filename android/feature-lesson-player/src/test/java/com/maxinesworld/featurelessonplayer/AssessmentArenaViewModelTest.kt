@@ -263,4 +263,106 @@ class AssessmentArenaViewModelTest {
             })
         }
     }
+
+    @Test
+    fun `reviewClues after a failed quiz does not start a new scored attempt`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        finishQuiz(vm, correct = false)
+        val before = vm.state.value.activeQuiz!!
+        assertTrue(before.isFinished)
+        assertFalse(before.isPassed)
+        assertFalse(before.isReviewingClues)
+        coVerify(exactly = 1) { assessmentRepository.getPack("math-g3-ph") }
+
+        vm.reviewClues()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val after = vm.state.value.activeQuiz!!
+        assertTrue(after.isReviewingClues)
+        assertTrue(after.isFinished)
+        assertFalse(after.isPassed)
+        assertEquals(before.correctCount, after.correctCount)
+        assertEquals(0, after.earnedStars)
+        assertEquals(0, after.earnedTokens)
+        assertEquals(before.items, after.items)
+        assertEquals(sampleItems.map { it.explanation }, arenaClueReviewItems(after.items).map { it.explanation })
+        coVerify(exactly = 1) { assessmentRepository.getPack("math-g3-ph") }
+    }
+
+    @Test
+    fun `reviewClues is a no-op after a passed quiz`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        finishQuiz(vm, correct = true)
+        assertTrue(vm.state.value.activeQuiz?.isPassed == true)
+
+        vm.reviewClues()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertFalse(vm.state.value.activeQuiz?.isReviewingClues == true)
+        coVerify(exactly = 1) { assessmentRepository.getPack("math-g3-ph") }
+    }
+
+    @Test
+    fun `exitClueReview returns to the fail summary without restarting`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        finishQuiz(vm, correct = false)
+        vm.reviewClues()
+        assertTrue(vm.state.value.activeQuiz?.isReviewingClues == true)
+
+        vm.exitClueReview()
+
+        val quiz = vm.state.value.activeQuiz!!
+        assertFalse(quiz.isReviewingClues)
+        assertTrue(quiz.isFinished)
+        assertFalse(quiz.isPassed)
+        coVerify(exactly = 1) { assessmentRepository.getPack("math-g3-ph") }
+    }
+
+    @Test
+    fun `restartQuiz from clue review starts a new scored attempt`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        finishQuiz(vm, correct = false)
+        vm.reviewClues()
+
+        vm.restartQuiz()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val quiz = vm.state.value.activeQuiz!!
+        assertFalse(quiz.isReviewingClues)
+        assertFalse(quiz.isFinished)
+        assertEquals(0, quiz.correctCount)
+        assertEquals(0, quiz.currentIndex)
+        assertFalse(quiz.isAnswerSubmitted)
+        coVerify(exactly = 2) { assessmentRepository.getPack("math-g3-ph") }
+    }
+
+    @Test
+    fun `selectOption and submitAnswer are ignored while reviewing clues`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        finishQuiz(vm, correct = false)
+        val finishedCount = vm.state.value.activeQuiz!!.correctCount
+        vm.reviewClues()
+
+        vm.selectOption("a")
+        vm.submitAnswer()
+        vm.nextQuestion()
+        vm.toggleHint()
+
+        val quiz = vm.state.value.activeQuiz!!
+        assertTrue(quiz.isReviewingClues)
+        assertTrue(quiz.isFinished)
+        assertEquals(finishedCount, quiz.correctCount)
+        assertEquals(0, quiz.earnedStars)
+    }
+
+    private fun finishQuiz(vm: AssessmentArenaViewModel, correct: Boolean) {
+        vm.startQuiz("math-g3-ph")
+        testDispatcher.scheduler.advanceUntilIdle()
+        repeat(10) {
+            vm.selectOption(if (correct) "a" else "b")
+            vm.submitAnswer()
+            vm.nextQuestion()
+        }
+        testDispatcher.scheduler.advanceUntilIdle()
+    }
 }
