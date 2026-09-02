@@ -1,5 +1,6 @@
 package com.maxinesworld.featurelessonplayer
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -121,6 +122,7 @@ class AssessmentArenaScreenTest {
     }
 }
 
+@Composable
 private fun arenaUnderTest(
     state: AssessmentArenaUiState,
     onStartQuiz: (String) -> Unit = {},
