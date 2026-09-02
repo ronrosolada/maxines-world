@@ -76,7 +76,6 @@ fun VideoLibraryScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     VideoLibraryContent(
         state = state,
-        onDownload = viewModel::download,
         onDownloadAll = viewModel::downloadAll,
         onPlay = viewModel::play,
         onStopPlaying = viewModel::stopPlaying,
@@ -95,9 +94,8 @@ fun VideoLibraryScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun VideoLibraryContent(
+internal fun VideoLibraryContent(
     state: VideoLibraryUiState,
-    onDownload: (String) -> Unit,
     onDownloadAll: () -> Unit,
     onPlay: (String) -> Unit,
     onStopPlaying: () -> Unit,
@@ -344,7 +342,6 @@ private fun VideoLibraryContent(
                                     isAssessmentOpen = item.asset.mediaId == state.assessmentQuiz?.mediaId,
                                     canTakeAssessment = isWatchedOrPassed,
                                     isLocked = item.isLocked,
-                                    onDownload = { onDownload(item.asset.mediaId) },
                                     onPlay = { onPlay(item.asset.mediaId) },
                                     onOpenAssessment = { onOpenAssessment(item.asset.mediaId) },
                                 )
@@ -374,7 +371,6 @@ private fun VideoLibraryContent(
                                     isAssessmentOpen = item.asset.mediaId == state.assessmentQuiz?.mediaId,
                                     canTakeAssessment = true,
                                     isLocked = item.isLocked,
-                                    onDownload = { onDownload(item.asset.mediaId) },
                                     onPlay = { onPlay(item.asset.mediaId) },
                                     onOpenAssessment = { onOpenAssessment(item.asset.mediaId) },
                                 )
@@ -390,6 +386,7 @@ private fun VideoLibraryContent(
 internal object VideoLibraryTestTags {
     const val WatchAgainButton = "video-library-watch-again"
     const val TryQuizAgainButton = "video-library-try-quiz-again"
+    fun playButton(mediaId: String) = "video-library-play-$mediaId"
 }
 
 @Composable
@@ -623,7 +620,6 @@ private fun VideoLibraryItemCard(
     isAssessmentOpen: Boolean,
     canTakeAssessment: Boolean,
     isLocked: Boolean = false,
-    onDownload: () -> Unit,
     onPlay: () -> Unit,
     onOpenAssessment: () -> Unit,
 ) {
@@ -714,25 +710,44 @@ private fun VideoLibraryItemCard(
                     }
 
                     item.isDownloading -> {
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(24.dp),
-                            color = KindnessTealText,
-                            strokeWidth = 2.dp,
-                        )
-                    }
-
-                    item.localPath != null -> {
-                        TextButton(onClick = onPlay) {
-                            Text(if (item.isPassed) "Rewatch" else "Watch", color = KindnessTealText, fontWeight = FontWeight.Bold)
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(24.dp),
+                                color = KindnessTealText,
+                                strokeWidth = 2.dp,
+                            )
+                            Spacer(Modifier.width(8.dp))
+                            Text(
+                                VideoLibraryAssignedPlayCopy.GETTING_READY,
+                                color = VillageTeal,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp,
+                            )
                         }
                     }
 
                     else -> {
-                        TextButton(onClick = onDownload) {
-                            Text("Download", color = KindnessTealText, fontWeight = FontWeight.Bold)
+                        TextButton(
+                            onClick = onPlay,
+                            modifier = Modifier.testTag(VideoLibraryTestTags.playButton(item.asset.mediaId)),
+                        ) {
+                            Text(
+                                if (item.isPassed) "Rewatch" else "Watch",
+                                color = KindnessTealText,
+                                fontWeight = FontWeight.Bold,
+                            )
                         }
                     }
                 }
+            }
+            if (!item.error.isNullOrBlank()) {
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    item.error,
+                    color = Color(0xFFE53935),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.sp,
+                )
             }
             if (item.localPath != null && item.asset.assessment != null && canTakeAssessment) {
                 Spacer(Modifier.height(8.dp))
