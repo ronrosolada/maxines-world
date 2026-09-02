@@ -438,7 +438,7 @@ class PlayroomHomeViewModel @Inject constructor(
                 isComplete = true,
                 recommendedSubjectId = availableFirst?.id,
                 buttonLabel = if (showPlayground) QuestButtonLabel.OpenPlayground else QuestButtonLabel.OpenSanctuary,
-                buttonAction = if (showPlayground) QuestAction.OpenPlayground else QuestAction.ViewReward,
+                buttonAction = if (showPlayground) QuestAction.OpenPlayground else QuestAction.OpenSanctuary,
                 targets = targets,
                 nextTargetId = nextTargetId,
                 sanctuaryComplete = sanctuaryComplete,

@@ -124,7 +124,14 @@ data class QuestUi(
     val playgroundUnlocked: Boolean = false,
 )
 
-enum class QuestAction { Continue, ChooseSubject, ViewReward, OpenVideoQuest, RetryMission, OpenPlayground }
+enum class QuestAction {
+    Continue,
+    ChooseSubject,
+    OpenSanctuary,
+    OpenVideoQuest,
+    RetryMission,
+    OpenPlayground,
+}
 
 @androidx.compose.runtime.Immutable
 data class StickerUi(

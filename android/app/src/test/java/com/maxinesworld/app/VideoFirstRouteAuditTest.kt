@@ -125,6 +125,46 @@ class VideoFirstRouteAuditTest {
     }
 
     @Test
+    fun `Open Sanctuary after a consumed play break navigates to living sanctuary not the reward hub`() {
+        val source = navGraph().readText()
+        val childHomeStart = source.indexOf("route = Routes.CHILD_HOME")
+        val sanctuaryRoute = source.indexOf("route = Routes.SANCTUARY", childHomeStart)
+        assertTrue("child-home route must remain in MaxinesNavGraph", childHomeStart >= 0)
+        assertTrue("living sanctuary route must follow child-home", sanctuaryRoute > childHomeStart)
+
+        val childHomeBlock = source.substring(childHomeStart, sanctuaryRoute)
+        assertTrue(
+            "completed-quest Open Sanctuary must be a first-class quest action",
+            childHomeBlock.contains("QuestAction.OpenSanctuary"),
+        )
+        assertFalse(
+            "ViewReward must not remain as the Open Sanctuary destination",
+            childHomeBlock.contains("QuestAction.ViewReward"),
+        )
+
+        val sanctuaryActionStart = childHomeBlock.indexOf("QuestAction.OpenSanctuary")
+        val playgroundActionStart = childHomeBlock.indexOf("QuestAction.OpenPlayground")
+        assertTrue(sanctuaryActionStart >= 0)
+        assertTrue(
+            "OpenSanctuary must be handled before OpenPlayground in the child-home when",
+            playgroundActionStart > sanctuaryActionStart,
+        )
+        val sanctuaryBranch = childHomeBlock.substring(sanctuaryActionStart, playgroundActionStart)
+        assertTrue(
+            "Open Sanctuary must navigate to Living Sanctuary",
+            sanctuaryBranch.contains("Routes.sanctuary(childId)"),
+        )
+        assertFalse(
+            "Open Sanctuary must not open the mini-game hub",
+            sanctuaryBranch.contains("MiniGameRoutes.hub"),
+        )
+        assertFalse(
+            "Open Sanctuary must not open the consumed reward-break route",
+            sanctuaryBranch.contains("reward-break:"),
+        )
+    }
+
+    @Test
     fun `video library builder carries an assigned mediaId when present`() {
         val source = navGraph().readText()
         assertTrue(
