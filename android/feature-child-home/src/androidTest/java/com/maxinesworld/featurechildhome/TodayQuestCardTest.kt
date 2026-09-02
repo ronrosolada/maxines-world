@@ -132,7 +132,7 @@ class TodayQuestCardTest {
                 isComplete = true,
                 completed = 3,
                 buttonLabel = QuestButtonLabel.OpenSanctuary,
-                buttonAction = QuestAction.ViewReward,
+                buttonAction = QuestAction.OpenSanctuary,
             ),
             onQuestAction = { actions += it },
         )
@@ -141,7 +141,7 @@ class TodayQuestCardTest {
             "Today's mission. 3 of 3 complete",
         ).assertHasClickAction().performClick()
 
-        composeRule.runOnIdle { assertEquals(listOf(QuestAction.ViewReward), actions) }
+        composeRule.runOnIdle { assertEquals(listOf(QuestAction.OpenSanctuary), actions) }
         composeRule.onNodeWithText("Reward earned: a sanctuary piece + one 5-minute play break").assertIsDisplayed()
     }
 

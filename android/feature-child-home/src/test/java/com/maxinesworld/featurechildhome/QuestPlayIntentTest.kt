@@ -96,7 +96,7 @@ class QuestPlayIntentTest {
         )
         assertEquals(
             QuestPlayIntent.StayOnHome,
-            QuestPlayRouter.intentForQuestAction(QuestAction.ViewReward, quest()),
+            QuestPlayRouter.intentForQuestAction(QuestAction.OpenSanctuary, quest()),
         )
         assertEquals(
             QuestPlayIntent.StayOnHome,

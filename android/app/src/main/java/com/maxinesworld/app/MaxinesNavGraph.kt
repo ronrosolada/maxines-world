@@ -178,16 +178,10 @@ fun MaxinesNavGraph(navController: NavHostController) {
                             navController.navigate(Routes.videoLibrary(childId))
                         }
                         QuestAction.ChooseSubject -> { /* focus move handled in screen */ }
-                        QuestAction.ViewReward -> {
-                            // The completed-quest reward is the 5-minute play break
-                            // minted by DailyQuestRewardWriter under a deterministic
-                            // id. Open THAT experience (the honest fulfillment of the
-                            // "break + sanctuary piece" promise) rather than the token
-                            // shop the old handler pointed to.
-                            val dayKey = java.time.LocalDate.now().toString()
-                            navController.navigate(
-                                MiniGameRoutes.hub(childId, "reward-break:$childId:$dayKey")
-                            )
+                        QuestAction.OpenSanctuary -> {
+                            // After the 5-minute play break is consumed, the card
+                            // promises Living Sanctuary — not the locked reward hub.
+                            navController.navigate(Routes.sanctuary(childId))
                         }
                         QuestAction.OpenPlayground -> {
                             navController.navigate(

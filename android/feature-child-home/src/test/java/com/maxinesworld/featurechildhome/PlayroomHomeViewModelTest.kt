@@ -414,8 +414,9 @@ class PlayroomHomeViewModelTest {
         advanceUntilIdle()
         val quest = content(vm).quest
         assertTrue(quest.isComplete)
+        assertFalse(quest.playgroundUnlocked)
         assertEquals(QuestButtonLabel.OpenSanctuary, quest.buttonLabel)
-        assertEquals(QuestAction.ViewReward, quest.buttonAction)
+        assertEquals(QuestAction.OpenSanctuary, quest.buttonAction)
     }
 
     @Test
@@ -465,7 +466,7 @@ class PlayroomHomeViewModelTest {
         assertTrue(quest.isComplete)
         assertFalse(quest.playgroundUnlocked)
         assertEquals(QuestButtonLabel.OpenSanctuary, quest.buttonLabel)
-        assertEquals(QuestAction.ViewReward, quest.buttonAction)
+        assertEquals(QuestAction.OpenSanctuary, quest.buttonAction)
     }
 
     @Test

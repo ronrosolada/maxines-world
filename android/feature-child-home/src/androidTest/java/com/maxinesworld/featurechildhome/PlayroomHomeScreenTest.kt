@@ -487,7 +487,7 @@ class PlayroomHomeScreenTest {
                 task = QuestTaskCopy.CompleteToday,
                 isComplete = true,
                 buttonLabel = QuestButtonLabel.OpenSanctuary,
-                buttonAction = QuestAction.ViewReward,
+                buttonAction = QuestAction.OpenSanctuary,
             )
         }
         composeRule.waitForIdle()

@@ -30,7 +30,7 @@ object QuestPlayRouter {
             QuestAction.Continue -> QuestPlayIntent.OpenVideoShelf
             QuestAction.RetryMission,
             QuestAction.ChooseSubject,
-            QuestAction.ViewReward,
+            QuestAction.OpenSanctuary,
             QuestAction.OpenPlayground,
             -> QuestPlayIntent.StayOnHome
         }
