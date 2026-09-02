@@ -6,16 +6,31 @@ Android `versionName`.
 
 ## Unreleased
 
-### Child-facing Grade 3 video library
+## [0.82.0] - 2026-09-02
 
-- Child surfaces (video library, daily quests, home progress, parent prefetch) now show only Grade 3 `RELEASED` videos. Grade 1/2/4 and `PREVIEW` catalog rows stay on the LAN for later review and are not presented as core curriculum.
+Video-first Grade 3 library, honest mission and retry buttons, fairer quizzes, and privacy hardening after `v0.81.0`.
+
+### Child-facing highlights
+
+- **Video-first lessons:** The leftover text-lesson stack is gone. Maxine learns from Grade 3 videos, the Assessment Arena, and the reward games (#105).
+- **Grade 3 library only:** The child library, daily quests, home progress, and parent prefetch show only Grade 3 `RELEASED` videos (95). Grade 1/2/4 and `PREVIEW` rows stay on the LAN for later review and do not count as child credit or rewards (#109, #112).
+- **Milo is the only guide:** Clues, sanctuary, and reward surfaces all use Milo. Early design names without artwork are not presented as extra guides (#108).
+- **One 5-minute play break:** Completing Today's mission still unlocks the playground for one 5-minute session. Remaining time can resume; the break is not re-armed the same day. After it is used, Open Sanctuary opens Living Sanctuary instead of a locked reward gate (#109, #121).
+- **Age-appropriate game shelf:** Wordle, Sudoku, Solitaire, FreeCell, Checkers, Reversi, Mancala, Yahtzee, and Domino stay bundled but are hidden from the child route (#109).
+- **Buttons do what they say:** Start today's mission plays the assigned lesson (and downloads it if needed). Watch on the shelf does the same. After a missed video check, Watch again replays the lesson. After a missed Arena quiz, Review clues shows Milo's explanations without starting a new scored attempt (#115–#118).
+- **Fairer quizzes:** Multiple-choice items no longer give away the answer by length or by always being the first choice. Options shuffle each attempt so Maxine cannot memorize a button slot (#111–#114).
+
+### Privacy and household safety
+
+- First-run parent PIN setup is required. There is no hardcoded default PIN in the app (#106).
+- Dormant LAN progress-sync that could send child data to the home NAS is removed. Child progress stays on the device (#106).
+- LAN media is HTTPS-only. Cleartext HTTP is not permitted (#107).
+- In-app APK self-install and the install-packages permission are removed. Updates stay a parent/workstation step (#107).
+
+### Educator notes
+
 - `licenseStatus=PERSONAL_USE` is unchanged: household LAN-only media, not a public-distribution license.
-
-### One 5-minute playground session
-
-- Completing Today's mission still unlocks the playground, but the break is one 5-minute session. Leaving and returning can use remaining time; the session is not re-armed for the rest of the day.
-- Home copy says "one 5-minute play break". After the break is consumed, the quest card returns to Open Sanctuary.
-- The child mini-game shelf is now an 8-year-old allowlist. Wordle, Sudoku, Solitaire, FreeCell, Checkers, Reversi, Mancala, Yahtzee, and Domino stay bundled but are hidden from the child route.
+- Connected-test matchers were aligned with the current home and shelf copy so CI stays honest about the child UI (#110, #119, #120).
 
 ## [0.64.0] - 2026-08-22
 
