@@ -33,6 +33,13 @@ class ChildFacingMediaPolicyTest {
             )
         )
         assertEquals(listOf("g3-released"), kept.map { it.mediaId })
+        assertEquals(setOf("g3-released"), ChildFacingMediaPolicy.childFacingMediaIds(
+            listOf(
+                asset(mediaId = "g3-released"),
+                asset(mediaId = "g3-preview", releaseStatus = "PREVIEW"),
+                asset(mediaId = "g1-released", gradeLevel = 1),
+            )
+        ))
     }
 
     private fun asset(

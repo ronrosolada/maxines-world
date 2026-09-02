@@ -3,6 +3,7 @@ package com.maxinesworld.featurechildhome
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.maxinesworld.coremodel.ChildFacingMediaPolicy
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.currentLearningStreak
 import com.maxinesworld.coremodel.localLearningDates
@@ -18,6 +19,7 @@ import com.maxinesworld.coredatabase.VideoWatchLedgerDao
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.DailyQuestRewardWriter
+import com.maxinesworld.featurerewards.VideoWatchRewardPolicy
 import com.maxinesworld.featurerewards.SanctuaryCatalog
 import com.maxinesworld.featurerewards.TreatShopCatalog
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -176,7 +178,9 @@ class PlayroomHomeViewModel @Inject constructor(
                 // catalog must not turn a usable home into an error state, and
                 // legacy lesson completion must never be shown as video progress.
                 try {
-                    videoAssets.value = mediaLibrary.getCatalog().media
+                    videoAssets.value = ChildFacingMediaPolicy.childFacing(
+                        mediaLibrary.getCatalog().media,
+                    )
                 } catch (cancelled: CancellationException) {
                     throw cancelled
                 } catch (_: Exception) {
@@ -204,7 +208,7 @@ class PlayroomHomeViewModel @Inject constructor(
         stateJob?.cancel()
         val profileFlow = childProfileDao.observeById(childId)
         val passedMediaIdsFlow = videoWatchLedgerDao.observePassedMediaIds(childId)
-        val accreditedSecondsFlow = videoWatchLedgerDao.observeTotalAccreditedSeconds(childId)
+        val ledgerFlow = videoWatchLedgerDao.observeLedger(childId)
         val arenaRewardsFlow = rewardDao.observeByChild(childId)
 
         stateJob = viewModelScope.launch {
@@ -217,13 +221,19 @@ class PlayroomHomeViewModel @Inject constructor(
                     profileFlow,
                     passedMediaIdsFlow,
                     videoAssets,
-                    accreditedSecondsFlow,
-                ) { profile, passedMediaIds, assets, seconds ->
+                    ledgerFlow,
+                ) { profile, passedMediaIds, assets, ledger ->
+                    val childFacingSeconds = VideoWatchRewardPolicy.accreditedSecondsForChildFacing(
+                        passedEntries = ledger
+                            .filter { it.quizPassed }
+                            .map { it.mediaId to it.accreditedSeconds },
+                        catalog = assets.orEmpty(),
+                    )
                     HomeDataTuple(
                         profile = profile,
                         passedMediaIds = passedMediaIds.toSet(),
                         mediaAssets = assets,
-                        totalAccreditedSeconds = seconds,
+                        totalAccreditedSeconds = childFacingSeconds,
                         godModeEnabled = false,
                     )
                 }

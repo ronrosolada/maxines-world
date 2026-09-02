@@ -92,6 +92,7 @@ class VideoLibraryRewardPolicyTest {
         coEvery { videoWatchLedgerDao.insertOrUpdate(any()) } returns Unit
         every { mediaLibrary.localFile(any()) } returns java.io.File("/tmp/test.mp4")
         every { videoWatchLedgerDao.observePassedMediaIds(any()) } returns flowOf(emptyList())
+        coEvery { videoWatchLedgerDao.getAllByChild(any()) } returns emptyList()
         coEvery { badgeLoader.loadAll() } returns sampleBadges
         coEvery { collectedBadgeDao.getAllByChild(any()) } returns emptyList()
     }
@@ -116,6 +117,7 @@ class VideoLibraryRewardPolicyTest {
     fun `first time video assessment pass awards exactly 1 sticker for 1800 seconds`() = runTest(testDispatcher) {
         coEvery { videoWatchLedgerDao.getEntry("maxine", "test-video-1") } returns null
         coEvery { videoWatchLedgerDao.claimFirstPassingAssessment("maxine", "test-video-1", any(), any()) } returns 1
+        coEvery { videoWatchLedgerDao.getAllByChild("maxine") } returns emptyList()
         coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("maxine") } returnsMany listOf(0, 1800)
 
         val vm = createViewModel()
@@ -164,5 +166,69 @@ class VideoLibraryRewardPolicyTest {
         // Verify zero badge inserts and zero newly awarded sticker
         coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
         assertNull(vm.state.value.newlyAwardedStickerName)
+    }
+
+    @Test
+    fun `first pass reward is not minted for preview media`() = runTest(testDispatcher) {
+        val previewAsset = testAsset.copy(mediaId = "preview-video", releaseStatus = "PREVIEW")
+        val vm = createViewModel()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val credited = vm.creditFirstPassingAssessment(previewAsset, score = 1.0f)
+
+        assertEquals(false, credited)
+        coVerify(exactly = 0) { videoWatchLedgerDao.claimFirstPassingAssessment(any(), any(), any(), any()) }
+        coVerify(exactly = 0) { videoWatchLedgerDao.insertIgnoring(any()) }
+        coVerify(exactly = 0) { rewardDao.insertIgnoring(any()) }
+        coVerify(exactly = 0) { collectedBadgeDao.insert(any()) }
+        assertNull(vm.state.value.newlyAwardedStickerName)
+    }
+
+    @Test
+    fun `first pass reward is not minted for other-grade media`() = runTest(testDispatcher) {
+        val gradeOne = testAsset.copy(mediaId = "g1-video", gradeLevel = 1)
+        val vm = createViewModel()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val credited = vm.creditFirstPassingAssessment(gradeOne, score = 1.0f)
+
+        assertEquals(false, credited)
+        coVerify(exactly = 0) { videoWatchLedgerDao.claimFirstPassingAssessment(any(), any(), any(), any()) }
+        coVerify(exactly = 0) { rewardDao.insertIgnoring(any()) }
+    }
+
+    @Test
+    fun `preview ledger time does not count toward sticker thresholds`() = runTest(testDispatcher) {
+        coEvery { videoWatchLedgerDao.getEntry("maxine", "test-video-1") } returns null
+        coEvery { videoWatchLedgerDao.claimFirstPassingAssessment("maxine", "test-video-1", any(), any()) } returns 1
+        coEvery { videoWatchLedgerDao.getAllByChild("maxine") } returns listOf(
+            VideoWatchLedgerEntity(
+                id = "maxine_preview-video",
+                childId = "maxine",
+                mediaId = "preview-video",
+                subjectId = "science",
+                accreditedSeconds = 1800,
+                quizPassed = true,
+                bestQuizScore = 1.0f,
+                firstPassedAtEpochMillis = 1L,
+                lastWatchedAtEpochMillis = 1L,
+            )
+        )
+
+        val vm = createViewModel()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        vm.openAssessment("test-video-1")
+        repeat(5) {
+            vm.selectAssessmentOption("a")
+            vm.checkAssessmentAnswer()
+            vm.nextAssessmentQuestion()
+        }
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        // PREVIEW's 1800s must not mint a sticker; this Grade 3 video is also 1800s
+        // and is the first child-facing credit, so exactly one sticker is awarded.
+        coVerify(exactly = 1) { collectedBadgeDao.insert(match { it.badgeId == "badge_tarsier" }) }
+        coVerify(exactly = 1) { rewardDao.insertIgnoring(match { it.metadata == "video_assessment_passed:test-video-1" }) }
     }
 }

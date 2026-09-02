@@ -1,5 +1,6 @@
 package com.maxinesworld.corenetwork
 
+import com.maxinesworld.coremodel.ChildFacingMediaPolicy
 import com.maxinesworld.coremodel.MediaAsset
 import com.maxinesworld.coremodel.MediaCatalog
 import java.io.File
@@ -99,6 +100,22 @@ class MediaLibrary(
         }
 
         throw lastError ?: IOException("Failed to load media catalog from all candidate endpoints.")
+    }
+
+    /**
+     * Child library, quest prefetch, and other child-facing playback paths
+     * must use this entry point so PREVIEW / other-grade rows cannot be
+     * fetched as curriculum media. [download] stays available for parent
+     * review of the full LAN catalog.
+     */
+    suspend fun downloadChildFacing(mediaId: String): File {
+        val catalog = getCatalog()
+        val asset = catalog.media.firstOrNull { it.mediaId == mediaId }
+            ?: throw IllegalArgumentException("Unknown mediaId: $mediaId")
+        if (!ChildFacingMediaPolicy.isChildFacingCurriculum(asset)) {
+            throw IllegalArgumentException("Media is not child-facing curriculum: $mediaId")
+        }
+        return download(mediaId)
     }
 
     suspend fun download(mediaId: String): File {
