@@ -8,6 +8,11 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+_TOOLS_DIR = Path(__file__).resolve().parent
+if str(_TOOLS_DIR) not in sys.path:
+    sys.path.insert(0, str(_TOOLS_DIR))
+from validate_mc_position_tells import slot_share_errors
+
 
 def load_catalog(catalog_path: Path) -> dict:
     if not catalog_path.exists():
@@ -129,6 +134,18 @@ def validate_arena(packs_dir: Path) -> tuple[bool, list[str], dict]:
             "total_items": len(items),
             "distribution": dict(pack_pos_counts)
         }
+
+    # Corpus-level first-option tell: same 20–30% band as
+    # validate_mc_position_tells.py. Per-pack 3/10 = 30% is allowed;
+    # the pre-fix video A=32.9% leak is not an Arena concern here, but a
+    # 180-item Arena corpus skewed the same way must fail.
+    errors.extend(
+        slot_share_errors(
+            "Assessment Arena overall",
+            position_counts,
+            total_questions,
+        )
+    )
 
     metrics = {
         "total_packs": len(catalog_packs),
