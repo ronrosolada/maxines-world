@@ -202,11 +202,7 @@ class VideoLibraryViewModel @Inject constructor(
             }
             return
         }
-        if (item.localPath != null) {
-            play(mediaId)
-            return
-        }
-        prepareAndPlay(mediaId)
+        play(mediaId)
     }
 
     private fun prepareAndPlay(mediaId: String) {
@@ -384,11 +380,17 @@ class VideoLibraryViewModel @Inject constructor(
     fun play(mediaId: String) {
         val item = _state.value.allItems.firstOrNull { it.asset.mediaId == mediaId }
         // Sequence guard rail: do not start a lesson that is locked behind an
-        // un-passed predecessor.
+        // un-passed predecessor. Locked rows already show honest lock copy.
         if (item == null || item.isLocked) return
+        if (!ChildFacingMediaPolicy.isChildFacingCurriculum(item.asset)) return
         if (item.localPath != null) {
             _state.update { it.copy(playingMediaId = mediaId) }
+            return
         }
+        if (item.isDownloading) return
+        // Unlocked child-facing lesson is not on disk. Same honest
+        // prepare-then-play path as Today's mission.
+        prepareAndPlay(mediaId)
     }
 
     fun stopPlaying() {
@@ -584,7 +586,8 @@ class VideoLibraryViewModel @Inject constructor(
 
     /**
      * Fail-summary Watch again / Rewatch. Closes the quiz and starts the same
-     * local file through [play]. Does not open a new scored attempt.
+     * lesson through [play]. If the file is gone, [play] prepares then plays.
+     * Does not open a new scored attempt.
      */
     fun rewatchAfterFailedAssessment() {
         val mediaId = _state.value.assessmentQuiz?.mediaId ?: return
