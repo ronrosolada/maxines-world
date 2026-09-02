@@ -510,6 +510,16 @@ class VideoLibraryViewModel @Inject constructor(
         _state.update { it.copy(assessmentQuiz = restartQuiz(quiz, assessment)) }
     }
 
+    /**
+     * Fail-summary Watch again / Rewatch. Closes the quiz and starts the same
+     * local file through [play]. Does not open a new scored attempt.
+     */
+    fun rewatchAfterFailedAssessment() {
+        val mediaId = _state.value.assessmentQuiz?.mediaId ?: return
+        _state.update { it.copy(assessmentQuiz = null) }
+        play(mediaId)
+    }
+
     fun closeAssessment() {
         _state.update { it.copy(assessmentQuiz = null) }
     }
