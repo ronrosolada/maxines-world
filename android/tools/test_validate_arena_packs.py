@@ -31,6 +31,17 @@ class TestValidateArenaPacks(unittest.TestCase):
         for pid, stats in pack_stats.items():
             self.assertEqual(stats["total_items"], 10, f"Pack {pid} does not have 10 items")
 
+    def test_overall_answer_positions_are_not_a_first_option_tell(self):
+        is_valid, errors, metrics = validate_arena(self.packs_dir)
+        self.assertTrue(is_valid, errors)
+        dist = metrics.get("overall_distribution", {})
+        total = metrics.get("total_questions") or 0
+        self.assertEqual(total, 180)
+        for letter in ("a", "b", "c", "d"):
+            share = dist.get(letter, 0) / total
+            self.assertGreaterEqual(share, 0.20, f"{letter} share {share:.1%} below 20%")
+            self.assertLessEqual(share, 0.30, f"{letter} share {share:.1%} above 30%")
+
 
 if __name__ == "__main__":
     unittest.main()
