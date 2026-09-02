@@ -4,6 +4,7 @@ import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import org.junit.Assert.assertEquals
@@ -45,7 +46,10 @@ class TodayQuestCardTest {
 
         composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertDoesNotExist()
         composeRule.onNodeWithText("Getting ready", useUnmergedTree = true).assertIsDisplayed()
-        composeRule.onNodeWithText("Start quest").assertIsDisplayed()
+        composeRule.onNodeWithText("Start quest", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.QuestAction)
+            .assertIsDisplayed()
+            .assertHasClickAction()
     }
 
     @Test
@@ -58,7 +62,10 @@ class TodayQuestCardTest {
             targets = listOf(videoTarget(isReadyOffline = false)),
         )
 
-        composeRule.onNodeWithText("Continue quest").assertIsDisplayed()
+        composeRule.onNodeWithText("Continue quest", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.QuestAction)
+            .assertIsDisplayed()
+            .assertHasClickAction()
         composeRule.onNodeWithText("Getting ready", useUnmergedTree = true).assertIsDisplayed()
         composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertDoesNotExist()
     }

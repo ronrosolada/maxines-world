@@ -119,6 +119,7 @@ internal val SubjectPale = PlayroomColors.SubjectPale
 /** Stable semantics hooks for child-home interaction and accessibility tests. */
 internal object PlayroomHomeTestTags {
     const val TodayQuest = "home_today_quest"
+    const val QuestAction = "home_quest_action"
     const val Streak = "home_streak"
     const val Collection = "home_collection"
     const val Parents = "home_parents"
