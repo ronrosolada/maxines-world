@@ -126,6 +126,81 @@ class AssessmentArenaViewModelTest {
         assertEquals(10, quiz?.items?.size)
         assertEquals(0, quiz?.currentIndex)
         assertFalse(quiz?.isAnswerSubmitted == true)
+        assertEquals(
+            listOf("a", "b", "c", "d").toSet(),
+            quiz?.displayedOptions?.map { it.id }?.toSet(),
+        )
+        assertEquals(
+            listOf("a", "b", "c", "d"),
+            quiz?.items?.first()?.options?.map { it.id },
+        )
+    }
+
+    @Test
+    fun `presenting the same arena item twice can yield different option orders`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val orders = (0..40).map { seed ->
+            vm.optionRandom = kotlin.random.Random(seed.toLong())
+            vm.startQuiz("math-g3-ph")
+            testDispatcher.scheduler.advanceUntilIdle()
+            vm.state.value.activeQuiz!!.displayedOptions.map { it.id }
+        }.toSet()
+
+        assertTrue("arena retries must be allowed to show a new slot order, got $orders", orders.size >= 2)
+    }
+
+    @Test
+    fun `selecting the keyed id scores correct regardless of display slot`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        testDispatcher.scheduler.advanceUntilIdle()
+        vm.optionRandom = kotlin.random.Random(7)
+        vm.startQuiz("math-g3-ph")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val quiz = vm.state.value.activeQuiz!!
+        assertTrue(quiz.displayedOptions.map { it.id }.contains("a"))
+        vm.selectOption("a")
+        vm.submitAnswer()
+
+        val scored = vm.state.value.activeQuiz!!
+        assertTrue(scored.isAnswerSubmitted)
+        assertTrue(scored.isCorrect)
+        assertEquals(1, scored.correctCount)
+    }
+
+    @Test
+    fun `selecting a distractor id scores wrong regardless of display slot`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        testDispatcher.scheduler.advanceUntilIdle()
+        vm.optionRandom = kotlin.random.Random(7)
+        vm.startQuiz("math-g3-ph")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        vm.selectOption("b")
+        vm.submitAnswer()
+
+        val scored = vm.state.value.activeQuiz!!
+        assertTrue(scored.isAnswerSubmitted)
+        assertFalse(scored.isCorrect)
+        assertEquals(0, scored.correctCount)
+    }
+
+    @Test
+    fun `missing selected id fails closed`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        testDispatcher.scheduler.advanceUntilIdle()
+        vm.startQuiz("math-g3-ph")
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        vm.selectOption("z")
+        vm.submitAnswer()
+
+        val scored = vm.state.value.activeQuiz!!
+        assertTrue(scored.isAnswerSubmitted)
+        assertFalse(scored.isCorrect)
+        assertEquals(0, scored.correctCount)
     }
 
     @Test
