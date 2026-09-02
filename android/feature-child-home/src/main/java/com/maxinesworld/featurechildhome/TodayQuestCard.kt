@@ -396,7 +396,9 @@ internal fun TodayQuestCard(
                 MaxinesPrimaryButton(
                     onClick = { onQuestAction(quest.buttonAction) },
                     text = buttonText,
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag(PlayroomHomeTestTags.QuestAction),
                     height = 56.dp,
                     cornerRadius = 18.dp,
                 )

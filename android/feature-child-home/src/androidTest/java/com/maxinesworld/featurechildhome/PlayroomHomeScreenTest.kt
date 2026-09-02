@@ -178,12 +178,30 @@ class PlayroomHomeScreenTest {
             ),
         )
 
-        scrollTo("Start quest")
-        composeRule.onNodeWithText("Start quest").assertIsDisplayed().assertHasClickAction()
-        composeRule.onNodeWithText("Getting ready", useUnmergedTree = true).assertIsDisplayed()
-        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertIsDisplayed()
-        composeRule.onNodeWithText("Living Things", useUnmergedTree = true).assertIsDisplayed()
-        composeRule.onNodeWithText("Word Roots", useUnmergedTree = true).assertIsDisplayed()
+        // The merged tree matches the whole clickable TodayQuest card, which
+        // is taller than the CI 320×640 viewport once two target rows render.
+        // assertIsDisplayed() on onNodeWithText("Start quest") then fails
+        // even after performScrollToNode — scroll the unmerged CTA label
+        // itself, the same way subject titles are asserted below the fold.
+        composeRule.onNodeWithText("Start quest", useUnmergedTree = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithTag(PlayroomHomeTestTags.QuestAction)
+            .assertIsDisplayed()
+            .assertHasClickAction()
+
+        composeRule.onNodeWithText("Getting ready", useUnmergedTree = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Living Things", useUnmergedTree = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Word Roots", useUnmergedTree = true)
+            .performScrollTo()
+            .assertIsDisplayed()
     }
 
     @Test
