@@ -4,8 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -71,7 +73,18 @@ class VideoLibraryShelfPlayScreenTest {
             .assertIsDisplayed()
             .performClick()
 
-        composeRule.onNodeWithText(VideoLibraryAssignedPlayCopy.GETTING_READY).assertIsDisplayed()
+        // prepareAndPlay sets both assignedPlayMessage (header banner) and
+        // isDownloading on the row. Those are two real Text nodes with the
+        // same GETTING_READY copy, so onNodeWithText().assertIsDisplayed()
+        // fails: "Expected at most 1 node but found 2".
+        val gettingReady = composeRule.onAllNodesWithText(
+            VideoLibraryAssignedPlayCopy.GETTING_READY,
+        )
+        gettingReady.assertCountEquals(2)
+        gettingReady[0].assertIsDisplayed()
+        gettingReady[1].assertIsDisplayed()
+        composeRule.onNodeWithTag(VideoLibraryTestTags.playButton("math-g3-01"))
+            .assertDoesNotExist()
         composeRule.runOnIdle {
             assertEquals(1, playCalls)
         }
