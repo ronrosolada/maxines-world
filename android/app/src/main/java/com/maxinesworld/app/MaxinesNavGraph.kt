@@ -33,6 +33,8 @@ import com.maxinesworld.featurechildhome.PlayroomHomeScreen
 import com.maxinesworld.featurechildhome.PlayroomHomeViewModel
 import com.maxinesworld.featurechildhome.PlayroomHomeUiState
 import com.maxinesworld.featurechildhome.QuestAction
+import com.maxinesworld.featurechildhome.QuestPlayIntent
+import com.maxinesworld.featurechildhome.QuestPlayRouter
 import com.maxinesworld.featurechildhome.LivingSanctuaryRoute
 import com.maxinesworld.featurechildhome.LivingSanctuaryViewModel
 import com.maxinesworld.featurelessonplayer.QuickBitsScreen
@@ -61,7 +63,7 @@ object Routes {
     const val PARENT_AUTH = "parent_auth"
     const val CHILD_HOME = "child_home/{childId}"
     const val TREAT_SHOP = "treat_shop/{childId}"
-    const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}"
+    const val VIDEO_LIBRARY = "video_library/{childId}?subject={subject}&mediaId={mediaId}"
     const val ASSESSMENT_ARENA = "assessment_arena/{childId}?subject={subject}&packId={packId}"
     const val QUICK_BITS = "quick_bits/{childId}"
     const val PARENT_DASHBOARD = "parent_dashboard/{childId}"
@@ -79,8 +81,8 @@ object Routes {
     fun assessmentArena(childId: String, subject: String? = null, packId: String? = null) =
         "assessment_arena/${segment(childId)}?subject=${segment(subject.orEmpty())}&packId=${segment(packId.orEmpty())}"
 
-    fun videoLibrary(childId: String, subject: String? = null) =
-        "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}"
+    fun videoLibrary(childId: String, subject: String? = null, mediaId: String? = null) =
+        "video_library/${segment(childId)}?subject=${segment(subject.orEmpty())}&mediaId=${segment(mediaId.orEmpty())}"
 
     fun quickBits(childId: String) = "quick_bits/${segment(childId)}"
     fun parentDashboard(childId: String) = "parent_dashboard/${segment(childId)}"
@@ -165,18 +167,11 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     when (action) {
                         QuestAction.OpenVideoQuest -> {
                             val quest = (homeState as? PlayroomHomeUiState.Content)?.quest
-                            val target = quest?.nextTargetId?.let { nextTargetId ->
-                                quest.targets.firstOrNull { it.mediaId == nextTargetId }
-                            }
-                            if (target != null) {
-                                if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
-                                    navController.navigate(
-                                        Routes.assessmentArena(childId, target.subjectId, target.arenaPackId),
-                                    )
-                                } else {
-                                    navController.navigate(Routes.videoLibrary(childId, target.subjectId))
-                                }
-                            }
+                            navigateQuestPlayIntent(
+                                navController = navController,
+                                childId = childId,
+                                intent = QuestPlayRouter.intentForQuestAction(action, quest),
+                            )
                         }
                         QuestAction.RetryMission -> homeViewModel.retry()
                         QuestAction.Continue -> {
@@ -202,13 +197,11 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     }
                 },
                 onQuestTargetClick = { target ->
-                    if (target.type == com.maxinesworld.featurechildhome.QuestTargetType.ARENA) {
-                        navController.navigate(
-                            Routes.assessmentArena(childId, target.subjectId, target.arenaPackId),
-                        )
-                    } else {
-                        navController.navigate(Routes.videoLibrary(childId, target.subjectId))
-                    }
+                    navigateQuestPlayIntent(
+                        navController = navController,
+                        childId = childId,
+                        intent = QuestPlayRouter.intentForTarget(target),
+                    )
                 },
                 onHomeClick = { /* Home is the current destination — no push */ },
                 onCollectionClick = {
@@ -338,7 +331,12 @@ fun MaxinesNavGraph(navController: NavHostController) {
                     type = NavType.StringType
                     nullable = true
                     defaultValue = null
-                }
+                },
+                navArgument("mediaId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                },
             ),
         ) {
             VideoLibraryScreen(
@@ -709,6 +707,26 @@ fun MaxinesNavGraph(navController: NavHostController) {
                 onBack = { navController.popBackStack() }
             )
         }
+    }
+}
+
+private fun navigateQuestPlayIntent(
+    navController: NavHostController,
+    childId: String,
+    intent: QuestPlayIntent,
+) {
+    when (intent) {
+        is QuestPlayIntent.PlayAssignedVideo ->
+            navController.navigate(
+                Routes.videoLibrary(childId, intent.subjectId, intent.mediaId),
+            )
+        is QuestPlayIntent.OpenArena ->
+            navController.navigate(
+                Routes.assessmentArena(childId, intent.subjectId, intent.packId),
+            )
+        QuestPlayIntent.OpenVideoShelf ->
+            navController.navigate(Routes.videoLibrary(childId))
+        QuestPlayIntent.StayOnHome -> Unit
     }
 }
 

@@ -110,13 +110,28 @@ class VideoFirstRouteAuditTest {
         val arenaRoute = source.indexOf("route = Routes.ASSESSMENT_ARENA", childHomeStart)
         val childHomeBlock = source.substring(childHomeStart, arenaRoute)
 
-        assertTrue(childHomeBlock.contains("Routes.videoLibrary(childId, target.subjectId)"))
+        assertTrue(childHomeBlock.contains("QuestPlayRouter.intentForQuestAction"))
+        assertTrue(childHomeBlock.contains("QuestPlayRouter.intentForTarget"))
+        assertTrue(source.contains("Routes.videoLibrary(childId, intent.subjectId, intent.mediaId)"))
         assertTrue(
-            childHomeBlock.contains(
-                "Routes.assessmentArena(childId, target.subjectId, target.arenaPackId)",
+            source.contains(
+                "Routes.assessmentArena(childId, intent.subjectId, intent.packId)",
             ),
         )
         assertTrue(source.contains("assessment_arena/{childId}?subject={subject}&packId={packId}"))
+        assertTrue(source.contains("video_library/{childId}?subject={subject}&mediaId={mediaId}"))
         assertTrue(source.contains("packId: String? = null"))
+        assertTrue(source.contains("mediaId: String? = null"))
+    }
+
+    @Test
+    fun `video library builder carries an assigned mediaId when present`() {
+        val source = navGraph().readText()
+        assertTrue(
+            source.contains(
+                "fun videoLibrary(childId: String, subject: String? = null, mediaId: String? = null)",
+            ),
+        )
+        assertTrue(source.contains("&mediaId=\${segment(mediaId.orEmpty())}"))
     }
 }

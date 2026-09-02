@@ -34,9 +34,32 @@ class TodayQuestCardTest {
     }
 
     @Test
-    fun videoWithoutOfflineReadinessDoesNotShowOfflineBadge() {
-        setCard(targets = listOf(videoTarget(isReadyOffline = false)))
+    fun videoWithoutOfflineReadinessShowsGettingReadyNotOffline() {
+        setCard(
+            quest = quest(
+                buttonLabel = QuestButtonLabel.StartQuest,
+                buttonAction = QuestAction.OpenVideoQuest,
+            ),
+            targets = listOf(videoTarget(isReadyOffline = false)),
+        )
 
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertDoesNotExist()
+        composeRule.onNodeWithText("Getting ready", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithText("Start quest").assertIsDisplayed()
+    }
+
+    @Test
+    fun continueQuestLabelStaysAMissionStartOnAnUnreadiedVideo() {
+        setCard(
+            quest = quest(
+                buttonLabel = QuestButtonLabel.ContinueQuest,
+                buttonAction = QuestAction.OpenVideoQuest,
+            ),
+            targets = listOf(videoTarget(isReadyOffline = false)),
+        )
+
+        composeRule.onNodeWithText("Continue quest").assertIsDisplayed()
+        composeRule.onNodeWithText("Getting ready", useUnmergedTree = true).assertIsDisplayed()
         composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertDoesNotExist()
     }
 
