@@ -44,6 +44,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -75,6 +76,8 @@ fun AssessmentArenaRoute(
         onSubmitAnswer = viewModel::submitAnswer,
         onNextQuestion = viewModel::nextQuestion,
         onRestartQuiz = viewModel::restartQuiz,
+        onReviewClues = viewModel::reviewClues,
+        onExitClueReview = viewModel::exitClueReview,
         onExitQuiz = viewModel::exitQuiz,
         onDismissCelebration = viewModel::dismissCelebration,
         modifier = modifier,
@@ -93,6 +96,8 @@ fun AssessmentArenaScreen(
     onSubmitAnswer: () -> Unit,
     onNextQuestion: () -> Unit,
     onRestartQuiz: () -> Unit,
+    onReviewClues: () -> Unit,
+    onExitClueReview: () -> Unit,
     onExitQuiz: () -> Unit,
     onDismissCelebration: () -> Unit,
     modifier: Modifier = Modifier,
@@ -112,6 +117,8 @@ fun AssessmentArenaScreen(
                 onSubmitAnswer = onSubmitAnswer,
                 onNextQuestion = onNextQuestion,
                 onRestartQuiz = onRestartQuiz,
+                onReviewClues = onReviewClues,
+                onExitClueReview = onExitClueReview,
                 onExitQuiz = onExitQuiz,
                 modifier = Modifier.fillMaxSize(),
             )
@@ -560,6 +567,8 @@ private fun ActiveQuizView(
     onSubmitAnswer: () -> Unit,
     onNextQuestion: () -> Unit,
     onRestartQuiz: () -> Unit,
+    onReviewClues: () -> Unit,
+    onExitClueReview: () -> Unit,
     onExitQuiz: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -603,7 +612,7 @@ private fun ActiveQuizView(
     }
 
     BackHandler(enabled = true) {
-        handleExitRequest()
+        if (quiz.isReviewingClues) onExitClueReview() else handleExitRequest()
     }
 
     if (showExitDialog) {
@@ -646,6 +655,17 @@ private fun ActiveQuizView(
             containerColor = White,
             shape = RoundedCornerShape(20.dp),
         )
+    }
+
+    if (quiz.isReviewingClues) {
+        ClueReviewView(
+            quiz = quiz,
+            copy = copy,
+            onBack = onExitClueReview,
+            onRestartQuiz = onRestartQuiz,
+            modifier = modifier,
+        )
+        return
     }
 
     Column(
@@ -797,8 +817,14 @@ private fun ActiveQuizView(
                             Text(copy.retry)
                         }
 
-                        if (!quiz.isPassed) OutlinedButton(onClick = onRestartQuiz, shape = RoundedCornerShape(14.dp)) {
-                            Text(copy.reviewClues)
+                        if (arenaCompletionState(quiz.isPassed, copy.isFilipino).showReviewClues) {
+                            OutlinedButton(
+                                onClick = onReviewClues,
+                                shape = RoundedCornerShape(14.dp),
+                                modifier = Modifier.testTag(ArenaTestTags.ReviewCluesButton),
+                            ) {
+                                Text(copy.reviewClues)
+                            }
                         }
 
                         OutlinedButton(
@@ -1041,6 +1067,108 @@ private fun ActiveQuizView(
                         )
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ClueReviewView(
+    quiz: ActiveAssessmentQuizState,
+    copy: ArenaCopy,
+    onBack: () -> Unit,
+    onRestartQuiz: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val reviewItems = arenaClueReviewItems(quiz.items)
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(horizontal = 24.dp, vertical = 16.dp)
+            .verticalScroll(rememberScrollState())
+            .testTag(ArenaTestTags.ClueReview),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            IconButton(onClick = onBack) {
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = copy.reviewBack,
+                    tint = VillageTeal,
+                )
+            }
+            Text(
+                copy.reviewClues,
+                fontWeight = FontWeight.Black,
+                fontSize = 20.sp,
+                color = DeepNight,
+                modifier = Modifier.weight(1f),
+            )
+        }
+
+        Spacer(Modifier.height(12.dp))
+
+        reviewItems.forEachIndexed { index, item ->
+            Card(
+                shape = RoundedCornerShape(18.dp),
+                colors = CardDefaults.cardColors(containerColor = White),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                border = BorderStroke(1.dp, VillageTeal.copy(alpha = 0.18f)),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 12.dp)
+                    .testTag(ArenaTestTags.clueReviewItem(index)),
+            ) {
+                Column(Modifier.padding(18.dp)) {
+                    Text(
+                        item.prompt,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 16.sp,
+                        color = DeepNight,
+                        lineHeight = 22.sp,
+                    )
+                    Spacer(Modifier.height(10.dp))
+                    Text(
+                        copy.clueHeader,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 14.sp,
+                        color = VillageTeal,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        item.explanation,
+                        fontSize = 14.sp,
+                        color = DeepNight.copy(alpha = 0.8f),
+                        lineHeight = 20.sp,
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(8.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            OutlinedButton(
+                onClick = onBack,
+                shape = RoundedCornerShape(14.dp),
+                modifier = Modifier.weight(1f),
+            ) {
+                Text(copy.reviewBack)
+            }
+            Button(
+                onClick = onRestartQuiz,
+                colors = ButtonDefaults.buttonColors(containerColor = VillageTeal),
+                shape = RoundedCornerShape(14.dp),
+                modifier = Modifier.weight(1f),
+            ) {
+                Icon(Icons.Default.Refresh, contentDescription = null)
+                Spacer(Modifier.width(6.dp))
+                Text(copy.retry)
             }
         }
     }

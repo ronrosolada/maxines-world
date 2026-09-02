@@ -1,5 +1,7 @@
 package com.maxinesworld.featurelessonplayer
 
+import com.maxinesworld.coremodel.AssessmentQuestionItem
+
 internal data class ArenaCopy(
     val isFilipino: Boolean,
     val correctHeader: String,
@@ -12,6 +14,7 @@ internal data class ArenaCopy(
     val finishQuiz: String,
     val retry: String,
     val reviewClues: String,
+    val reviewBack: String,
     val ttsLanguage: String,
 )
 
@@ -26,12 +29,35 @@ internal fun arenaCopy(packIdOrLanguage: String?): ArenaCopy {
         true, "Tama! Napakagaling!", "Pahiwatig ni Milo:", "Tama! ", "Pahiwatig ni Milo: ",
         "Basahing mabuti ang bawat pagpipilian at alisin ang mga hindi tumutugma sa tanong.",
         "Tingnan ang Sagot", "Susunod na tanong", "Tapusin ang pagsusulit", "Muling subukan",
-        "Balikan ang mga pahiwatig", "fil-PH",
+        "Balikan ang mga pahiwatig", "Bumalik", "fil-PH",
     ) else ArenaCopy(
         false, "Correct! Awesome job!", "Milo's learning clue:", "Correct! ", "Milo's Learning Clue: ",
         "Read each choice carefully and eliminate options that do not match the question requirements!",
-        "Check Answer", "Next question", "Finish quiz", "Try Again", "Review clues", "en-US",
+        "Check Answer", "Next question", "Finish quiz", "Try Again", "Review clues", "Back", "en-US",
     )
+}
+
+internal data class ArenaClueReviewItem(
+    val prompt: String,
+    val explanation: String,
+)
+
+/** Prompt + post-submit explanation only — no option letters or keyed A/B/C/D. */
+internal fun arenaClueReviewItems(items: List<AssessmentQuestionItem>): List<ArenaClueReviewItem> =
+    items.map { ArenaClueReviewItem(prompt = it.prompt, explanation = it.explanation) }
+
+internal enum class ArenaActiveSurface { Quiz, FinishedSummary, ClueReview }
+
+internal fun arenaActiveSurface(isFinished: Boolean, isReviewingClues: Boolean): ArenaActiveSurface = when {
+    isReviewingClues -> ArenaActiveSurface.ClueReview
+    isFinished -> ArenaActiveSurface.FinishedSummary
+    else -> ArenaActiveSurface.Quiz
+}
+
+internal object ArenaTestTags {
+    const val ReviewCluesButton = "arena-review-clues"
+    const val ClueReview = "arena-clue-review"
+    fun clueReviewItem(index: Int) = "arena-clue-review-item-$index"
 }
 
 internal enum class ArenaSoundEffect { CORRECT, ENCOURAGEMENT, CELEBRATION }
