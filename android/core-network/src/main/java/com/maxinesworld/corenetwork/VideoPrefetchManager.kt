@@ -25,7 +25,7 @@ class VideoPrefetchManager @Inject constructor(
                 .take(count)
             var successCount = 0
             for (asset in unverified) {
-                val file = mediaLibrary.download(asset.mediaId)
+                val file = mediaLibrary.downloadChildFacing(asset.mediaId)
                 if (file.exists()) {
                     successCount++
                 }

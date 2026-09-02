@@ -14,6 +14,7 @@ import com.maxinesworld.coredatabase.RewardBreakPolicy
 import com.maxinesworld.coredatabase.RewardDao
 import com.maxinesworld.coredatabase.RewardEntity
 import com.maxinesworld.coredatabase.VideoWatchLedgerDao
+import com.maxinesworld.coredatabase.VideoWatchLedgerEntity
 import com.maxinesworld.corenetwork.MediaLibrary
 import com.maxinesworld.featurerewards.BadgeAwarder
 import com.maxinesworld.featurerewards.ChallengeProgress
@@ -243,6 +244,71 @@ class PlayroomHomeViewModelTest {
         assertEquals(2, mathematics.totalVideos)
         assertEquals(base.quest, derived.quest)
         assertEquals(base.childName, derived.childName)
+    }
+
+    @Test
+    fun `home accredited seconds ignore preview and other-grade ledger rows`() = runTest(dispatcher) {
+        val catalog = MediaCatalog(
+            catalogVersion = 1,
+            generatedAt = "test",
+            media = listOf(
+                MediaAsset(
+                    mediaId = "g3-math",
+                    title = "Grade 3",
+                    file = "mathematics/1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 120,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    gradeLevel = 3,
+                    releaseStatus = "RELEASED",
+                ),
+                MediaAsset(
+                    mediaId = "g1-math",
+                    title = "Grade 1",
+                    file = "mathematics/g1.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 900,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    gradeLevel = 1,
+                    releaseStatus = "RELEASED",
+                ),
+                MediaAsset(
+                    mediaId = "g3-preview",
+                    title = "Preview",
+                    file = "mathematics/preview.mp4",
+                    sha256 = "",
+                    sizeBytes = 1L,
+                    durationSeconds = 1800,
+                    width = 1,
+                    height = 1,
+                    subjectId = "mathematics",
+                    gradeLevel = 3,
+                    releaseStatus = "PREVIEW",
+                ),
+            ),
+        )
+        val vm = buildViewModel(
+            videoCatalog = catalog,
+            passedVideoMediaIds = listOf("g3-math", "g1-math", "g3-preview"),
+            watchLedger = listOf(
+                ledgerEntry("g3-math", accreditedSeconds = 120, quizPassed = true),
+                ledgerEntry("g1-math", accreditedSeconds = 900, quizPassed = true),
+                ledgerEntry("g3-preview", accreditedSeconds = 1800, quizPassed = true),
+            ),
+            persistedQuestIds = listOf("g3-math"),
+        )
+        advanceUntilIdle()
+
+        assertEquals(120, content(vm).totalAccreditedSeconds)
+        val mathematics = content(vm).subjects.first { it.id == "mathematics" }
+        assertEquals(1, mathematics.completedVideos)
+        assertEquals(1, mathematics.totalVideos)
     }
 
     @Test
@@ -611,6 +677,7 @@ class PlayroomHomeViewModelTest {
         godModeEnabled: Boolean = false,
         shouldFailExpedition: () -> Boolean = { false },
         persistedQuestIds: List<String>? = null,
+        watchLedger: List<VideoWatchLedgerEntity> = emptyList(),
         arenaRewardsFlow: Flow<List<RewardEntity>> = flowOf(emptyList()),
         dailyQuestEnsureObserver: (() -> Unit)? = null,
         rewardBreakFlow: Flow<RewardBreakEntitlementEntity?> = flowOf(null),
@@ -660,8 +727,12 @@ class PlayroomHomeViewModelTest {
         }
         val videoWatchLedgerDao = mockk<VideoWatchLedgerDao>()
         every { videoWatchLedgerDao.observePassedMediaIds("child_1") } returns passedVideoMediaIdsFlow
-        every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(0)
-        coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns 0
+        every { videoWatchLedgerDao.observeLedger("child_1") } returns flowOf(watchLedger)
+        every { videoWatchLedgerDao.observeTotalAccreditedSeconds("child_1") } returns flowOf(
+            watchLedger.filter { it.quizPassed }.sumOf { it.accreditedSeconds },
+        )
+        coEvery { videoWatchLedgerDao.getTotalAccreditedSeconds("child_1") } returns
+            watchLedger.filter { it.quizPassed }.sumOf { it.accreditedSeconds }
         val rewardBreakDao = mockk<RewardBreakDao>()
         every { rewardBreakDao.observeByQuestCompletion(any()) } returns rewardBreakFlow
         val godModeManager = mockk<GodModeManager>()
@@ -707,6 +778,19 @@ class PlayroomHomeViewModelTest {
         }
         return MediaCatalog(catalogVersion = 1, generatedAt = "test", media = assets)
     }
+
+    private fun ledgerEntry(
+        mediaId: String,
+        accreditedSeconds: Int,
+        quizPassed: Boolean,
+    ) = VideoWatchLedgerEntity(
+        id = "child_1_$mediaId",
+        childId = "child_1",
+        mediaId = mediaId,
+        subjectId = "mathematics",
+        accreditedSeconds = accreditedSeconds,
+        quizPassed = quizPassed,
+    )
 
     private fun profile(name: String) = ChildProfileEntity(
         id = "child_1", parentId = "parent_1", name = name,

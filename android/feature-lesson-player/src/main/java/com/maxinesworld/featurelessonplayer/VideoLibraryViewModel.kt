@@ -227,11 +227,12 @@ class VideoLibraryViewModel @Inject constructor(
 
     fun download(mediaId: String) {
         val item = _state.value.allItems.firstOrNull { it.asset.mediaId == mediaId } ?: return
+        if (!VideoWatchRewardPolicy.shouldCreditCurriculumWatch(item.asset)) return
         if (item.isDownloading || item.localPath != null) return
         updateItemInState(mediaId) { it.copy(isDownloading = true, error = null) }
 
         viewModelScope.launch {
-            runCatching { withContext(Dispatchers.IO) { mediaLibrary.download(mediaId) } }
+            runCatching { withContext(Dispatchers.IO) { mediaLibrary.downloadChildFacing(mediaId) } }
                 .onSuccess { file ->
                     updateItemInState(mediaId) {
                         it.copy(isDownloading = false, localPath = file.absolutePath)
@@ -278,7 +279,7 @@ class VideoLibraryViewModel @Inject constructor(
             for (item in pendingItems) {
                 val mediaId = item.asset.mediaId
                 updateItemInState(mediaId) { it.copy(isDownloading = true, error = null) }
-                runCatching { withContext(Dispatchers.IO) { mediaLibrary.download(mediaId) } }
+                runCatching { withContext(Dispatchers.IO) { mediaLibrary.downloadChildFacing(mediaId) } }
                     .onSuccess { file ->
                         completed++
                         _state.update { current ->
@@ -367,108 +368,133 @@ class VideoLibraryViewModel @Inject constructor(
             val passed = advanced.correctCount >= requiredCorrect
             if (passed) {
                 viewModelScope.launch {
-                    val score = advanced.correctCount.toFloat() / assessment.items.size.toFloat()
-                    val actualChildId = childId.ifBlank { "default_child" }
-                    val now = System.currentTimeMillis()
-                    val existing = videoWatchLedgerDao.getEntry(actualChildId, asset.mediaId)
-                    if (existing?.quizPassed == true) {
-                        // Replay pass: refresh the best score only, never re-award.
-                        if (score > existing.bestQuizScore) {
-                            videoWatchLedgerDao.insertOrUpdate(
-                                existing.copy(
-                                    bestQuizScore = score,
-                                    lastWatchedAtEpochMillis = now,
-                                )
-                            )
-                        }
-                        _state.update { current ->
-                            current.copy(assessmentQuiz = current.assessmentQuiz?.copy(isReplay = true))
-                        }
-                    } else {
-                        // Snapshot the total before this video's first pass. The current
-                        // video's official duration is included only after the claim.
-                        val prevTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
-                        val prevEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(prevTotalSeconds)
-
-                        // Seed an unpassed row when needed. The unique child/media index
-                        // makes this safe if two completion callbacks arrive together.
-                        if (existing == null) {
-                            videoWatchLedgerDao.insertIgnoring(
-                                VideoWatchLedgerEntity(
-                                    id = "${actualChildId}_${asset.mediaId}",
-                                    childId = actualChildId,
-                                    mediaId = asset.mediaId,
-                                    subjectId = asset.subjectId,
-                                    accreditedSeconds = asset.durationSeconds,
-                                    quizPassed = false,
-                                    bestQuizScore = 0.0f,
-                                    firstPassedAtEpochMillis = null,
-                                    lastWatchedAtEpochMillis = now,
-                                )
-                            )
-                        }
-
-                        // This is the sole reward gate. Only the caller that changes
-                        // quizPassed false -> true may mint first-pass rewards.
-                        val firstPassClaimed = videoWatchLedgerDao.claimFirstPassingAssessment(
-                            childId = actualChildId,
-                            mediaId = asset.mediaId,
-                            score = score,
-                            passedAt = now,
-                        ) == 1
-
-                        if (firstPassClaimed) {
-                            rewardDao.insertIgnoring(
-                                RewardEntity(
-                                    id = "video-assessment:$actualChildId:${asset.mediaId}:STAR",
-                                    childId = actualChildId,
-                                    type = "STAR",
-                                    subject = asset.subjectId,
-                                    amount = 5,
-                                    earnedAt = now,
-                                    metadata = "video_assessment_passed:${asset.mediaId}",
-                                )
-                            )
-
-                            val newTotalSeconds = videoWatchLedgerDao.getTotalAccreditedSeconds(actualChildId)
-                            val newEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(newTotalSeconds)
-
-                            if (newEarnedStickers > prevEarnedStickers) {
-                                val stickersToAward = newEarnedStickers - prevEarnedStickers
-                                val allBadges = badgeLoader.loadAll()
-                                val earnedBadges = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
-                                val availableBadges = allBadges.filter { it.id !in earnedBadges && it.biome != "milestone" }
-
-                                for (i in 0 until stickersToAward) {
-                                    val badgeToAward = availableBadges.getOrNull(i)
-                                    if (badgeToAward != null) {
-                                        collectedBadgeDao.insert(
-                                            CollectedBadgeEntity(
-                                                id = "${actualChildId}_${badgeToAward.id}",
-                                                childId = actualChildId,
-                                                badgeId = badgeToAward.id,
-                                                biome = badgeToAward.biome,
-                                                earnedDate = LocalDate.now().toString(),
-                                            )
-                                        )
-                                        _state.update { it.copy(newlyAwardedStickerName = badgeToAward.name) }
-                                    }
-                                }
-                            }
-                        } else {
-                            _state.update { current ->
-                                current.copy(assessmentQuiz = current.assessmentQuiz?.copy(isReplay = true))
-                            }
-                        }
-                    }
+                    creditFirstPassingAssessment(
+                        asset = asset,
+                        score = advanced.correctCount.toFloat() / assessment.items.size.toFloat(),
+                    )
                 }
-                // Immediately update in-memory state
-                val updatedPassed = _state.value.passedMediaIds + asset.mediaId
-                _state.update { it.copy(passedMediaIds = updatedPassed) }
-                reorganizeItems(updatedPassed)
+                // Curriculum credit only. A leftover PREVIEW / other-grade asset
+                // can finish the quiz UI, but it must not look passed or paid.
+                if (VideoWatchRewardPolicy.shouldCreditCurriculumWatch(asset)) {
+                    val updatedPassed = _state.value.passedMediaIds + asset.mediaId
+                    _state.update { it.copy(passedMediaIds = updatedPassed) }
+                    reorganizeItems(updatedPassed)
+                }
             }
         }
         _state.update { it.copy(assessmentQuiz = advanced) }
+    }
+
+    /**
+     * First-pass curriculum credit. Re-checks [ChildFacingMediaPolicy] so a
+     * leftover PREVIEW / other-grade [asset] cannot mint stars, stickers, or
+     * accredited seconds even if it reached this writer.
+     */
+    internal suspend fun creditFirstPassingAssessment(
+        asset: MediaAsset,
+        score: Float,
+        now: Long = System.currentTimeMillis(),
+    ): Boolean {
+        if (!VideoWatchRewardPolicy.shouldCreditCurriculumWatch(asset)) return false
+        val actualChildId = childId.ifBlank { "default_child" }
+        val existing = videoWatchLedgerDao.getEntry(actualChildId, asset.mediaId)
+        if (existing?.quizPassed == true) {
+            // Replay pass: refresh the best score only, never re-award.
+            if (score > existing.bestQuizScore) {
+                videoWatchLedgerDao.insertOrUpdate(
+                    existing.copy(
+                        bestQuizScore = score,
+                        lastWatchedAtEpochMillis = now,
+                    )
+                )
+            }
+            _state.update { current ->
+                current.copy(assessmentQuiz = current.assessmentQuiz?.copy(isReplay = true))
+            }
+            return false
+        }
+
+        val ledger = videoWatchLedgerDao.getAllByChild(actualChildId)
+        val prevTotalSeconds = VideoWatchRewardPolicy.accreditedSecondsForChildFacing(
+            passedEntries = ledger
+                .filter { it.quizPassed }
+                .map { it.mediaId to it.accreditedSeconds },
+            catalog = rawAssets,
+        )
+        val prevEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(prevTotalSeconds)
+
+        // Seed an unpassed row when needed. The unique child/media index
+        // makes this safe if two completion callbacks arrive together.
+        if (existing == null) {
+            videoWatchLedgerDao.insertIgnoring(
+                VideoWatchLedgerEntity(
+                    id = "${actualChildId}_${asset.mediaId}",
+                    childId = actualChildId,
+                    mediaId = asset.mediaId,
+                    subjectId = asset.subjectId,
+                    accreditedSeconds = asset.durationSeconds,
+                    quizPassed = false,
+                    bestQuizScore = 0.0f,
+                    firstPassedAtEpochMillis = null,
+                    lastWatchedAtEpochMillis = now,
+                )
+            )
+        }
+
+        // This is the sole reward gate. Only the caller that changes
+        // quizPassed false -> true may mint first-pass rewards.
+        val firstPassClaimed = videoWatchLedgerDao.claimFirstPassingAssessment(
+            childId = actualChildId,
+            mediaId = asset.mediaId,
+            score = score,
+            passedAt = now,
+        ) == 1
+
+        if (!firstPassClaimed) {
+            _state.update { current ->
+                current.copy(assessmentQuiz = current.assessmentQuiz?.copy(isReplay = true))
+            }
+            return false
+        }
+
+        rewardDao.insertIgnoring(
+            RewardEntity(
+                id = "video-assessment:$actualChildId:${asset.mediaId}:STAR",
+                childId = actualChildId,
+                type = "STAR",
+                subject = asset.subjectId,
+                amount = 5,
+                earnedAt = now,
+                metadata = "video_assessment_passed:${asset.mediaId}",
+            )
+        )
+
+        val newTotalSeconds = prevTotalSeconds + asset.durationSeconds.coerceAtLeast(0)
+        val newEarnedStickers = VideoWatchRewardPolicy.calculateEarnedStickers(newTotalSeconds)
+
+        if (newEarnedStickers > prevEarnedStickers) {
+            val stickersToAward = newEarnedStickers - prevEarnedStickers
+            val allBadges = badgeLoader.loadAll()
+            val earnedBadges = collectedBadgeDao.getAllByChild(actualChildId).map { it.badgeId }.toSet()
+            val availableBadges = allBadges.filter { it.id !in earnedBadges && it.biome != "milestone" }
+
+            for (i in 0 until stickersToAward) {
+                val badgeToAward = availableBadges.getOrNull(i)
+                if (badgeToAward != null) {
+                    collectedBadgeDao.insert(
+                        CollectedBadgeEntity(
+                            id = "${actualChildId}_${badgeToAward.id}",
+                            childId = actualChildId,
+                            badgeId = badgeToAward.id,
+                            biome = badgeToAward.biome,
+                            earnedDate = LocalDate.now().toString(),
+                        )
+                    )
+                    _state.update { it.copy(newlyAwardedStickerName = badgeToAward.name) }
+                }
+            }
+        }
+        return true
     }
 
     fun restartAssessment() {

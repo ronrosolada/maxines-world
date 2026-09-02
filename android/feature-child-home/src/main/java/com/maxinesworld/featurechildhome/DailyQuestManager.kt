@@ -191,11 +191,16 @@ class DailyQuestManager @Inject constructor(
             set = checkNotNull(dailyQuestSetDao.getByChildAndDay(childId, dayKey))
         }
         val assigned = parseIds(set.assignedQuestIds)
-        creditPassedQuestIds(childId, dayKey, assigned, passedMediaIds, passedArenaPackIds)
-        dailyQuestRewardWriter.reconcile(childId, dayKey)
+        val childFacingMediaIds = childFacingCatalogMediaIds()
+        creditPassedQuestIds(childId, dayKey, assigned, passedMediaIds, passedArenaPackIds, childFacingMediaIds)
+        dailyQuestRewardWriter.reconcile(
+            childId = childId,
+            dayKey = dayKey,
+            childFacingMediaIds = childFacingMediaIds,
+        )
         val completed = dailyQuestCompletionDao
             .getCompletedQuestIds(childId, dayKey)
-            .filter { it in assigned && (it.startsWith(HOME_PHRASE_PREFIX) || isPassedQuest(it, passedMediaIds, passedArenaPackIds)) }
+            .filter { it in assigned && (it.startsWith(HOME_PHRASE_PREFIX) || isPassedQuest(it, passedMediaIds, passedArenaPackIds, childFacingMediaIds)) }
         return DailyQuestProgress(
             dayKey = dayKey,
             assignedMediaIds = assigned,
@@ -228,7 +233,11 @@ class DailyQuestManager @Inject constructor(
                 metadata = "home_phrase_practiced:${questId.removePrefix(HOME_PHRASE_PREFIX)}",
             )
         )
-        dailyQuestRewardWriter.reconcile(childId, dayKey)
+        dailyQuestRewardWriter.reconcile(
+            childId = childId,
+            dayKey = dayKey,
+            childFacingMediaIds = childFacingCatalogMediaIds(),
+        )
     }
 
     private suspend fun createSet(
@@ -259,11 +268,8 @@ class DailyQuestManager @Inject constructor(
         availableMediaOverride: List<String>?,
     ): Selection {
         val catalogMedia = runCatching { mediaLibrary.getCatalog().media }.getOrElse { emptyList() }
-        val eligibleMedia = catalogMedia
-            .asSequence()
-            .filter(ChildFacingMediaPolicy::isChildFacingCurriculum)
+        val eligibleMedia = ChildFacingMediaPolicy.childFacing(catalogMedia)
             .filter { asset -> availableMediaOverride == null || asset.mediaId in availableMediaOverride }
-            .toList()
         val frontier = eligibleMedia
             .groupBy { it.subjectId }
             .values
@@ -313,15 +319,21 @@ class DailyQuestManager @Inject constructor(
             .filter { it.id in ids && it.title.trim().startsWith(GRADE_THREE_PREFIX) }
     }
 
+    private suspend fun childFacingCatalogMediaIds(): Set<String>? {
+        val media = runCatching { mediaLibrary.getCatalog().media }.getOrNull() ?: return null
+        return ChildFacingMediaPolicy.childFacingMediaIds(media)
+    }
+
     private suspend fun creditPassedQuestIds(
         childId: String,
         dayKey: String,
         assignedQuestIds: List<String>,
         passedMediaIds: Set<String>,
         passedArenaPackIds: Set<String>,
+        childFacingMediaIds: Set<String>?,
     ) {
         for (questId in assignedQuestIds.distinct()) {
-            val passed = isPassedQuest(questId, passedMediaIds, passedArenaPackIds)
+            val passed = isPassedQuest(questId, passedMediaIds, passedArenaPackIds, childFacingMediaIds)
             if (!passed) continue
             dailyQuestCompletionDao.insertIgnoring(
                 DailyQuestCompletionEntity(
@@ -343,10 +355,11 @@ class DailyQuestManager @Inject constructor(
         questId: String,
         passedMediaIds: Set<String>,
         passedArenaPackIds: Set<String>,
+        childFacingMediaIds: Set<String>?,
     ): Boolean = if (questId.startsWith(ARENA_PREFIX)) {
         questId.removePrefix(ARENA_PREFIX) in passedArenaPackIds
     } else {
-        questId in passedMediaIds
+        questId in passedMediaIds && (childFacingMediaIds == null || questId in childFacingMediaIds)
     }
 
     private fun parseIds(raw: String): List<String> =

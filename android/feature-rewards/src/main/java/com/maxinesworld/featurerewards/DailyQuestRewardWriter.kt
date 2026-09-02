@@ -50,8 +50,9 @@ class DailyQuestRewardWriter @Inject constructor(
         childId: String,
         dayKey: String = LocalDate.now(ZoneId.systemDefault()).toString(),
         completedLessonId: String? = null,
+        childFacingMediaIds: Set<String>? = null,
     ): DailyQuestRewardResult = database.withTransaction {
-        reconcileInTransaction(childId, dayKey, completedLessonId)
+        reconcileInTransaction(childId, dayKey, completedLessonId, childFacingMediaIds)
     }
 
     /** Must be called from the caller's existing Room transaction. */
@@ -59,6 +60,7 @@ class DailyQuestRewardWriter @Inject constructor(
         childId: String,
         dayKey: String,
         completedLessonId: String? = null,
+        childFacingMediaIds: Set<String>? = null,
     ): DailyQuestRewardResult {
         val set = dailyQuestSetDao.getByChildAndDay(childId, dayKey) ?: return DailyQuestRewardResult()
         val assigned = parseIds(set.assignedQuestIds).distinct()
@@ -73,7 +75,11 @@ class DailyQuestRewardWriter @Inject constructor(
             }
             .toSet()
 
-        if (completedLessonId != null && completedLessonId in assigned && completedLessonId in passedMediaIds) {
+        if (completedLessonId != null &&
+            completedLessonId in assigned &&
+            completedLessonId in passedMediaIds &&
+            isChildFacingVideoQuest(completedLessonId, childFacingMediaIds)
+        ) {
             dailyQuestCompletionDao.insertIgnoring(
                 DailyQuestCompletionEntity(
                     id = "$childId:$dayKey:$completedLessonId",
@@ -87,7 +93,10 @@ class DailyQuestRewardWriter @Inject constructor(
 
         val completed = dailyQuestCompletionDao
             .getCompletedQuestIds(childId, dayKey)
-            .filter { it in passedMediaIds || it in passedArenaQuestIds }
+            .filter { questId ->
+                (questId in passedMediaIds || questId in passedArenaQuestIds) &&
+                    isChildFacingVideoQuest(questId, childFacingMediaIds)
+            }
             .toSet()
         if (!assigned.all(completed::contains)) return DailyQuestRewardResult()
 
@@ -149,6 +158,14 @@ class DailyQuestRewardWriter @Inject constructor(
         )
     }
 
+    private fun isChildFacingVideoQuest(
+        questId: String,
+        childFacingMediaIds: Set<String>?,
+    ): Boolean {
+        if (questId.startsWith(ARENA_PREFIX) || questId.startsWith(HOME_PHRASE_PREFIX)) return true
+        return childFacingMediaIds == null || questId in childFacingMediaIds
+    }
+
     private fun parseIds(raw: String): List<String> =
         runCatching { json.decodeFromString<List<String>>(raw) }
             .getOrElse { raw.split('|').map(String::trim).filter(String::isNotEmpty) }
@@ -156,6 +173,7 @@ class DailyQuestRewardWriter @Inject constructor(
     companion object {
         const val SANCTUARY_PIECE_TYPE = "SANCTUARY_PIECE"
         private const val ARENA_PREFIX = "arena:"
+        private const val HOME_PHRASE_PREFIX = "home-phrase:"
         private const val ARENA_REWARD_PREFIX = "assessment_arena_passed:"
     }
 }

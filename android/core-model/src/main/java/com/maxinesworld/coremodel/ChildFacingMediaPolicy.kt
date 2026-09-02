@@ -23,4 +23,7 @@ object ChildFacingMediaPolicy {
 
     fun childFacing(assets: List<MediaAsset>): List<MediaAsset> =
         assets.filter(::isChildFacingCurriculum)
+
+    fun childFacingMediaIds(assets: List<MediaAsset>): Set<String> =
+        childFacing(assets).mapTo(mutableSetOf()) { it.mediaId }
 }
