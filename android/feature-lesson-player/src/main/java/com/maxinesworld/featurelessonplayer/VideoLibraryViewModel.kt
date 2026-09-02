@@ -50,9 +50,16 @@ data class VideoLibraryUiState(
     val downloadAllCompletedCount: Int = 0,
     val downloadAllTotalCount: Int = 0,
     val newlyAwardedStickerName: String? = null,
+    val assignedPlayMessage: String? = null,
 ) {
     val allItems: List<VideoLibraryItemUi>
         get() = upcomingItems + completedItems
+}
+
+internal object VideoLibraryAssignedPlayCopy {
+    const val GETTING_READY = "Getting the lesson ready"
+    const val LOCKED = "Complete the previous lesson first"
+    const val NOT_CHILD_FACING = "This lesson is not ready for you yet."
 }
 
 @HiltViewModel
@@ -67,11 +74,13 @@ class VideoLibraryViewModel @Inject constructor(
 
     val childId: String = savedStateHandle["childId"] ?: "default_child"
     val initialSubject: String? = savedStateHandle.get<String>("subject")?.takeIf { it.isNotBlank() }
+    val assignedMediaId: String? = savedStateHandle.get<String>("mediaId")?.takeIf { it.isNotBlank() }
 
     private val _state = MutableStateFlow(VideoLibraryUiState(filterSubjectId = initialSubject))
     val state: StateFlow<VideoLibraryUiState> = _state.asStateFlow()
 
     private var rawAssets: List<MediaAsset> = emptyList()
+    private var assignedPlayConsumed = false
 
     init {
         observePassedVideos()
@@ -163,6 +172,69 @@ class VideoLibraryViewModel @Inject constructor(
     private fun acceptCatalog(media: List<MediaAsset>) {
         rawAssets = ChildFacingMediaPolicy.childFacing(media)
         reorganizeItems(_state.value.passedMediaIds)
+        maybePlayAssigned()
+    }
+
+    /**
+     * One-shot play of the mission-assigned video after the child-facing
+     * catalog is ready. Downloads with [MediaLibrary.downloadChildFacing]
+     * when the file is not local, then goes through [play] so sequence
+     * lock and child-facing filters stay in force.
+     */
+    private fun maybePlayAssigned() {
+        val mediaId = assignedMediaId ?: return
+        if (assignedPlayConsumed) return
+        assignedPlayConsumed = true
+        playAssigned(mediaId)
+    }
+
+    internal fun playAssigned(mediaId: String) {
+        val item = _state.value.allItems.firstOrNull { it.asset.mediaId == mediaId }
+        if (item == null || !ChildFacingMediaPolicy.isChildFacingCurriculum(item.asset)) {
+            _state.update {
+                it.copy(assignedPlayMessage = VideoLibraryAssignedPlayCopy.NOT_CHILD_FACING)
+            }
+            return
+        }
+        if (item.isLocked) {
+            _state.update {
+                it.copy(assignedPlayMessage = VideoLibraryAssignedPlayCopy.LOCKED)
+            }
+            return
+        }
+        if (item.localPath != null) {
+            play(mediaId)
+            return
+        }
+        prepareAndPlay(mediaId)
+    }
+
+    private fun prepareAndPlay(mediaId: String) {
+        _state.update { it.copy(assignedPlayMessage = VideoLibraryAssignedPlayCopy.GETTING_READY) }
+        updateItemInState(mediaId) { it.copy(isDownloading = true, error = null) }
+        viewModelScope.launch {
+            // MediaDownloader already hops to IO. Stay on this scope so
+            // play() sees the local path we just wrote.
+            runCatching { mediaLibrary.downloadChildFacing(mediaId) }
+                .onSuccess { file ->
+                    updateItemInState(mediaId) {
+                        it.copy(isDownloading = false, localPath = file.absolutePath)
+                    }
+                    _state.update { it.copy(assignedPlayMessage = null) }
+                    play(mediaId)
+                }
+                .onFailure { error ->
+                    updateItemInState(mediaId) {
+                        it.copy(isDownloading = false, error = error.message)
+                    }
+                    _state.update {
+                        it.copy(
+                            assignedPlayMessage = error.message
+                                ?: "The lesson could not be downloaded.",
+                        )
+                    }
+                }
+        }
     }
 
     private fun reorganizeItems(passedSet: Set<String>) {

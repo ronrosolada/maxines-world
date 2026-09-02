@@ -326,7 +326,21 @@ internal fun TodayQuestCard(
                                             overflow = TextOverflow.Ellipsis,
                                         )
                                         Spacer(Modifier.width(8.dp))
-                                        if (target.isReadyOffline && !targetDone) {
+                                        if (target.type == QuestTargetType.VIDEO && !targetDone && !target.isReadyOffline) {
+                                            Surface(
+                                                shape = RoundedCornerShape(8.dp),
+                                                color = PlaySunshine.copy(alpha = 0.22f),
+                                            ) {
+                                                Text(
+                                                    stringResource(R.string.home_quest_getting_ready),
+                                                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp),
+                                                    color = PlayInkDark,
+                                                    fontSize = 11.sp,
+                                                    fontWeight = FontWeight.Bold,
+                                                )
+                                            }
+                                            Spacer(Modifier.width(6.dp))
+                                        } else if (target.isReadyOffline && !targetDone) {
                                             Surface(
                                                 shape = RoundedCornerShape(8.dp),
                                                 color = PlaySuccess.copy(alpha = 0.15f),
@@ -343,7 +357,7 @@ internal fun TodayQuestCard(
                                                     )
                                                     Spacer(Modifier.width(4.dp))
                                                     Text(
-                                                        "Offline",
+                                                        stringResource(R.string.home_offline),
                                                         color = SuccessGreenText,
                                                         fontSize = 11.sp,
                                                         fontWeight = FontWeight.Bold,

@@ -148,6 +148,45 @@ class PlayroomHomeScreenTest {
     }
 
     @Test
+    fun startQuestStillStartsTheMissionAndUnreadiedVideoShowsGettingReady() {
+        setHome(
+            stateFor(
+                buttonLabel = QuestButtonLabel.StartQuest,
+                buttonAction = QuestAction.OpenVideoQuest,
+                targets = listOf(
+                    QuestTargetUi(
+                        mediaId = "science-g3-01",
+                        title = "Living Things",
+                        subjectId = "science",
+                        displaySubject = "Science",
+                        durationSeconds = 120,
+                        durationLabel = "02:00",
+                        isCompleted = false,
+                        isReadyOffline = false,
+                    ),
+                    QuestTargetUi(
+                        mediaId = "english-g3-01",
+                        title = "Word Roots",
+                        subjectId = "english",
+                        displaySubject = "English",
+                        durationSeconds = 60,
+                        durationLabel = "01:00",
+                        isCompleted = false,
+                        isReadyOffline = true,
+                    ),
+                ),
+            ),
+        )
+
+        scrollTo("Start quest")
+        composeRule.onNodeWithText("Start quest").assertIsDisplayed().assertHasClickAction()
+        composeRule.onNodeWithText("Getting ready", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithText("Offline", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithText("Living Things", useUnmergedTree = true).assertIsDisplayed()
+        composeRule.onNodeWithText("Word Roots", useUnmergedTree = true).assertIsDisplayed()
+    }
+
+    @Test
     fun allSixCanonicalSubjectsRender() {
         val lockedSubject = canonicalSubjects.first().copy(
             availability = SubjectAvailability.Locked,

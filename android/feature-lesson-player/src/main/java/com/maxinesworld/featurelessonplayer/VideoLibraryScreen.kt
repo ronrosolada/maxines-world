@@ -248,6 +248,21 @@ private fun VideoLibraryContent(
                                         }
                                     }
                                 }
+                                if (!state.assignedPlayMessage.isNullOrBlank()) {
+                                    Surface(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        shape = RoundedCornerShape(12.dp),
+                                        color = VillageTeal.copy(alpha = 0.12f),
+                                    ) {
+                                        Text(
+                                            state.assignedPlayMessage,
+                                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+                                            color = VillageTeal,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 14.sp,
+                                        )
+                                    }
+                                }
                                 if (state.isDownloadingAll) {
                                     Column(Modifier.fillMaxWidth().padding(top = 4.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                                         LinearProgressIndicator(
